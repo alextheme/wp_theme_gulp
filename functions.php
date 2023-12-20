@@ -4,7 +4,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
-
+require get_template_directory() . '/inc/woocommerce_hook.php';
 
 //function _themename_setup() {
 //
