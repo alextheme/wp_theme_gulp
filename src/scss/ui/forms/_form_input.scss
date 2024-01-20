@@ -1,0 +1,15 @@
+.form_input__label {
+	@extend %form_el_label;
+}
+
+.form_section__label {
+	@extend %form_section__label;
+}
+
+.form_input__element {
+	@extend %form_el_default;
+}
+
+.form_section__element {
+	@extend %form_section_el;
+ }

@@ -1,0 +1,189 @@
+.woocommerce-MyAccount-navigation {
+
+
+  @include bp($point_4 + 1, min) {
+    padding: 3rem 2rem 3rem 0;
+    border-right: 1px solid $gray1;
+  }
+
+  @include bp($point_4) {
+    margin-top: -6rem;
+  }
+
+  ul {
+    @include bp($point_4) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      margin-bottom: 3rem;
+    }
+
+    li {
+      @extend %transition_opacity;
+      @extend %price;
+
+      @include bp($point_4) {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      &.is-active {
+        color: $red;
+      }
+
+      &:not(:last-child) {
+
+        @include bp($point_4 + 1, min) {
+          margin-bottom: 3rem;
+        }
+
+        @include bp($point_4) {
+
+        }
+      }
+
+      &:hover {
+        opacity: .6;
+        a { text-decoration: none }
+      }
+
+      a {
+        color: inherit;
+
+        @include bp($point_4) {
+          display: block;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.woocommerce form .form-row-first, .woocommerce-page form .form-row-first {
+  @include bp($point_4 + 1, min) {
+
+  }
+
+  @include bp($point_4) {
+    width: 100%;
+    clear: both;
+    float: unset;
+  }
+}
+
+.woocommerce form .form-row-last, .woocommerce-page form .form-row-last {
+  @include bp($point_4 + 1, min) {
+
+  }
+
+  @include bp($point_4) {
+    width: 100%;
+    clear: both;
+    float: unset;
+  }
+}
+
+
+form.edit-account {
+  @include bp($point_4) {
+    margin-bottom: -5rem;
+  }
+
+  p:last-child {
+    text-align: right;
+  }
+
+  button[name="save_account_details"] {
+    @extend %red_btn;
+
+    height: 5.7rem;
+
+    border-radius: 10rem;
+    border: 1px solid $red;
+
+    &:hover {
+      box-shadow: 0 -5.7rem 0 0 inset #fff;
+    }
+
+    @include bp($point_4 + 1, min) {
+      max-width: 22.3rem;
+    }
+
+    @include bp($point_4) {
+      width: calc(100% - 4rem);
+      transform: translate(-2rem, -10.6rem);
+    }
+  }
+
+  .form-row label {
+    text-align: left;
+  }
+
+  fieldset {
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+
+    box-shadow: 0 0 0 1px $gray1;
+    border-radius: 2.5rem;
+
+    @include bp($point_4 + 1, min) {
+      padding: 7rem 3rem 3rem;
+    }
+
+    @include bp($point_4) {
+      padding: 6rem 3rem 11.7rem;
+    }
+
+    legend {
+      @extend %price;
+
+      @include bp($point_4 + 1, min) {
+        transform: translate(0, 4.8rem);
+      }
+
+      @include bp($point_4) {
+        transform: translate(0, 3.8rem);
+      }
+    }
+
+    p.woocommerce-form-row.form-row:not(:last-child) {
+
+      @include bp($point_4 + 1, min) {
+        margin-bottom: 3rem;
+      }
+
+      @include bp($point_4) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    p.woocommerce-form-row.form-row:last-child {
+      position: relative;
+      margin-bottom: 0;
+
+      @include bp($point_4) {
+        &:after {
+          content: ' ';
+          position: absolute;
+          bottom: -2rem;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: $gray1;
+        }
+      }
+
+    }
+  }
+}
+
+.woocommerce table.my_account_orders td, .woocommerce table.my_account_orders th {
+  a.button {
+    @extend %red_btn;
+  }
+}
+
+.woocommerce-input-wrapper {
+  width: 100%;
+}

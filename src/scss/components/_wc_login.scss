@@ -1,0 +1,168 @@
+.section.my_account {
+  background-color: $gray3;
+
+  @include bp($point_4 + 1, min) {
+    padding-top: 5rem;
+    padding-bottom: 8.6rem;
+  }
+
+  @include bp($point_4) {
+    #customer_login {
+      width: unset;
+      margin: -7rem calc(-1 * var(--gl-indent));
+    }
+  }
+
+  h2 {
+    @extend %h2_2;
+
+    margin-bottom: 3rem;
+  }
+
+  .u-column1,
+  .u-column2 {
+    background-color: $white;
+
+    @include bp($point_4 + 1, min) {
+        padding: 5rem;
+    }
+
+    @include bp($point_4) {
+        padding: 3rem 2rem;
+    }
+  }
+
+  .u-column1 {
+    @include bp($point_4) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  form {
+    &.login,
+    &.register {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-row {
+      padding: 0;
+      margin-bottom: 2rem;
+
+      &:not(.woocommerce-form-row) {
+        @extend %global_flex_block_column_wrap_flex_start;
+
+        label {
+          margin-bottom: 2rem;
+          user-select: none;
+        }
+      }
+
+      label {
+        @extend %form_el_label;
+        user-select: none;
+      }
+
+      .woocommerce-form-login__rememberme {
+        cursor: pointer;
+      }
+
+      .woocommerce-form__input-checkbox {
+        @extend %form_el_checkbox;
+
+        width: 0.1px;
+        margin-right: 3rem;
+      }
+
+      .woocommerce-form-login__submit {
+        @extend %black_btn;
+        @extend %btn_size_1;
+
+        @include bp($point_4 + 1, min) {
+          padding: 1rem 6rem;
+          width: min-content;
+        }
+      }
+
+      .woocommerce-form-register__submit {
+        @extend %red_btn;
+        @extend %btn_size_1;
+
+        @include bp($point_4 + 1, min) {
+          padding: 1rem 6rem;
+          width: min-content;
+        }
+      }
+
+      input.input-text,
+      textarea {
+        @extend %form_el_default;
+
+        &#password {
+          padding-right: 4.4rem;
+        }
+      }
+    }
+
+    .show-password-input {
+      &:before {
+        position: absolute;
+        top: -1px;
+        left: 2.6rem;
+        content: '';
+        width: 1px;
+        height: 90%;
+        opacity: .2;
+        background-color: $black;
+        transform: rotate(45deg);
+      }
+      &:after { font-size: 2.4rem; opacity: .2 }
+
+      &.display-password {
+        &:before { display: none }
+        &:after { opacity: 1 }
+      }
+
+    }
+
+    .woocommerce-privacy-policy-text {
+      @extend %default_text;
+
+      margin-bottom: 2rem;
+    }
+
+    .lost_password {
+      @extend %form_el_label;
+      user-select: none;
+
+      a { color: $red; }
+    }
+  }
+
+
+
+
+}
+
+
+
+.sssssssssss {
+
+}
+
+.sssssssssss {
+
+}
+
+.sssssssssss {
+
+}
+
+.sssssssssss {
+
+}
+
+.sssssssssss {
+
+}

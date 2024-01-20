@@ -1,0 +1,25 @@
+.form_select__label {
+	@extend %form_el_label;
+}
+
+.form_select__field {
+	position: relative;
+}
+
+.form_select__arrow {
+	position: absolute;
+	right: 1.5rem;
+	top: 50%;
+
+	width: 1rem;
+	height: .6rem;
+
+	margin-top: -.2rem
+}
+
+.form_select__element {
+	@extend %form_el_default;
+	appearance: none;
+
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iU1ZHRG9jIiB3aWR0aD0iMTIiIGhlaWdodD0iNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczphdm9jb2RlPSJodHRwczovL2F2b2NvZGUuY29tLyIgdmlld0JveD0iMCAwIDEyIDciPjxkZWZzPjwvZGVmcz48ZGVzYz5HZW5lcmF0ZWQgd2l0aCBBdm9jb2RlLjwvZGVzYz48Zz48Zz48dGl0bGU+c2VsZWN0PC90aXRsZT48cGF0aCBkPSJNMS42Mzc5NCwxLjV2MGw0LjM4ODY3LDQuMzcxMzR2MGw0LjIyMzM5LC00LjM3MTM0djAiIGZpbGwtb3BhY2l0eT0iMCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW9wYWNpdHk9IjEiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjIwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==) no-repeat calc(100% - 1.2rem);
+}

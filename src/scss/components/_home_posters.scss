@@ -1,0 +1,371 @@
+//--------------------------------------------------------layout
+.posters {
+    background-color: $white;
+}
+//--------------------------------------------------------layout###
+
+//--------------------------------------------------------header
+.posters__header {
+    position: relative;
+
+    @include bp($point_2, min) {
+        margin-bottom: 2.5rem;
+    }
+
+    @include bp($point_3) {
+        margin-bottom: 3rem;
+    }
+}
+
+.posters__title {
+    @extend %h2;
+
+    @include bp($point_2, min) {
+        max-width: 50rem;
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    @include bp($point_3) {
+        padding-right: 12rem;
+        line-height: 1.5;
+    }
+
+    .posters--popular_mod & {
+        @include bp($point_2, min) {
+            max-width: unset;
+            margin: 0;
+            text-align: left;
+        }
+    }
+}
+
+.posters__button {
+    @extend %btn_2;
+    @extend %vert_centr;
+
+    position: absolute;
+    right: 0;
+
+    .posters--popular_mod & {
+        @include bp($point_2, min) {
+            display: none;
+        }
+    }
+}
+
+.posters__bottom_button {
+    @extend %btn_2;
+
+    width: max-content;
+    margin: 0 auto;
+    white-space: nowrap;
+
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+
+    @include bp($point_2, min) {
+        display: none;
+    }
+}
+//--------------------------------------------------------header###
+
+//--------------------------------------------------------list
+.posters__list {
+    @extend %global_flex_block_row_wrap_flex_start_stretch;
+    
+
+    @include bp($point_2, min) {
+        margin: 0 -3rem -7rem 0;
+	}
+
+	@include bp($point_3) {
+        margin: 0 -1.2rem -3rem 0;
+        padding-bottom: 3rem;
+	}
+}
+
+.posters__it {
+
+    @include bp($point_2, min) {
+        width: 25%;
+        padding: 0 3rem 7rem 0;
+	}
+
+	@include bp($point_3) {
+        width: 50%;
+        padding: 0 1.2rem 3rem 0;
+	}
+
+    .posters--popular_mod & {
+        @include bp($point_2, min) {
+            width: 33.333%;
+            padding: 0 3rem 7rem 0;
+
+            &:not(:nth-child(-n + #{3})) {
+                display: none;
+            }
+        }
+    }
+
+    .posters--list_mod & {
+        @include bp($point_2, min) {
+            width: 33.333%;
+            padding: 0 3rem 7rem 0;
+        }
+    
+        @include bp($point_3) {
+            width: 50%;
+            padding: 0 1.2rem 3rem 0;
+        }
+    }
+}
+
+.posters__it_w {
+    @extend %global_flex_block_column_nowrap_flex_start_stretch;
+
+    position: relative;
+    height: 100%;
+
+    .posters--popular_mod & {
+        background-color: $white;
+    }
+}
+
+.posters__it_img_w {
+    position: relative;
+    display: block;
+    
+    width: 100%;
+    padding-top: 144.17%;
+    
+    overflow: hidden;
+
+    &::before {
+        @extend %transition_opacity;
+
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+
+        background-color: rgba($color: $black, $alpha: .2);
+        
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+
+        img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.posters__it_img {
+    @extend %cover_img;
+    @extend %transition_transform;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.posters__it_data {
+    @extend %global_flex_block_column_nowrap_flex_start_stretch;
+    height: 100%;
+
+    @include bp($point_2, min) {
+        padding: 1.4rem;
+	}
+
+	@include bp($point_3) {
+        padding: 1rem .4rem;
+	}
+
+    .posters--popular_mod & {
+        width: 100%;
+
+        @include bp($point_2, min) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
+        }
+    
+        @include bp($point_3) {
+            padding: 1.4rem 1.2rem;
+        }
+    }
+}
+
+.posters__it_title {
+    @extend %h3;
+    @extend %transition_color;
+
+    text-align: center;
+
+    @include bp($point_2, min) {
+        margin-bottom: 1.4rem;
+	}
+
+	@include bp($point_3) {
+        margin-bottom: .8rem;
+	}
+
+    &:hover {
+        color: $red;
+        a {
+            text-decoration: none;
+        }
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .posters--popular_mod & {
+        display: none;
+    }
+}
+
+.posters__it_row {
+    @extend %global_flex_block_row_wrap_flex_start;
+
+    @include bp($point_2, min) {
+        margin-top: auto;
+        margin-bottom: 1rem;
+	}
+
+	@include bp($point_3) {
+        display: block;
+        margin-bottom: .8rem;
+	}
+}
+
+.posters__it_name {
+    margin-right: 1rem;
+    line-height: 1.4;
+    color: $black;
+
+	@include bp($point_2, min) {
+        margin-bottom: .4rem;
+
+        font-size: 1.8rem;
+		font-weight: 400;
+	}
+
+	@include bp($point_3) {
+		font-size: 1.2rem;
+		font-weight: 300;
+        margin-bottom: .8rem;
+        text-align: center;
+	}
+
+    .posters--popular_mod & {
+        width: 100%;
+        margin-right: 0;
+
+        font-weight: 700;
+        text-align: center;
+
+        @include bp($point_2, min) {
+            color: $white;
+        }
+    
+        @include bp($point_3) {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.posters__it_price {
+    margin-left: auto;
+
+    font-weight: 700;
+    line-height: 1.4;
+    color: $red;
+
+	@include bp($point_2, min) {
+		font-size: 1.8rem;
+	}
+
+	@include bp($point_3) {
+		font-size: 1.2rem;
+        text-align: center;
+	}
+
+    .posters--popular_mod & {
+        display: none;
+    }
+}
+
+.posters__it_btn {
+    @extend %btn_homepage_poster;
+
+    .posters--popular_mod & {
+        margin-top: 0;
+    }
+}
+
+.posters__it_data .added_to_cart {
+    @extend %btn_added_to_cart;
+
+    &:not(.posters--popular_mod) & {
+        margin-top: 1rem;
+    }
+
+    .posters--popular_mod & {
+        color: $white;
+        border-color: $white;
+
+        &:hover {
+            color: $red;
+            border-color: $red;
+        }
+    }
+}
+
+.posters__it_bottom_row {
+    @extend %global_flex_block_row_wrap_flex_start;
+
+    .posters--popular_mod & {
+        display: none;
+    }
+}
+
+.posters__it_text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    
+	@include bp($point_2, min) {
+		color: $black;
+
+        &:not(:last-child) {
+            margin-right: auto;
+        }
+
+        &:last-child {
+            margin-left: 1rem;
+        }
+	}
+
+	@include bp($point_3) {
+        width: 100%;
+
+        color: $red;
+        text-align: center;
+	}
+}
+//--------------------------------------------------------list###

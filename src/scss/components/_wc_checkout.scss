@@ -1,0 +1,196 @@
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button {
+  @extend %red_btn;
+
+  width: min-content;
+  height: 4.1rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+.woocommerce form .form-row .input-text,
+.woocommerce-page form .form-row .input-text {
+  @extend %form_el_default;
+}
+
+.woocommerce form .form-row textarea.input-text,
+.woocommerce-page form .form-row textarea.input-text {
+  height: 10rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+// input type select
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  @extend %form_el_default;
+
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+.select2-search--dropdown {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+.select2-dropdown {
+  border-radius: 2rem;
+  border-color: $gray1;
+  overflow: hidden;
+  background-color: $gray2;
+}
+
+.select2-container--open .select2-dropdown--above {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: -2.9rem;
+}
+
+.select2-dropdown.select2-dropdown--below {
+  padding-bottom: 1rem;
+  margin-top: -2.9rem;
+}
+
+.select2-container--default .select2-selection--single {
+  height: 4rem;
+  border-radius: 2rem;
+  border-color: $gray1;
+
+  .select2-selection__rendered {
+    line-height: 4rem;
+  }
+
+  .select2-selection__arrow {
+    height: 4rem;
+  }
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 2rem;
+}
+
+.select2-results__option {
+  padding-left: 2rem;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple,
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single,
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+  background-color: $gray2;
+
+  .select2-selection__rendered {
+    font-weight: 700;
+  }
+}
+
+// Payments Methods Block
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+  background-color: $gray4;
+}
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  background-color: rgba(0,0,0,.04);
+
+  &::before {
+    margin-top: -15px;
+    border-bottom-color: rgba(0,0,0,.04);
+  }
+}
+
+#customer_details {
+  margin-bottom: 5rem;
+
+  .col-1 {
+    margin-bottom: 5rem;
+  }
+}
+
+.woocommerce-billing-fields h3,
+.woocommerce-additional-fields h3,
+#order_review_heading {
+  @extend %h2_2;
+
+  margin-bottom: 1rem;
+}
+
+#order_review_heading {
+  margin-bottom: 2rem;
+}
+
+.woocommerce-checkout-review-order {
+  .shop_table.woocommerce-checkout-review-order-table {
+    thead {
+      tr {
+        background-color: $gray4;
+      }
+    }
+  }
+}
+
+.woocommerce-privacy-policy-text {
+  margin-bottom: 2rem;
+}
+
+.woocommerce-info {
+  margin-bottom: 5rem;
+
+  color: red;
+  background-color: $gray4;
+  border-top-color: transparent;
+
+  &::before {
+    content: '%';
+    color: $white;
+    background: $red;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+  }
+}
+
+.woocommerce table.shop_table {
+  margin-bottom: 7rem;
+}
+
+
+
+//----------------------------------- coupon toggle
+.woocommerce-form-coupon-toggle {
+  margin-bottom: 4rem;
+
+  .wc-block-components-notice-banner.is-info {
+    font-size: 1.4rem;
+
+    border: 0;
+    background-color: transparent;
+
+    & > svg {
+      background-color: $blue;
+    }
+
+    .showcoupon {
+      color: $blue;
+    }
+  }
+}
+
+.woocommerce form.checkout_coupon {
+  margin-top: -3rem;
+  margin-bottom: 7rem;
+}
+//----------------------------------- coupon toggle###
+

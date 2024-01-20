@@ -1,0 +1,114 @@
+.gtranslate_wrapper {
+  margin-right: 3rem;
+
+  @include bp($point_3) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -4.7rem;
+    margin-right: 0;
+  }
+
+  .gt_float_switcher {
+    position: relative;
+    box-shadow: none;
+    overflow: unset;
+
+    img {
+      display: none;
+    }
+
+
+    // current lang
+    .gt-selected {
+      @extend %transition_color;
+
+      &:hover {
+        color: $red;
+
+        .gt-current-lang span.gt_float_switcher-arrow {
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 285 285'><path d='M282 76.5l-14.2-14.3a9 9 0 0 0-13.1 0L142.5 174.4 30.3 62.2a9 9 0 0 0-13.2 0L3 76.5a9 9 0 0 0 0 13.1l133 133a9 9 0 0 0 13.1 0l133-133a9 9 0 0 0 0-13z' style='fill:red'/></svg>");
+        }
+      }
+
+      .gt-current-lang {
+        color: inherit;
+
+        span.gt_float_switcher-arrow {
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 285 285'><path d='M282 76.5l-14.2-14.3a9 9 0 0 0-13.1 0L142.5 174.4 30.3 62.2a9 9 0 0 0-13.2 0L3 76.5a9 9 0 0 0 0 13.1l133 133a9 9 0 0 0 13.1 0l133-133a9 9 0 0 0 0-13z' style='fill:black'/></svg>");
+        }
+      }
+    }
+
+    .gt-current-lang {
+      @include flex_block(row, nowrap, flex-start);
+
+      .gt-lang-code {
+        margin-right: 1rem;
+
+        color: inherit;
+        font-size: 1.8rem;
+        font-weight: 400;
+
+        user-select: none;
+      }
+    }
+
+
+    // options
+    .gt_options {
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 0;
+
+      width: 100%;
+
+      overflow: hidden;
+      border-top: 1px solid $red;
+
+      a {
+        position: relative;
+
+        max-height: 4.6rem;
+
+        font-size: 0;
+        text-transform: uppercase;
+        background-color: $white;
+        border-bottom: 1px solid $red;
+
+        &:hover {
+          &:before {
+            background: $red;
+            color: $white;
+          }
+        }
+
+        &:before {
+          @extend %transition_color_background;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding-left: 1.5rem;
+
+          font-size: 1.8rem;
+
+          background-color: $white;
+          @include flex_block(row, nowrap, flex-start, center, center);
+        }
+      }
+    }
+  }
+}
+
+// arrow rotate
+.gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow {
+  transform: rotate(0deg)!important;
+}
+.gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow.gt_arrow_rotate {
+  transform: rotate(-180deg)!important;
+}
+

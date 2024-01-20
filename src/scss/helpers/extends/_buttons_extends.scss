@@ -1,0 +1,477 @@
+@mixin st_btn() {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	white-space: nowrap;
+	font-family: $font_1;
+
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}
+
+// accaunt, cart, login, product
+%red_btn {
+	@extend %transition_all;
+
+	width: 100%;
+	font-weight: 700;
+
+	color: $white!important;
+	background-color: $red!important;
+	border-radius: 12rem;
+	border: 1px solid $red;
+
+	user-select: none;
+
+	@include st_btn();
+
+	&:active,
+	&:focus,
+	&:hover {
+		color: $red!important;
+		box-shadow: 0 -5.5rem 0 0 inset $white;
+	}
+}
+
+// home hero
+%red_btn_1 {
+	@extend %transition_all;
+
+	font-weight: 700;
+
+	border-radius: 1.3rem;
+	border: none;
+
+	user-select: none;
+
+	@include st_btn();
+
+	@include bp($point_2, min) {
+		color: $white;
+		background-color: $red;
+		border: 1px solid $red;
+
+		&:active,
+		&:focus,
+		&:hover {
+			color: $red;
+			box-shadow: 0 -4.1rem 0 0 inset $white;
+		}
+	}
+
+	@include bp($point_3) {
+		color: $red;
+		background-color: $white;
+		border: 2px solid $red;
+		// outline-offset: -.2rem;
+
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+			box-shadow: 0 -4.1rem 0 0 inset $red;
+		}
+	}
+}
+
+// login
+%black_btn {
+	@extend %transition_all;
+
+	width: 100%;
+	font-weight: 700;
+
+	color: $white!important;
+	background-color: $black!important;
+	border-radius: 3rem;
+	border: 1px solid $black;
+
+	user-select: none;
+
+	@include st_btn();
+
+	&:active,
+	&:focus,
+	&:hover {
+		color: $black!important;
+		box-shadow: 0 -6rem 0 0 inset $white;
+	}
+}
+
+// cart
+%white_btn {
+	@extend %transition_all;
+
+	width: 100%;
+	font-weight: 700;
+
+	color: $black!important;
+	background-color: $white!important;
+	border-radius: 3rem;
+	border: 1px solid $black;
+
+	user-select: none;
+
+	@include st_btn();
+
+	&:active,
+	&:focus,
+	&:hover {
+		box-shadow: 0 -6rem 0 0 inset rgba(0, 0, 0, 0.1);
+	}
+}
+
+// add to cart button
+%white_btn_1 {
+	@extend %transition_all;
+	
+	width: 100%;
+	color: $black;
+
+	background-color: transparent;
+	border: 1px solid $red;
+
+	user-select: none;
+	
+	@include st_btn();
+
+	@include bp($point_2, min) {
+		height: 4rem;
+		border-radius: 10rem;
+	}
+
+	@include bp($point_3) {
+		height: 3rem;
+		line-height: 3rem;
+		font-size: 1rem;
+		border-radius: 1.5rem;
+	}
+
+	&.added,
+	&.loading,
+	&:active,
+	&:focus,
+	&:hover {
+		color: $white;
+		box-shadow: 0 -5rem 0 0 inset $red;
+	}
+
+	&.loading {
+		opacity: .5;
+		a {top: 0}
+	}
+}
+
+// home about btn "catalog"
+%white_btn_2 {
+	@extend %transition_all;
+
+	border-radius: 1.3rem;
+	border: none;
+
+	user-select: none;
+
+	@include st_btn();
+
+	@include bp($point_2, min) {
+		width: 28.3rem;
+		height: 5.7rem;
+
+		font-size: 1.8rem;
+		line-height: 5.7rem;
+		color: $black;
+
+		background-color: $white;
+		border: 2px solid $red;
+
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+			box-shadow: 0 -6rem 0 0 inset $red;
+		}
+	}
+
+	@include bp($point_3) {
+		width: 100%;
+		height: 4.1rem;
+
+		font-weight: 700;
+		line-height: 4.1rem;
+		color: $white;
+
+		background-color: $red;
+		border: 1px solid $red;
+
+		&:active,
+		&:focus,
+		&:hover {
+			color: $red;
+			box-shadow: 0 -6rem 0 0 inset $white;
+		}
+	}
+}
+
+// home posters "view all" top/bottom
+%btn_2 {
+	@extend %global_flex_block_row_wrap_flex_start;
+    @extend %transition_color;
+    @extend %h3;
+
+    cursor: pointer;
+
+	& > span {
+		width: 2.4rem;
+		height: 2.4rem;
+		margin: -.3rem 0 0 1rem;
+		fill: $black;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+        color: $red;
+		text-decoration: none;
+
+        & > span {
+            fill: $red;
+        }
+    }
+}
+
+%btn_added_to_cart {
+	@extend %transition_color;
+
+	width: max-content;
+	padding-top: 0;
+	margin: 0 auto 2rem;
+
+	color: #000;
+	font-weight: 700;
+	text-align: center;
+	border-bottom: 1px solid #000;
+
+	&:hover {
+		color: #FE0000;
+		border-color: #FE0000;
+		text-decoration: none;
+	}
+}
+
+%btn_homepage_poster {
+	@extend %white_btn_1;
+
+	display: block;
+	margin-top: auto;
+
+	overflow: hidden;
+	transition: all .3s ease-in-out;
+
+	@include bp($point_2, min) {
+		margin-bottom: 1.4rem;
+	}
+
+	@include bp($point_3) {
+		margin-bottom: .8rem;
+	}
+
+	.posters--popular_mod & {
+		margin-top: auto;
+
+		@include bp($point_2, min) {
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: $white;
+
+			border-radius: 0;
+			outline: 0;
+			border: none;
+			border-bottom: 1px solid $red;
+		}
+
+		@include bp($point_3) {
+			height: 3.3rem;
+			margin-bottom: 0;
+
+			line-height: 3.3rem;
+			font-size: 1.2rem;
+			font-weight: 300;
+		}
+	}
+
+	&.added,
+	&.loading,
+	&:active,
+	&:focus,
+	&:hover {
+		color: $white!important;
+		box-shadow: 0 -5rem 0 0 inset $red;
+	}
+
+	/* Animation button Add to cart */
+	&:active {
+		transform: scale(.9);
+	}
+
+	&.loading {
+		span.add-to-cart {
+			transform: translate(-50%, -50%) scale(0%);
+		}
+	}
+
+	.fa-shopping-cart {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		left: -10%;
+		font-size: 2em;
+		transform: translate(-50%,-50%);
+	}
+
+	.fa-box {
+		position: absolute;
+		z-index: 3;
+		top: -20%;
+		left: 52%;
+		font-size: 1.2em;
+		transform: translate(-50%,-50%);
+	}
+
+	span {
+		position: absolute;
+		z-index: 3;
+		left: 50%;
+		top: 50%;
+
+		font-size: 1.2em;
+
+		transform: translate(-50%,-50%);
+	}
+
+	span.add-to-cart {
+		opacity: 1;
+		transition: 1s transform ease-in-out;
+	}
+
+	span.added {
+		opacity: 0;
+	}
+
+	&.added .fa-shopping-cart {
+		animation: cart 1.5s ease-in-out forwards;
+	}
+	&.added .fa-box {
+		animation: box 1.5s ease-in-out forwards;
+	}
+	&.added span.add-to-cart {
+		animation: txt1 1.5s ease-in-out forwards;
+	}
+	&.added span.added {
+		animation: txt2 1.5s ease-in-out forwards;
+	}
+
+	@keyframes cart {
+		0% {
+			left: -10%;
+		}
+		40%, 60% {
+			left: 50%;
+		}
+		100% {
+			left: 110%;
+		}
+	}
+	@keyframes box {
+		0%, 40% {
+			top: -20%;
+		}
+		60% {
+			top: 40%;
+			left: 52%;
+		}
+		100% {
+			top: 40%;
+			left: 112%;
+		}
+	}
+	@keyframes txt1 {
+		0% {
+			opacity: 1;
+		}
+		20%, 100% {
+			opacity: 0;
+		}
+	}
+	@keyframes txt2 {
+		0%, 80% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+}
+
+
+// BUTTONS SIZE
+%btn_size_0 {
+	@include bp($point_2, min) {
+		width: 21.3rem;
+		height: 4rem;
+		line-height: 4rem;
+	}
+
+	@include bp($point_3) {
+		width: 16.2rem;
+		height: 4.1rem;
+		line-height: 4.1rem;
+	}
+}
+
+%btn_size_1 {
+	height: 4.1rem;
+	line-height: 4.1rem;
+}
+
+%btn_size_2 {
+	height: 5.7rem;
+	line-height: 5.7rem;
+}
+
+%close_button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0;
+	width: 2rem;
+	height: 2rem;
+	background-color: transparent;
+
+	&:before,
+	&:after {
+		content: '';
+		width: 1px;
+		height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(45deg);
+		background-color: #000;
+	}
+
+	&:after {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+
+	&:hover {
+		background-color: transparent;
+		opacity: .6;
+	}
+}

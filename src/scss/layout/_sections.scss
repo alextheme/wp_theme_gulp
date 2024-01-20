@@ -1,0 +1,31 @@
+//---------------------------------------------sections
+.section {
+	position: relative;
+
+	width: 100%;
+
+	font-size: $font_size_base;
+
+	@include bp($point_2, min) {
+	    padding: 5rem var(--gl-indent);
+	}
+
+	@include bp($point_3) {
+	    padding: 2rem var(--gl-indent) 3.5rem;
+	}
+}
+
+.section_in {
+	max-width: $page_width;
+	width: 100%;
+	margin: 0 auto;
+}
+
+// hide title pages
+.woocommerce-cart,
+.woocommerce-checkout,
+.t {
+	.section_in > h2 {
+		display: none;
+	}
+}

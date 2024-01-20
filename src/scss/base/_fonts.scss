@@ -1,0 +1,10 @@
+@include font_face("Inter-Light", "Inter", $font_path, 300);
+@include font_face("Inter-Regular", "Inter", $font_path, 400);
+@include font_face("Inter-Medium", "Inter", $font_path, 500);
+@include font_face("Inter-SemiBold", "Inter", $font_path, 600);
+@include font_face("Inter-Bold", "Inter", $font_path, 700);
+@include font_face("Inter-ExtraBold", "Inter", $font_path, 800);
+
+@include font_face("LibreBodoni-Regular", "LibreBodoni", $font_path, 400);
+
+@include font_face("Moul-Regular", "Moul", $font_path, 400);

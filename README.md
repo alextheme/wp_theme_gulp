@@ -10,3 +10,22 @@ npm install --save-dev gulp yargs sass gulp-sass gulp-clean-css gulp-if gulp-sou
 
 .babelrc >> {"presets": ["@babel/preset-env"] }
 
+
+02 - Поддержка WooCommerce в теме
+https://github.com/woocommerce/woocommerce/blob/trunk/docs/theme-development/classic-theme-developer-handbook.md#classic-theme-developer-handbook
+https://www.businessbloomer.com/?s=Hook+Guide
+
+sytles
+https://woo.com/document/disable-the-default-stylesheet/
+
+
+
+
+
+
+
+
+
+
+
+

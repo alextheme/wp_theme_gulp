@@ -1,0 +1,75 @@
+%form_el_checkbox {
+  position: relative;
+
+  padding-left: 3rem;
+
+  font-size: 1.6rem;
+  color: $black;
+  cursor: pointer;
+
+  &:before, &:after {
+    position: absolute;
+    top: -4px;
+    left: 0;
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 4px;
+    cursor: pointer;
+    content: '';
+  }
+
+  &:before {
+    border: 1px solid $black;
+
+    transition: transform .2s, opacity .2s;
+    will-change: transform;
+
+    //&:checked + & {
+    //  opacity: 0;
+    //  transform: rotateZ(40deg) scaleX(.6);
+    //}
+  }
+
+  &::after {
+    opacity: 0;
+
+    border-bottom: 4px solid $black;
+    border-right: 4px solid $black;
+
+    transition: transform .2s, opacity .2s;
+
+    //&:checked + & {
+    //  transform: rotateZ(40deg) scaleX(.6);
+    //  opacity: 1;
+    //}
+  }
+
+  &:checked {
+    &:before {
+      opacity: 0;
+      transform: rotateZ(40deg) scaleX(.6);
+    }
+
+    &:after {
+      opacity: 1;
+      transform: rotateZ(40deg) scaleX(.6) translate(-.5rem,-.5rem);
+    }
+  }
+
+  //--------------------------------------------- Font icon version
+  // &:after {
+  // 	@extend %icon-check;
+  // 	@extend %transition_opacity;
+  //
+  // 	text-align: center;
+  // 	line-height: 2rem;
+  // 	opacity: 0;
+  // 	color: $black;
+  //
+  // 	.form_checkbox__element:checked + & {
+  // 		opacity: 1;
+  // 	}
+  // }
+}

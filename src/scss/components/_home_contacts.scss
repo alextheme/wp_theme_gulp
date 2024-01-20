@@ -1,0 +1,269 @@
+//--------------------------------------------------------layout
+.contacts {
+    &.contacts--mod_1 {
+        @include bp($point_2, min) {
+            display: none;
+        }
+    }
+}
+
+.contacts_wrapper {
+    position: relative;
+
+    @include bp($point_9 + 1, min) {
+        width: 100%;
+        padding-top: 42.54%;
+    }
+
+    @include bp($point_9) {
+        //@include flex_block(column, wrap, flex-start, stretch);
+    }
+}
+
+.contacts__row {
+    @include bp($point_9 + 1, min) {
+        --gap: 2.46%;
+        --cell: calc((100% - var(--gap) * 2)/3);
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        display: grid;
+        grid-template-columns: var(--cell) var(--gap) var(--cell) var(--gap) var(--cell);
+        grid-template-rows: auto;
+        grid-template-areas: "contact . img1 . img2";
+    }
+
+    @include bp($point_9) {
+        //--gap: 3.2%;
+        //--cell: calc((100% - var(--gap))/2);
+        //
+        //display: grid;
+        //grid-template-columns: var(--cell) var(--gap) var(--cell);
+        //grid-template-rows: auto auto auto;
+        //grid-template-areas:
+        //        "img1 . img2"
+        //        "contact contact contact"
+        //        "contact contact contact";
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+    }
+}
+
+.contacts__col {
+    position: relative;
+
+    height: 100%;
+    overflow: hidden;
+
+    &:nth-child(1) {
+        @include bp($point_9 + 1, min) {
+            grid-area: contact;
+        }
+
+        @include bp($point_9) {
+            order: 3;
+            width: 100%;
+        }
+    }
+
+    &:nth-child(2) {
+        @include bp($point_9 + 1, min) {
+            grid-area: img1;
+        }
+
+        @include bp($point_9) {
+            order: 1;
+
+            width: calc((100% - 3.2%)/2);
+            padding-top: 73.88%;
+            margin-right: 3.2%;
+            margin-bottom: 3.2%;
+
+            background-color: rgba(71, 229, 17, 0.5);
+        }
+    }
+
+    &:nth-child(3) {
+        @include bp($point_9 + 1, min) {
+            grid-area: img2;
+        }
+
+        @include bp($point_9) {
+            order: 2;
+
+            width: calc((100% - 3.2%)/2);
+            padding-top: 73.88%;
+            margin-bottom: 3.2%;
+
+            background-color: rgba(17, 109, 229, 0.5);
+        }
+    }
+}
+
+.contacts__in {
+    height: 100%;
+}
+//--------------------------------------------------------layout###
+
+//--------------------------------------------------------image
+.contacts__img_w {
+
+    .contacts__col:nth-child(1) & {
+
+        @include bp($point_9 + 1, min) {
+            position: relative;
+
+            display: block;
+            width: 100%;
+            height: 55%;
+        }
+
+        @include bp($point_9) {
+
+        }
+    }
+
+    .contacts__col:nth-child(2) &,
+    .contacts__col:nth-child(3) & {
+
+        @include bp($point_9 + 1, min) {
+            position: relative;
+
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        @include bp($point_9) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+
+.contacts__img {
+
+    @include bp($point_9 + 1, min) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    @include bp($point_9) {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+//--------------------------------------------------------image###
+
+//--------------------------------------------------------content
+.contacts__content {
+    background-color: $black;
+
+    @include bp($point_9 + 1, min) {
+        min-height: 20.2rem;
+        padding: 3.6rem 2rem;
+        margin-bottom: 7.755%;
+
+        @include flex_block(column, wrap, center, flex-start, flex-start);
+    }
+
+    @include bp($point_9) {
+        padding: 4.2rem 2rem;
+        margin-bottom: 3.2%;
+
+        @include flex_block(column, wrap, center, center, center);
+    }
+}
+
+.contacts__content_in {
+
+}
+
+.contacts__title {
+    @extend %h2;
+
+    color: $white;
+    text-transform: capitalize;
+
+    @include bp($point_9 + 1, min) {
+        margin-bottom: 2rem;
+    }
+
+    @include bp($point_9) {
+        margin-bottom: 2.4rem;
+        font-size: 4.4rem;
+    }
+}
+
+.contacts__email,
+.contacts__phone {
+    position: relative;
+
+    display: block;
+    
+    font-weight: 700;
+    color: $white;
+
+    @include bp($point_9 + 1, min) {
+        padding: 0 0 1rem 4rem;
+        font-size: 1.8rem;
+    }
+
+    @include bp($point_9) {
+        padding: 0 0 1.8rem 4rem;
+        font-size: 1.2rem;
+    }
+}
+
+.contacts__link_icon_w {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+
+    @include bp($point_9 + 1, min) {
+        margin: -1px 0 0 0px;
+    }
+
+    @include bp($point_9) {
+        margin: -5px 0 0 0px;
+    }
+}
+
+.home {
+    .contacts.contacts--mod_1 {
+        display: none;
+    }
+}
+//--------------------------------------------------------content###
+
+//--------------------------------------------------------
+
+//--------------------------------------------------------###

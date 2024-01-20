@@ -1,0 +1,36 @@
+.woocommerce-order {
+
+  p {
+    margin-bottom: 3rem;
+    font-size: 1.6rem;
+  }
+
+  p.woocommerce-notice--success {
+    margin-bottom: 3rem;
+    font-size: 1.8rem;
+  }
+
+}
+
+.woocommerce ul.order_details {
+  padding: 1rem 0;
+  margin-bottom: 3rem;
+
+  border-top: 1px solid $gray1;
+  border-bottom: 1px solid $gray1;
+}
+
+.woocommerce .woocommerce-customer-details,
+.woocommerce .woocommerce-order-details,
+.woocommerce .woocommerce-order-downloads {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.4rem;
+  }
+}
+
+.woocommerce .woocommerce-customer-details address {
+  line-height: 1.5;
+}

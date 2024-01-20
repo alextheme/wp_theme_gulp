@@ -1,0 +1,206 @@
+//--------------------------------------------------------layout
+.product {
+
+}
+//--------------------------------------------------------layout###
+
+
+//--------------------------------------------------------image
+
+//--------------------------------------------------------image###
+
+
+//--------------------------------------------------------content
+.woocommerce div.product {
+    .product_title_mob {
+        @extend %h2_1;
+
+        margin-bottom: 2rem;
+
+        @include bp($point_4 + 1, min) {
+            display: none;
+        }
+    }
+
+    form.cart div.quantity {
+        margin: 0;
+    }
+}
+
+$max_width_image: 38.7rem;
+$max_width_image_mob: 50%;
+
+.woocommerce div.product div.images,
+.woocommerce-page div.product div.images {
+
+    width: 100%;
+    height: auto;
+
+    @include bp($point_2, min) {
+        max-width: $max_width_image;
+        margin: 0 11% 2rem 8.52%;
+    }
+
+    @include bp($point_3, $point_4) {
+        max-width: $max_width_image_mob;
+        margin: 0 3% 2rem 0;
+    }
+
+    @include bp($point_4) {
+        max-width: 100%;
+        margin: 0 0 2rem 0;
+    }
+}
+
+.woocommerce div.product div.summary,
+.woocommerce-page div.product div.summary {
+    @include bp($point_2, min) {
+        margin-right: 8.52%;
+        width: calc(100% - (11% + $max_width_image + 8.52% + 8.52%));
+    }
+
+    @include bp($point_3, $point_4 + 1) {
+        width: calc(100% - (3% + $max_width_image_mob));
+    }
+
+    @include bp($point_4) {
+        width: 100%;
+    }
+}
+
+.summary.entry-summary {
+    .product_sku,
+    .product_title {
+        @include bp($point_4) {
+            display: none;
+        }
+    }
+
+    .product_sku {
+        @extend %text_1;
+        margin-bottom: 1rem;
+    }
+
+    .product_title {
+        @extend %h2_1;
+        margin-bottom: 3rem;
+    }
+
+    .product_attributes {
+        @include bp($point_4 + 1, min) {
+            margin-bottom: 3rem;
+        }
+
+        @include bp($point_4) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .product_attribute_label {
+        @extend %text_1;
+        margin-bottom: .4rem;
+    }
+
+    .product_attribute {
+        @extend %text_2;
+
+        margin-bottom: 1rem;
+    }
+
+
+
+    /////////////// add_to_cart__wrapper
+    .add_to_cart__wrapper {
+
+        @include bp($point_2, min) {
+            max-width: 30rem;
+        }
+
+        @include bp($point_3) {
+            width: 100%;
+        }
+    }
+
+    .add_to_cart__row {
+        @extend %global_flex_block_row_wrap_flex_start_flex_end;
+
+        margin-bottom: 1rem;
+    }
+
+    .price.simple_price {
+        @extend %price;
+
+        color: $red;
+    }
+
+    //_wc_quantity_button.scss
+
+    // Bottom section
+    .add_to_cart__row_bottom {
+        @extend %global_flex_block_column_wrap_flex_start;
+    }
+
+    .single_add_to_cart_button {
+        @extend %red_btn;
+        @extend %btn_size_2;
+
+        margin-bottom: 1rem;
+
+        &:hover {
+            box-shadow: 0 -5.6rem 0 0 inset #fff;
+        }
+    }
+
+    .add_to_cart__bottom_info {
+        @extend %text_3;
+        @extend %global_flex_block_row_nowrap_flex_start;
+
+        width: 100%;
+
+        div, span {
+            &:first-child {
+                margin-right: 1rem;
+            }
+            &:last-child {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .add_to_cart__bottom_info_row_l {
+
+    }
+
+    .add_to_cart__bottom_info_row_r {
+
+    }
+}
+//--------------------------------------------------------content###
+
+
+//--------------------------------------------------------add to cart section
+.product.product-type-simple input::-webkit-outer-spin-button,
+.product.product-type-simple input::-webkit-inner-spin-button,
+.product.product-type-variable input::-webkit-outer-spin-button,
+.product.product-type-variable input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.product.product-type-simple input[type=number],
+.product.product-type-variable input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.product-type-simple {
+    .price:not(.simple_price) {
+        display: none;
+    }
+}
+//--------------------------------------------------------add to cart section###
+
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+    border-top-color: transparent;
+    background-color: $gray3;
+}

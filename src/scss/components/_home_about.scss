@@ -1,0 +1,96 @@
+//--------------------------------------------------------layout
+.about__row {
+    @include bp($point_2, min) {
+        @include flex_block(row, wrap, flex-start, stretch);
+    }
+}
+
+.about__col {
+    &:nth-child(1) {
+        
+        @include bp($point_2, min) {
+            width: 57.3%;
+        }
+    
+        @include bp($point_3) {
+            margin: 0 calc(-1 * var(--gl-indent)) 3rem;
+        }
+    }
+
+    &:nth-child(2) {
+        @include flex_block(column, wrap, flex-start);
+
+        @include bp($point_2, min) {
+            width: 42.7%;
+            padding: 0 0 0 3rem;
+        }
+    
+        @include bp($point_3) {
+            width: 100%;
+        }
+    }
+}
+//--------------------------------------------------------layout###
+
+//--------------------------------------------------------image
+.about__img_w {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 87%;
+
+    @include bp($point_2, min) {
+
+    }
+
+    @include bp($point_3) {
+        
+    }
+}
+
+.about__img {
+    @extend %stretch;
+    @extend %cover_img;
+}
+//--------------------------------------------------------image###
+
+//--------------------------------------------------------content
+.about__content {
+    margin: auto 0;
+}
+
+.about__title {
+    @extend %h2;
+
+    @include bp($point_2, min) {
+        margin-bottom: 2.2rem;
+
+        span {
+            color: $red;
+            line-height: 1.5;
+        }
+    }
+
+    @include bp($point_3) {
+        margin-bottom: 2rem;
+    }
+}
+
+.about__description {
+    @extend %descr;
+
+    @include bp($point_2, min) {
+        margin-bottom: 2.2rem;
+    }
+
+    @include bp($point_3) {
+        margin-bottom: 2rem;
+    }
+}
+//--------------------------------------------------------content###
+
+//--------------------------------------------------------button
+.about__button {
+    @extend %white_btn_2;
+}
+//--------------------------------------------------------button###

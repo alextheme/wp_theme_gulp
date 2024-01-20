@@ -1,0 +1,162 @@
+# Copyright (C) 2024 shopde
+# This file is distributed under the same license as the shopde package.
+msgid ""
+msgstr ""
+"Project-Id-Version: shopde\n"
+"POT-Creation-Date: 2024-01-16 23:43+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.3.2\n"
+
+# "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+#: header.php:50
+msgid "Film posters"
+msgstr ""
+
+#: inc/theme_setup.php:7
+msgid "Header menu"
+msgstr ""
+
+#: inc/theme_setup.php:8
+msgid "Footer menu 1"
+msgstr ""
+
+#: inc/theme_setup.php:9
+msgid "Footer menu 2"
+msgstr ""
+
+#: inc/theme_setup.php:10
+msgid "Footer menu 3"
+msgstr ""
+
+#: inc/theme_widgets.php:13
+msgid "Sidebar"
+msgstr ""
+
+#: inc/theme_widgets.php:15
+msgid "Add widgets here."
+msgstr ""
+
+#: inc/theme_widgets.php:23
+msgid "gTranslate"
+msgstr ""
+
+#: inc/theme_widgets.php:25
+msgid "Widget ..."
+msgstr ""
+
+#: inc/woocommerce_hook.php:200
+msgid "Main"
+msgstr ""
+
+#: inc/woocommerce_hook.php:214
+msgid "Sort by"
+msgstr ""
+
+#: inc/woocommerce_hook.php:292
+msgid "Poster Designer:"
+msgstr ""
+
+#: inc/woocommerce_hook.php:299
+msgid "Polish | Original Poster Title:"
+msgstr ""
+
+#: inc/woocommerce_hook.php:306
+msgid "Year:"
+msgstr ""
+
+#: inc/woocommerce_hook.php:313
+msgid "Poster size:"
+msgstr ""
+
+#: template-designers-page.php:26
+msgid "Designers"
+msgstr ""
+
+#: template_parts/home-about.php:26
+msgid "Catalog"
+msgstr ""
+
+#: template_parts/home-hero.php:12
+msgid "Katalog"
+msgstr ""
+
+#: template_parts/home-posters.php:33 template_parts/home-posters.php:148
+msgid "View All"
+msgstr "Переглянути Всі"
+
+#: template_parts/home-posters.php:90
+msgid "All works"
+msgstr ""
+
+#: template_parts/home-posters.php:109
+msgid "Add to cart"
+msgstr ""
+
+#: template_parts/home-posters.php:112
+msgid "Added"
+msgstr ""
+
+#: woocommerce/cart/cart.php:28
+msgid "Remove item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:29
+msgid "Thumbnail image"
+msgstr ""
+
+#: woocommerce/cart/cart.php:30 woocommerce/cart/cart.php:106
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:131
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:137
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:190
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart.php:66 woocommerce/cart/mini-cart.php:57
+#, php-format
+msgid "Remove %s from cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:126
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:208
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:208
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:208
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:213
+msgid "Update cart"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:119
+msgid "No products in the cart."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:45
+msgid "Ilość"
+msgstr ""

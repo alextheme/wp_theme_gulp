@@ -1,0 +1,131 @@
+@import "family";
+@import "reset";
+@import "fonts";
+@import "print";
+
+//------------------------------------------------------------base styles
+:root {
+	--full-screen: calc(var(--vh, 1vh) * 100);
+
+	--height-footer: 10rem;
+	--gl-indent: 2rem;
+	--sidebar-width: 31.2rem;
+
+	//@include bp($point_1 - 1) {
+	//	--sidebar-width: 28rem;
+	//}
+
+	@include bp($point_2, min) {
+		--height-header: 14.3rem;
+	}
+
+	@include bp($point_3) {
+		--height-header: 10rem;
+	}
+}
+
+html {
+	height: 100%;
+	font: 400 calc(100vw / 1920 * 10) / 1.33 $font_1;
+
+	@include bp(374px, min) {
+		font-size: 10px;
+	}
+
+	@include bp(375px) {
+		//font-size: 10px;
+		font-size: calc(100vw / 375 * 10);
+	}
+}
+
+body {
+	position: relative;
+
+	display: flex;
+	height: 100%;
+
+	font-size: $font_size_base;
+	color: $color_text_base;
+
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	background: $body_bg;
+
+	@supports (display: grid) {
+		display: block;
+	}
+
+	&.body--open_menu_state {
+		@include bp($point_3) {
+			overflow: hidden;
+			height: 100%;
+			width: 100%;
+			position: fixed;
+		}
+	}
+
+	&.body--popup_open {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	position: relative;
+
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	height: auto !important;
+
+	overflow-x: hidden;
+}
+
+.base {
+	width: 100%;
+	position: relative;
+	padding: var(--height-header) 0 0;
+
+	flex: 1 0 auto;
+
+	.content-area {
+		position: relative;
+		width: 100%;
+		padding: 0 var(--gl-indent) 5rem;
+		font-size: 1.4rem;
+
+
+		@include bp($point_2, min) {
+			padding-top: 1.3rem;
+		}
+
+		@include bp($point_3) {
+			padding-top: 1rem;
+		}
+	}
+
+	.site-main {
+		max-width: 122rem;
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+	
+.home_hero {
+	background: #1eb14a;
+
+}
+
+a {
+	text-decoration: none;
+	color: $color_link_base;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+//------------------------------------------------------------base styles###
