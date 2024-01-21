@@ -320,6 +320,7 @@
 
 	@include bp($point_3) {
 		margin-right: 3rem;
+		margin-left: .8rem;
 
 		.body--open_search_field & {
 			pointer-events: none;
@@ -677,7 +678,7 @@
 .header__page_title {
 	font-weight: 700;
 	font-size: 1.4rem;
-	line-height: 1.5;
+	line-height: 1.2;
 	color: $white;
 
 	@include bp($point_2, min) {
@@ -686,6 +687,12 @@
 
 	@include bp($point_3) {
 		margin-right: auto;
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
 	}
 }
 

@@ -1,3 +1,9 @@
+.woocommerce-checkout {
+  .section {
+    padding-top: 5rem;
+  }
+}
+
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button,
 .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button,
@@ -111,10 +117,10 @@
 }
 
 #customer_details {
-  margin-bottom: 5rem;
+  //margin-bottom: 5rem;
 
   .col-1 {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 }
 
@@ -170,7 +176,7 @@
 
 //----------------------------------- coupon toggle
 .woocommerce-form-coupon-toggle {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 
   .wc-block-components-notice-banner.is-info {
     font-size: 1.4rem;
@@ -182,6 +188,7 @@
       background-color: $blue;
     }
 
+    .show-coupon,
     .showcoupon {
       color: $blue;
     }
@@ -193,4 +200,21 @@
   margin-bottom: 7rem;
 }
 //----------------------------------- coupon toggle###
+
+
+//----------------------------------- coupon field
+.woocommerce-form-coupon-toggle {
+  &:not(.checkout-coupon-toggle-js) {
+    display:none;
+  }
+}
+
+.shppb_custom_coupon_form {
+  margin-top: -3rem;
+  margin-bottom: 5rem;
+}
+//----------------------------------- coupon field###
+
+
+
 

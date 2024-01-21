@@ -471,6 +471,17 @@ $width_sidebar: 31.2rem;
     }
 
     padding: 2rem;
+
+
+    a {
+        @extend %global_flex_block_column_nowrap_flex_start_stretch;
+
+        height: 100%;
+    }
+}
+
+.shppb_loop_product__price_wrapper {
+    margin-top: auto;
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
@@ -486,6 +497,7 @@ $width_sidebar: 31.2rem;
 .woocommerce-loop-product__designer {
     float: left;
     margin-bottom: .4rem;
+    margin-top: auto;
     padding-right: .5rem;
 
     font-size: 1.8rem;
@@ -508,7 +520,14 @@ $width_sidebar: 31.2rem;
 
     @extend %white_btn_1;
 
-    margin: auto 0 2rem;
+    @include bp($point_4 + 1, min) {
+        margin: 0 0 2rem;
+    }
+
+    @include bp($point_4) {
+        margin: 0 0 .8rem;
+        font-size: 1.2rem;
+    }
 }
 
 .woocommerce a.added_to_cart {
@@ -534,14 +553,36 @@ $width_sidebar: 31.2rem;
     font-size: 1rem;
     font-weight: 300;
     color: $black;
+
+    @include bp($point_4 + 1, min) {
+
+    }
+
+    @include bp($point_4) {
+        flex-direction: column;
+    }
 }
 
 .product__bottom_col_l {
-    padding-right: 1rem;
+    @include bp($point_4 + 1, min) {
+        padding-right: 1rem;
+    }
+
+    @include bp($point_4) {
+        line-height: 1.5;
+        color: $red;
+    }
 }
 
 .product__bottom_col_r {
-    padding-right: 1rem;
+    @include bp($point_4 + 1, min) {
+        padding-left: 1rem;
+    }
+
+    @include bp($point_4) {
+        line-height: 1.5;
+        color: $red;
+    }
 }
 //--------------------------------------------------------content###
 
@@ -811,7 +852,7 @@ $width_sidebar: 31.2rem;
             ul.tabs {
                 padding: 0;
 
-                box-shadow: 0 -2rem 7.1rem -1.6rem $black;
+                box-shadow: 0 1px 0 0 rgba($black, .1);
 
                 &:before,
                 &:after {
@@ -820,6 +861,7 @@ $width_sidebar: 31.2rem;
 
                 li {
                     margin: 0;
+                    padding: 1rem 1em;
                     border: 0;
                     border-radius: 0;
                     background-color: transparent;
@@ -831,7 +873,7 @@ $width_sidebar: 31.2rem;
 
                     &.active {
                         color: $red;
-                        border-bottom: 2px solid $red;
+                        border-bottom: 3px solid $red;
                     }
                 }
             }

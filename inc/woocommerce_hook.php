@@ -355,6 +355,84 @@ function _themename_no_downloads( $menu_links ){
 
 
 
+/**
+* Приховати ТАБ з відгуками
+ */
+add_filter( 'woocommerce_product_tabs', '_themename_remove_reviews_tab', 98);
+function _themename_remove_reviews_tab($tabs) {
+
+    unset($tabs['reviews']);
+
+    return $tabs;
+}
+
+
+
+// Перенос ввода купона вниз
+
+// Добавить пользовательское поле купона после
+add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_coupon_form_custom' );
+function woocommerce_checkout_coupon_form_custom() {
+    global $_themename_text;
+    ?>
+
+    <div class="woocommerce-form-coupon-toggle checkout-coupon-toggle-js">
+        <div class="wc-block-components-notice-banner is-info" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                <path d="M12 3.2c-4.8 0-8.8 3.9-8.8 8.8 0 4.8 3.9 8.8 8.8 8.8 4.8 0 8.8-3.9 8.8-8.8 0-4.8-4-8.8-8.8-8.8zm0 16c-4 0-7.2-3.3-7.2-7.2C4.8 8 8 4.8 12 4.8s7.2 3.3 7.2 7.2c0 4-3.2 7.2-7.2 7.2zM11 17h2v-6h-2v6zm0-8h2V7h-2v2z"></path>
+            </svg>
+            <div class="wc-block-components-notice-banner__content">
+                <?php echo $_themename_text['have_coupon']; ?>
+                 <a href="#" class="show-coupon"><?php echo $_themename_text['click_here']; ?></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="coupon-form shppb_custom_coupon_form" style="display:none !important;">
+        <p><?php echo $_themename_text['have_coupon_label']; ?></p>
+        <p class="form-row form-row-first woocommerce-validated">
+            <label><input type="text" name="coupon_code" class="input-text" placeholder="<?php echo $_themename_text['coupon_code']; ?>" id="coupon_code" value=""></label>
+        </p>
+        <p class="form-row form-row-last">
+            <button type="button" class="button" name="apply_coupon" value="<?php echo $_themename_text['apply_coupon']; ?>"><?php echo $_themename_text['apply_coupon']; ?></button>
+        </p>
+        <div class="clear"></div>
+    </div>
+
+<?php }
+
+// jQuery code
+add_action( 'wp_footer', 'custom_checkout_jquery_script' );
+function custom_checkout_jquery_script() {
+    if ( is_checkout() && ! is_wc_endpoint_url() ) :
+    ?>
+    <script type="text/javascript">
+    jQuery( function($){
+        $('.coupon-form').css("display", "none"); // Проверка, что поле купона скрыто
+
+        // Показать или скрыть поле купона
+        $('.checkout-coupon-toggle-js .show-coupon').on( 'click', function(e){
+            $('.coupon-form').toggle(200);
+            e.preventDefault();
+        })
+
+        // Скопировать введенный код купона в скрытое поле купона WC по умолчанию
+        $('.coupon-form input[name="coupon_code"]').on( 'input change', function(){
+            $('form.checkout_coupon input[name="coupon_code"]').val($(this).val());
+        });
+
+        // При клике кнопки отправить форму купона WooCommerce в скрытую по умолчанию
+        $('.coupon-form button[name="apply_coupon"]').on( 'click', function(){
+            $('form.checkout_coupon').submit();
+        });
+    });
+    </script>
+    <?php
+    endif;
+}
+
+
+
 
 // Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );

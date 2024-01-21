@@ -26,7 +26,7 @@ $designer_single_page = '';
                    aria-label="Go to home page">
                     <div class="header__logo_i_w">
                         <img class="header__logo_i"
-                             src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo">
+                             src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo" loading="lazy">
                     </div>
                     <div class="header__logo_text">
                         <span><?php bloginfo('name'); ?></span>

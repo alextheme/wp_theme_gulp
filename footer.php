@@ -18,7 +18,7 @@
 				<div class="footer__col">
 					<a class="footer__logo notranslate" href="<?php echo esc_url(home_url('/')) ?>" title="Go to home page" aria-label="Go to home page">
 						<div class="footer__logo_i_w">
-							<img class="footer__logo_i" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo">
+							<img class="footer__logo_i" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo" loading="lazy">
 						</div>
 						<div class="footer__logo_text">
 							<span><?php bloginfo('name'); ?></span>
@@ -65,7 +65,7 @@
 
 				<ul class="footer__pay_methods">
 					<?php for ($i = 1; $i <= 4; $i++) { ?>
-						<li class="footer__pay_img_w"><img class="footer__pay_img" src="<?php echo get_template_directory_uri() . '/assets/images/payments/'.$i.'.png' ?>" alt=""></li>
+						<li class="footer__pay_img_w"><img class="footer__pay_img" src="<?php echo get_template_directory_uri() . '/assets/images/payments/'.$i.'.png' ?>" alt="" loading="lazy"></li>
 					<?php } ?>
 				</ul>
 
@@ -81,17 +81,19 @@
 <?php woocommerce_mini_cart(); ?>
 
 <!-- bottom basket button -->
-<a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart_bottom_basket__btn miniCartTrigger">
-	<span class="cart_bottom_basket__items_count">
-		<?php echo WC()->cart->get_cart_contents_count(); ?>
-		<?php //echo count(WC()->cart->get_cart()); ?>
-	</span>
-	<span class="cart_bottom_basket__icon">
-		<svg class="icon icon_basket_2 icon--size_mod">
-			<use xlink:href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/sprite.svg#basket_2'); ?>"></use>
-		</svg>
-	</span>
-</a>
+<?php if( !is_cart() ) { ?>
+	<a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart_bottom_basket__btn miniCartTrigger">
+		<span class="cart_bottom_basket__items_count">
+			<?php echo WC()->cart->get_cart_contents_count(); ?>
+			<?php //echo count(WC()->cart->get_cart()); ?>
+		</span>
+		<span class="cart_bottom_basket__icon">
+			<svg class="icon icon_basket_2 icon--size_mod">
+				<use xlink:href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/sprite.svg#basket_2'); ?>"></use>
+			</svg>
+		</span>
+	</a>
+<?php } ?>
 
 
 

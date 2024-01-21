@@ -61,20 +61,20 @@ const wcArchive = () => {
                 });
             }
 
-            const is_designer_single_page = document.querySelector('.base.designer_single_page');
+            if (document.querySelector('.single-product')) {
 
-            if (is_designer_single_page) {
-
-                if (window.innerWidth >= GLOBAL_VARS.mediaPoint0) {
+                if (window.innerWidth >= GLOBAL_VARS.mediaPoint1) {
                     setGrid(4);
-                } else if (window.innerWidth < GLOBAL_VARS.mediaPoint0 && window.innerWidth >= GLOBAL_VARS.mediaPoint1) {
+                } else if (window.innerWidth < GLOBAL_VARS.mediaPoint0 && window.innerWidth >= GLOBAL_VARS.mediaPoint2) {
                     setGrid(3);
                 } else {
                     setGrid(2);
                 }
 
-            } else {
+            }
 
+            else {
+                console.log('other')
                 if (window.innerWidth >= GLOBAL_VARS.mediaPoint0) {
                     setGrid(3);
                 } else {
@@ -120,8 +120,6 @@ const wcArchive = () => {
 
                 if (wcBlockAttributeFilterList) {
                     clearInterval(intervalId);
-
-                    // wcBlockAttributeFilterList.classList.add('notranslate');
 
                     Array.from(wcBlockAttributeFilterList.children).forEach(elem => {
                         if (!elem.classList.contains('show-more')) {

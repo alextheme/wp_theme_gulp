@@ -56,7 +56,7 @@ if ($bg_section !== '') {
                                 <source media="(min-width: 1024px)" srcset="<?php echo esc_url($product_image_url) ?>"
                                         type="image/png">
                                 <img class="posters__it_img" src="<?php echo esc_url($product_image_url) ?>" alt=" "
-                                     loading="eager">
+                                     loading="lazy">
                             </picture>
                         </a>
 

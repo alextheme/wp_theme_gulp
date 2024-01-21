@@ -2,77 +2,54 @@
 
 function _themename_setup() {
 
-    register_nav_menus(
-        array(
-            'header_menu' => esc_html__( 'Header menu', '_themename' ),
-            'footer_menu_1' => esc_html__( 'Footer menu 1', '_themename' ),
-            'footer_menu_2' => esc_html__( 'Footer menu 2', '_themename' ),
-            'footer_menu_3' => esc_html__( 'Footer menu 3', '_themename' ),
-        )
-    );
+    if( function_exists('register_nav_menus') ) {
+        register_nav_menus(
+            array(
+                'header_menu' => esc_html__( 'Header menu', '_themename' ),
+                'footer_menu_1' => esc_html__( 'Footer menu 1', '_themename' ),
+                'footer_menu_2' => esc_html__( 'Footer menu 2', '_themename' ),
+                'footer_menu_3' => esc_html__( 'Footer menu 3', '_themename' ),
+            )
+        );
+    }
 
     if( function_exists('acf_add_options_page') ) {
         acf_add_options_page();
     }
 
-
-    // add_theme_support( 'post-thumbnails' );
     if( function_exists( 'add_theme_support' ) ) {
 
         add_theme_support( 'post-thumbnails' );
         //set_post_thumbnail_size( 150, 150, false );
+
+        add_theme_support( 'automatic-feed-links' );
+
+        add_theme_support( 'title-tag' );
+
+        add_theme_support( 'customize-selective-refresh-widgets' );
+
+        add_theme_support(
+            'html5',
+            array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'style',
+                'script',
+            )
+        );
     }
 
     if( function_exists( 'add_image_size' ) ) {
-
         //add_image_size( 'medium', 283, 408, true );
         //add_image_size( 'large', 1024, 9999, false );
-
     }
 
-	load_theme_textdomain( '_themename', get_template_directory() . '/languages' );
-
-	add_theme_support( 'automatic-feed-links' );
-
-	add_theme_support( 'title-tag' );
-
-    add_theme_support( 'customize-selective-refresh-widgets' );
-
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
-
-//	add_theme_support(
-//		'custom-background',
-//		apply_filters(
-//			'_themename_custom_background_args',
-//			array(
-//				'default-color' => 'ffffff',
-//				'default-image' => '',
-//			)
-//		)
-//	);
-
-
-
-//	add_theme_support(
-//		'custom-logo',
-//		array(
-//			'height'      => 250,
-//			'width'       => 250,
-//			'flex-width'  => true,
-//			'flex-height' => true,
-//		)
-//	);
+    if( function_exists( 'load_theme_textdomain' ) ) {
+        load_theme_textdomain( '_themename', get_template_directory() . '/languages' );
+    }
 
 }
 add_action( 'after_setup_theme', '_themename_setup' );
@@ -109,6 +86,18 @@ function _themename_set_global_var() {
         'year' => esc_html__('Jahr:', '_themename'),
         'poster_size' => esc_html__('Plakatgröße:', '_themename'),
         'quantity' => esc_html__('Menge:', '_themename'),
+
+        // checout
+        // If you have a coupon code, please apply it below.
+        //
+        // Coupon Code
+        // Apply voucher
+        'have_coupon' => esc_html__('Hast du einen Gutschein?', '_themename'),
+        'click_here' => esc_html__('Klicke hier, um deinen Gutschein-Code einzugeben.', '_themename'),
+        'have_coupon_label' => esc_html__('Wenn Du einen Gutscheincode hast, wende ihn bitte unten an.', '_themename'),
+        'coupon_code' => esc_html__('Gutscheincode', '_themename'),
+        'apply_coupon' => esc_html__('Gutschein anwenden', '_themename'),
+
     );
 }
 add_action( 'init', '_themename_set_global_var' );

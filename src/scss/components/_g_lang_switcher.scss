@@ -108,7 +108,17 @@
 .gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow {
   transform: rotate(0deg)!important;
 }
+
 .gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow.gt_arrow_rotate {
-  transform: rotate(-180deg)!important;
+  transform: rotate(180deg)!important;
 }
+
+//// arrow rotate
+//.gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow {
+//  transform: scale(1)!important;
+//}
+//
+//.gt_float_switcher .gt-selected .gt-current-lang span.gt_float_switcher-arrow.gt_arrow_rotate {
+//  transform: scale(-1)!important;
+//}
 

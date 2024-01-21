@@ -17,7 +17,7 @@ global $post, $_themename_text;
                 <li class="home_hero__gallery_item">
                     <picture class="home_hero__img_w">
                         <source media="(min-width: 1024px)" srcset="<?php echo esc_url($img['url'])?>" type="image/png">
-                        <img class="home_hero__img" src="<?php echo esc_url($img['url'])?>" alt=" " loading="eager">
+                        <img class="home_hero__img" src="<?php echo esc_url($img['url'])?>" alt=" " loading="lazy">
                     </picture>
                 </li>
             <?php }} ?>
