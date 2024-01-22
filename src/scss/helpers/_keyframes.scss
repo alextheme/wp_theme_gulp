@@ -1,0 +1,12 @@
+// animation:1s ease 2s normal forwards 1 fadein;
+// -webkit-animation:1s ease 2s normal forwards 1 fadein;
+
+@keyframes fadein {
+  from { opacity:0 }
+  to { opacity:1 }
+}
+
+@-webkit-keyframes fadein {
+  from { opacity:0 }
+  to { opacity:1 }
+}

@@ -86,7 +86,7 @@ const wcArchive = () => {
     }
 
     const changePositionFilterAttributes = () => {
-        const blocks = document.querySelectorAll('#sidebar');
+        const blocks = document.querySelectorAll('.base.shop #sidebar');
         blocks.forEach(block => {
             const descktopParent = document.querySelector('.archive__main_content');
             const mobileParent = document.querySelector('.archive__designers_filter_wrapper');
@@ -167,6 +167,8 @@ const wcArchive = () => {
 
         });
     }
+
+
 
 
 

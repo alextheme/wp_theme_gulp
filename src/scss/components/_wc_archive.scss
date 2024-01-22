@@ -30,6 +30,23 @@
 }
 
 // Filters
+
+.base.shop #sidebar {
+    @include bp($point_3) {
+        opacity:0;
+        animation:1s ease 3s normal forwards 1 fadein;
+        -webkit-animation:1s ease 3s normal forwards 1 fadein;
+    }
+}
+
+.archive__filters_wrapper {
+    @include bp($point_3) {
+        opacity:0;
+        animation:1s ease 2s normal forwards 1 fadein;
+        -webkit-animation:1s ease 2s normal forwards 1 fadein;
+    }
+}
+
 .archive__filters_wrapper {
     @extend %global_flex_block_row_wrap_flex_start;
 }

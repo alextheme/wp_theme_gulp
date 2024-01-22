@@ -5,6 +5,7 @@ import wcArchive from './components/wcArchive.js';
 import wcQuantityButton from './components/wcQuantityButton.js';
 import gLangSwitcher from "./components/gLangSwitcher.js";
 import wcCart from "./components/wcCart.js";
+import cookies from "./components/cookies.js";
 
 jqDocumentReady(() => {
     header();
@@ -12,4 +13,5 @@ jqDocumentReady(() => {
     wcArchive();
     wcQuantityButton();
     wcCart();
+    cookies();
 })
