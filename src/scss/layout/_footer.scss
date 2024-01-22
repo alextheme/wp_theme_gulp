@@ -78,7 +78,7 @@
 
 //--------------------------------------------------------logo
 .footer__logo {
-	@include flex_block(row, wrap, flex-start, center, center);
+	@include flex_block(row, nowrap, flex-start, center, center);
 
 	width: 34rem;
 	height: 8.4rem;

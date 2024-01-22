@@ -88,15 +88,15 @@ function _themename_set_global_var() {
         'quantity' => esc_html__('Menge:', '_themename'),
 
         // checout
-        // If you have a coupon code, please apply it below.
-        //
-        // Coupon Code
-        // Apply voucher
         'have_coupon' => esc_html__('Hast du einen Gutschein?', '_themename'),
         'click_here' => esc_html__('Klicke hier, um deinen Gutschein-Code einzugeben.', '_themename'),
         'have_coupon_label' => esc_html__('Wenn Du einen Gutscheincode hast, wende ihn bitte unten an.', '_themename'),
         'coupon_code' => esc_html__('Gutscheincode', '_themename'),
         'apply_coupon' => esc_html__('Gutschein anwenden', '_themename'),
+
+        // woocommerce hooks
+        'sort_by' => esc_html__( 'Sortierung nach', '_themename' ),
+        'main' => esc_html__( 'Startseite', '_themename' ),
 
     );
 }

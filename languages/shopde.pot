@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-21 21:22+0000\n"
+"POT-Creation-Date: 2024-01-21 22:13+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -110,24 +110,32 @@ msgstr ""
 msgid "Menge:"
 msgstr ""
 
-#: inc/theme_setup.php:95
+#: inc/theme_setup.php:91
 msgid "Hast du einen Gutschein?"
 msgstr ""
 
-#: inc/theme_setup.php:96
+#: inc/theme_setup.php:92
 msgid "Klicke hier, um deinen Gutschein-Code einzugeben."
 msgstr ""
 
-#: inc/theme_setup.php:97
+#: inc/theme_setup.php:93
 msgid "Wenn Du einen Gutscheincode hast, wende ihn bitte unten an."
 msgstr ""
 
-#: inc/theme_setup.php:98
+#: inc/theme_setup.php:94
 msgid "Gutscheincode"
 msgstr ""
 
-#: inc/theme_setup.php:99
+#: inc/theme_setup.php:95
 msgid "Gutschein anwenden"
+msgstr ""
+
+#: inc/theme_setup.php:98
+msgid "Sortierung nach"
+msgstr ""
+
+#: inc/theme_setup.php:99
+msgid "Startseite"
 msgstr ""
 
 #: inc/theme_widgets.php:13
@@ -144,14 +152,6 @@ msgstr ""
 
 #: inc/theme_widgets.php:25
 msgid "Widget for site language switching buttons"
-msgstr ""
-
-#: inc/woocommerce_hook.php:200
-msgid "Main"
-msgstr ""
-
-#: inc/woocommerce_hook.php:214
-msgid "Sort by"
 msgstr ""
 
 #: template-designers-page.php:2

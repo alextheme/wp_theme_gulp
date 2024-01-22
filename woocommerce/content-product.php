@@ -60,6 +60,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	do_action( 'woocommerce_after_shop_loop_item_title' );
 
 	echo '</div><!-- ./shppb_loop_product__price_wrapper -->';
+
 	/**
 	 * Hook: woocommerce_after_shop_loop_item.
 	 *

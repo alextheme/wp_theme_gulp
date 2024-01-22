@@ -186,6 +186,8 @@ if (!is_singular()) {
  * Breadcrumbs
  */
 add_filter( 'woocommerce_breadcrumb_defaults', function () {
+    global $_themename_text;
+
     $delimeter = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path d="M5.25 4.5L12.75 12L5.25 19.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M12.75 4.5L20.25 12L12.75 19.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
@@ -197,7 +199,7 @@ add_filter( 'woocommerce_breadcrumb_defaults', function () {
         'wrap_after'  => '</nav>',
         'before'      => '',
         'after'       => '',
-        'home'        => __( 'Main', '_themename' ),
+        'home'        => $_themename_text['main'],
     );
 } );
 
@@ -211,7 +213,8 @@ add_filter( 'woocommerce_breadcrumb_defaults', function () {
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 function _themename_catalog_ordering($options) {
-    $options['menu_order'] = __( 'Sort by', '_themename' );
+    global $_themename_text;
+    $options['menu_order'] = $_themename_text['sort_by'];
     return $options;
 }
 add_filter( 'woocommerce_catalog_orderby', '_themename_catalog_ordering', 30 );

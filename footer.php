@@ -30,7 +30,7 @@
 				<div class="footer__col">
 					<h4 class="footer_menu_label"><?php echo $_themename_text['shipping_payment']; ?></h4>
 					<?php wp_nav_menu(array(
-						'theme_location' => 'shipping_payment',
+						'theme_location' => 'footer_menu_1',
 						'depth' => 1,
 						'container' => '',
 						'menu_class' => 'footer_menu__list',
@@ -40,7 +40,7 @@
 				<div class="footer__col">
 					<h4 class="footer_menu_label"><?php echo $_themename_text['quick_links']; ?></h4>
 					<?php wp_nav_menu(array(
-						'theme_location' => 'quick_links',
+						'theme_location' => 'footer_menu_2',
 						'depth' => 1,
 						'container' => '',
 						'menu_class' => 'footer_menu__list',
@@ -50,7 +50,7 @@
 				<div class="footer__col">
 					<h4 class="footer_menu_label"><?php echo $_themename_text['legal']; ?></h4>
 					<?php wp_nav_menu(array(
-						'theme_location' => 'legal',
+						'theme_location' => 'footer_menu_3',
 						'depth' => 1,
 						'container' => '',
 						'menu_class' => 'footer_menu__list',
