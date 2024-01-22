@@ -242,6 +242,8 @@
 .posters__it_row {
     @extend %global_flex_block_row_wrap_flex_start;
 
+    margin-top: auto;
+
     @include bp($point_2, min) {
         margin-top: auto;
         margin-bottom: 1rem;
@@ -254,21 +256,23 @@
 }
 
 .posters__it_name {
-    margin-right: 1rem;
+
     line-height: 1.4;
     color: $black;
 
 	@include bp($point_2, min) {
         margin-bottom: .4rem;
+        margin-right: 1rem;
 
         font-size: 1.8rem;
 		font-weight: 400;
 	}
 
 	@include bp($point_3) {
+        margin-bottom: .8rem;
+
 		font-size: 1.2rem;
 		font-weight: 300;
-        margin-bottom: .8rem;
         text-align: center;
 	}
 

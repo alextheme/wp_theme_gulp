@@ -185,6 +185,16 @@ if (!is_singular()) {
 /**
  * Breadcrumbs
  */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+add_action( 'woocommerce_before_main_content', '_themename_woocommerce_breadcrumb', 5 );
+function _themename_woocommerce_breadcrumb() { ?>
+    <section class="section shop_breadcrumb">
+        <div class="section_in">
+            <?php woocommerce_breadcrumb(); ?>
+        </div>
+    </section>
+<?php }
+
 add_filter( 'woocommerce_breadcrumb_defaults', function () {
     global $_themename_text;
 
@@ -334,6 +344,7 @@ add_action( 'woocommerce_single_product_summary', '_themename_show_attributes', 
 
 
 
+// Пагінація
 
 add_filter('woocommerce_pagination_args', function ($args) {
 
@@ -346,6 +357,8 @@ add_filter('woocommerce_pagination_args', function ($args) {
 });
 
 
+
+// Приховати меню в аккаунті
 
 add_filter( 'woocommerce_account_menu_items', '_themename_no_downloads', 25 );
 

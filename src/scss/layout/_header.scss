@@ -133,15 +133,15 @@
 
 .header__logo_i_w {
 	@include bp($point_2, min) {
-		width: 6.5rem;
-		height: 5.2rem;
-		margin-right: 1.2rem;
+		min-width: 6.5rem;
+		min-height: 5.2rem;
+		margin-right: 1rem;
 	}
 
 	@include bp($point_3) {
-		width: 4rem;
-		height: 3.2rem;
-		margin-right: .5rem;
+		min-width: 4rem;
+		min-height: 3.2rem;
+		margin-right: .4rem;
 	}
 }
 
@@ -162,11 +162,12 @@
 			color: #FE0000;
 			
 			@include bp($point_2, min) {
-				margin-bottom: .4rem;
+				margin-top: .7rem;
 				font-size: 2.7rem;
 			}
 		
 			@include bp($point_3) {
+				margin-top: .4rem;
 				font-size: 1.6rem;
 				letter-spacing: .5px;
 			}

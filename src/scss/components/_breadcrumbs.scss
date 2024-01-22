@@ -1,14 +1,19 @@
-.posters_breadcrumb .woocommerce-breadcrumb,
+.breadcrumb,
+.woocommerce-breadcrumb,
 .woocommerce .woocommerce-breadcrumb {
     @extend %global_flex_block_row_nowrap_flex_start_center;
 
     width: 100%;
 
+    font-size: 1.4rem;
     line-height: 1.5;
+    text-transform: capitalize;
+    color: $black;
     
     @include bp($point_2, min) {
         padding-top: 1.3rem;
         padding-bottom: 1.3rem;
+        margin: 0;
     }
 
     @include bp($point_3) {
@@ -16,18 +21,11 @@
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+
+    a { color: inherit; }
 }
 
-.breadcrumbs--padding1_mod {
-    @include bp($point_2, min) {
-
-    }
-
-    @include bp($point_3) {
-
-    }
-}
-
+.shop_breadcrumb,
 .posters_breadcrumb {
     padding-top: 1rem;
     padding-bottom: 0;

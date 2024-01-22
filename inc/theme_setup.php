@@ -79,6 +79,7 @@ function _themename_set_global_var() {
 
         // shop
         'display_by' => esc_html__('Anzeigen nach', '_themename'),
+        'shop_title' => esc_html__('Filmplakate', '_themename'),
 
         // single product
         'poster_designer' => esc_html__('Plakatdesigner:', '_themename'),

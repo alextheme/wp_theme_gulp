@@ -92,6 +92,8 @@
 
 	@include bp($point_2, min) {
 		padding: 0 .5rem;
+
+		transform: scale(0.9) translateX(-2rem);
 	}
 	
 	@include bp($point_3) {
@@ -101,9 +103,9 @@
 }
 
 .footer__logo_i_w {
-	width: 10.5rem;
-	height: 8.4rem;
-	margin-right: 1.2rem;
+	min-width: 10.5rem;
+	min-height: 8.4rem;
+	margin-right: 1rem;
 }
 
 .footer__logo_i {
@@ -117,33 +119,20 @@
 		font-size: 4.4rem;
 		font-weight: 400;
 		font-style: normal;
+		white-space: nowrap;
 
 		&:first-child {
+			margin-top: .7rem;
+			margin-bottom: .5rem;
 			font-family: Moul, Arial, Helvetica, sans-serif;
 			line-height: 1;
 			color: #FE0000;
-			
-			@include bp($point_2, min) {
-				
-			}
-		
-			@include bp($point_3) {
-			
-			}
 		}
-		&:nth-child(2) {
 
+		&:nth-child(2) {
 			font-size: 2.3rem;		
 			line-height: normal;
 			color: #000000;
-
-			@include bp($point_2, min) {
-				
-			}
-		
-			@include bp($point_3) {
-				
-			}
 		}
 	}
 }

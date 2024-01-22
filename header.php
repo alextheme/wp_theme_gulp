@@ -40,19 +40,33 @@ $designer_single_page = '';
 
                 <h1 class="header__page_title">
                     <?php
-                    global $post, $product;
+                    global $post, $product, $_themename_text;
 
+                    // Проверяем, отображается ли страница товаров категории
+                    if (is_product_category()) {
+                        // Получаем ID текущей категории
+                        $category_id = get_queried_object_id();
 
-                    $designer_single_page = _themename_get_title_designer_single_page();
-                    $title_page = $designer_single_page;
+                        // Получаем объект категории по ID
+                        $category = get_term($category_id, 'product_cat');
 
-                    if (is_shop()) {
-                        $title_page = __('Film posters', '_themename');
+                        // Выводим заголовок категории
+                        echo esc_html($category->name);
                     } else {
-                        $title_page = _themename_get_text_lang('', _themename_get_lang());
+                        $designer_single_page = _themename_get_title_designer_single_page();
+                        $title_page = $designer_single_page;
+
+                        if (is_shop()) {
+                            $title_page = $_themename_text['shop_title'];
+                        } else {
+                            $title_page = _themename_get_text_lang('', _themename_get_lang());
+                        }
+
+                        echo esc_html($title_page);
                     }
 
-                    echo esc_html($title_page);
+
+
 
                     ?>
                 </h1>

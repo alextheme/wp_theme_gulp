@@ -10,6 +10,8 @@
   }
 
   .posters__title {
+    text-transform: capitalize;
+
     @include bp($point_2, min) {
       max-width: unset;
       margin: 0;
