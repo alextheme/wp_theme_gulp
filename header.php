@@ -132,4 +132,19 @@ $designer_single_page = '';
 </header>
 
 <div class="wrapper">
-    <div class="base <?php echo is_shop() ? esc_attr('shop ' . ($designer_single_page ? 'designer_single_page' : '')) : ''; ?>">
+    <?php
+    $page_name_class = '';
+
+    if (is_shop()) {
+        $page_name_class .= ' shop';
+    }
+
+    if ($designer_single_page !== '') {
+        $page_name_class .= ' designer_single_page';
+    }
+
+    if (is_tax()) {
+        $page_name_class .= ' shop category_page';
+    }
+    ?>
+    <div class="base<?php echo esc_attr($page_name_class); ?>">

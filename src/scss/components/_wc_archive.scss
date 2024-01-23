@@ -487,7 +487,13 @@ $width_sidebar: 31.2rem;
         height: 100%;
     }
 
-    padding: 2rem;
+    @include bp($point_2, min) {
+        padding: 2rem;
+    }
+
+    @include bp($point_3) {
+        padding: 1rem .4rem;
+    }
 
 
     a {
@@ -499,6 +505,16 @@ $width_sidebar: 31.2rem;
 
 .shppb_loop_product__price_wrapper {
     margin-top: auto;
+
+    @include bp($point_2, min) {
+
+    }
+
+    @include bp($point_3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
@@ -507,29 +523,51 @@ $width_sidebar: 31.2rem;
     padding: 0;
     margin: 0 0 2rem;
 
-    font-size: 1.4rem;
-    font-weight: 700;
+    @include bp($point_2, min) {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    @include bp($point_3) {
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: center;
+    }
 }
 
 .woocommerce-loop-product__designer {
     float: left;
     margin-bottom: .4rem;
     margin-top: auto;
-    padding-right: .5rem;
 
-    font-size: 1.8rem;
     font-weight: 400;
     color: $black;
+
+    @include bp($point_2, min) {
+        padding-right: .5rem;
+        font-size: 1.8rem;
+    }
+
+    @include bp($point_3) {
+        font-size: 1.2rem;
+    }
 }
 
 .woocommerce ul.products li.product .price {
     float: right;
-    margin-bottom: 2rem;
-    padding-left: .5rem;
 
-    font-size: 1.8rem;
     font-weight: 700;
     color: $red;
+
+    @include bp($point_2, min) {
+        padding-left: .5rem;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+    }
+
+    @include bp($point_3) {
+        font-size: 1.2rem;
+    }
 }
 
 .woocommerce ul.products li.product .button {
@@ -702,7 +740,7 @@ $width_sidebar: 31.2rem;
     &.woocommerce ul.products li.product {
         @extend %global_flex_block_row_nowrap_flex_start_center;
 
-        .woocommerce-loop-product__link {
+        & > .woocommerce-loop-product__link {
             max-width: 17.8rem;
             width: 100%;
             height: 25.6rem;
@@ -769,6 +807,10 @@ $width_sidebar: 31.2rem;
         .product__bottom_info {
             justify-content: flex-start;
             max-width: calc(100% - 22rem);
+        }
+
+        .product__bottom_col_r {
+            padding-left: 0;
         }
 
         .button {

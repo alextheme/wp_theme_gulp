@@ -112,7 +112,17 @@ body {
 		margin: 0 auto;
 	}
 }
-	
+
+.single-product .base .content-area {
+	@include bp($point_2, min) {
+		padding-top: 5rem;
+	}
+
+	@include bp($point_3) {
+		padding-top: 5rem;
+	}
+}
+
 .home_hero {
 	background: #1eb14a;
 

@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-global $product;
+global $product, $_themename_text, $post;
 
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
@@ -27,46 +27,57 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 <li <?php wc_product_class( '', $product ); ?>>
 	<?php
 	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
 	 * @hooked woocommerce_template_loop_product_link_open - 10
 	 */
 	do_action( 'woocommerce_before_shop_loop_item' );
 
 	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
 	 * @hooked woocommerce_show_product_loop_sale_flash - 10
 	 * @hooked woocommerce_template_loop_product_thumbnail - 10
 	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
+	do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
+	<div class="product__text_wrapper">
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
+		<?php
 
-	echo '<div class="shppb_loop_product__price_wrapper">';
+		/**
+		 * @hooked woocommerce_template_loop_product_title - 10
+		 */
+		do_action( 'woocommerce_shop_loop_item_title' );
 
-	do_action( 'woocommerce_after_shop_loop_item_title' );
+		?>
 
-	echo '</div><!-- ./shppb_loop_product__price_wrapper -->';
+		<div class="shppb_loop_product__price_wrapper">
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
+			<div class="woocommerce-loop-product__designer shppb notranslate">
+				<?php echo esc_html($product->get_attribute('pa_poster-designer')); ?>
+			</div>
+
+			<?php
+			/**
+			 * @hooked woocommerce_template_loop_rating - 5
+			 * @hooked woocommerce_template_loop_price - 10
+			 */
+			do_action( 'woocommerce_after_shop_loop_item_title' );
+			?>
+
+		</div><!-- ./shppb_loop_product__price_wrapper -->
+
+		<?php
+
+		/**
+		 * @hooked woocommerce_template_loop_product_link_close - 5
+		 * @hooked woocommerce_template_loop_add_to_cart - 10
+		 */
+		do_action( 'woocommerce_after_shop_loop_item' );
+
+		?>
+
+		<div class="product__bottom_info">
+			<div class="product__bottom_col_l"><?php echo $_themename_text['incl_tax_excl_shipping_cost']; ?></div>
+			<div class="product__bottom_col_r"><?php echo $_themename_text['shipping_24h']; ?></div>
+		</div>
+
+	</div><!-- .product__text_wrapper -->
 </li>
