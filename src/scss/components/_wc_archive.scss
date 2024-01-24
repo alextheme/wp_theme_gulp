@@ -500,6 +500,8 @@ $width_sidebar: 31.2rem;
         @extend %global_flex_block_column_nowrap_flex_start_stretch;
 
         height: 100%;
+        font-size: 1.4rem;
+        color: $black;
     }
 }
 

@@ -33,7 +33,7 @@
 						'theme_location' => 'footer_menu_1',
 						'depth' => 1,
 						'container' => '',
-						'menu_class' => 'footer_menu__list',
+						'menu_class' => 'footer_menu__list notranslate',
 					)); ?>
 				</div>
 
@@ -43,7 +43,7 @@
 						'theme_location' => 'footer_menu_2',
 						'depth' => 1,
 						'container' => '',
-						'menu_class' => 'footer_menu__list',
+						'menu_class' => 'footer_menu__list notranslate',
 					)); ?>
 				</div>
 
@@ -53,7 +53,7 @@
 						'theme_location' => 'footer_menu_3',
 						'depth' => 1,
 						'container' => '',
-						'menu_class' => 'footer_menu__list',
+						'menu_class' => 'footer_menu__list notranslate',
 					)); ?>
 				</div>
 
@@ -61,7 +61,7 @@
 
 			<div class="footer__row">
 
-				<div class="footer__copyright"><?php echo $_themename_text['copyright']; ?></div>
+				<div class="footer__copyright notranslate"><?php echo $_themename_text['copyright']; ?></div>
 
 				<ul class="footer__pay_methods">
 					<?php for ($i = 1; $i <= 4; $i++) { ?>

@@ -101,6 +101,7 @@
 
   .designers__link {
     display: flex;
+    color: $black;
 
     @include bp($point_2, min) {
       font-family: $font_1;

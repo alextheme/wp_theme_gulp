@@ -4,7 +4,6 @@ $width_total_section: 28%;
 .cart,
 .cart-classic {
   --border-radius: 1rem;
-  //--border-color: rgba(0,0,0,1);
   --border-color: #D0D0D0;
   --bg-table: #fff;
 
@@ -236,6 +235,8 @@ $width_total_section: 28%;
 
         a {
           @extend %transition_opacity;
+
+          color: black;
 
           &:hover {
             text-decoration: none;
@@ -573,7 +574,9 @@ $width_total_section: 28%;
   margin-bottom: 1rem;
 
   a {
+    font-size: 1.4rem;
     font-weight: 700;
+    color: $black;
   }
 }
 

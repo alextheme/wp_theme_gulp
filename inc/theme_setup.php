@@ -71,7 +71,7 @@ function _themename_set_global_var() {
         'shipping_payment' => esc_html__('Versand & Zahlungen', '_themename'),
         'quick_links' => esc_html__('Schnellzugriff', '_themename'),
         'legal' => esc_html__('Rechtliches', '_themename'),
-        'copyright' => esc_html__('© PIGASUS Polnischer Posterladen', '_themename'), // © PIGASUS Polish Poster Shop
+        'copyright' => esc_html('© PIGASUS Polnischer Posterladen|| EN || DE', '_themename'), // © PIGASUS Polish Poster Shop
         'created_by' => esc_html__('Erstellt von Entsolve.pl', '_themename'),
 
         // designers
@@ -87,6 +87,9 @@ function _themename_set_global_var() {
         'year' => esc_html__('Jahr:', '_themename'),
         'poster_size' => esc_html__('Plakatgröße:', '_themename'),
         'quantity' => esc_html__('Menge:', '_themename'),
+        'out_of_stock_info' => esc_html__('Das Produkt ist vorübergehend nicht verfügbar, Sie können uns jedoch kontaktieren:', '_themename'),
+        'phone' => esc_html__('Telefon:', '_themename'),
+        'email' => esc_html__('Email:', '_themename'),
 
         // checout
         'have_coupon' => esc_html__('Hast du einen Gutschein?', '_themename'),

@@ -68,6 +68,10 @@ $max_width_image_mob: 50%;
     }
 }
 
+.woocommerce div.product p.stock.in-stock {
+    display: none;
+}
+
 .summary.entry-summary {
     .product_sku,
     .product_title {
@@ -177,6 +181,30 @@ $max_width_image_mob: 50%;
 }
 //--------------------------------------------------------content###
 
+//--------------------------------------------------------out of stock info
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product .out-of-stock {
+    color: $black;
+}
+
+.stock.out-of-stock {
+
+    .out_of_stock__info {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.5;
+        color: $red;
+        margin-bottom: 1.2rem;
+    }
+
+}
+
+.out_of_stock__contacts {
+    li:first-child {
+        margin-bottom: .6rem;
+    }
+}
+//--------------------------------------------------------out of stock info###
+
 
 //--------------------------------------------------------add to cart section
 .product.product-type-simple input::-webkit-outer-spin-button,
@@ -190,12 +218,6 @@ $max_width_image_mob: 50%;
 .product.product-type-simple input[type=number],
 .product.product-type-variable input[type=number] {
     -moz-appearance: textfield;
-}
-
-.product-type-simple {
-    .price:not(.simple_price) {
-        display: none;
-    }
 }
 //--------------------------------------------------------add to cart section###
 

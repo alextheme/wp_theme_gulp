@@ -155,9 +155,11 @@
 
 // --------------------------------------------------------footer menu list
 .footer_menu__list {
-	ul li.page_item {
+	li {
 		a {
+			font-size: 1.4rem;
 			line-height: 1.8;
+			color: $black;
 		}
 	}
 }
@@ -205,6 +207,9 @@
 
 .footer__created_by {
 	min-width: 20.2rem;
+
+	font-size: 1.4rem;
+	color: $black;
 
 	@include bp($point_2, min) {
 		text-align: right;

@@ -10,7 +10,7 @@ $taxonomy_poster_designer = 'pa_poster-designer';
 
 $designers = get_terms( array(
     'taxonomy' => $taxonomy_poster_designer,
-    'hide_empty' => false, // Показывать даже те термины, которые не привязаны к постам
+    'hide_empty' => true, // Показывать термины, которые привязаны к постам
 ) );
 
 ?>

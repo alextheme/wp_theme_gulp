@@ -121,7 +121,7 @@ $designer_single_page = '';
                 'depth' => 1,
                 'container' => 'nav',
                 'container_class' => 'header__nav',
-                'menu_class' => 'header_menu__list',
+                'menu_class' => 'header_menu__list notranslate',
                 '' => '',
             );
 
