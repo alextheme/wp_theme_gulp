@@ -1,21 +1,10 @@
 <?php
 /**
  * Mini-cart
- *
- * Contains the markup for the mini-cart, used by the cart widget.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/cart/mini-cart.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
  * @version 7.9.0
  */
+
+global $_themename_text;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -110,7 +99,28 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 			<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-			<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
+			<p class="woocommerce-mini-cart__buttons buttons">
+				<?php //do_action( 'woocommerce_widget_shopping_cart_buttons' );
+
+				$wp_button_class = wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '';
+
+				?>
+
+				<a href="<?= esc_url( wc_get_cart_url() ) ?>"
+				   class="button wc-forward notranslate <?= esc_attr( $wp_button_class ) ?>"
+				   data-text_languages="<?php echo $_themename_text['view_cart']; ?>"
+				>
+					<?php echo _themename_get_text_lang($_themename_text['view_cart'], _themename_get_lang()); ?>
+				</a>
+
+				<a href="<?= esc_url( wc_get_checkout_url() ) ?>"
+				   class="button checkout wc-forward notranslate <?= esc_attr( $wp_button_class ) ?>"
+				   data-text_languages="<?php echo $_themename_text['checkout']; ?>"
+				>
+					<?php echo _themename_get_text_lang($_themename_text['checkout'], _themename_get_lang()); ?>
+				</a>
+
+			</p>
 
 			<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 

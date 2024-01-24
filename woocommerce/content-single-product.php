@@ -65,7 +65,7 @@ if ( post_password_required() ) {
 				<?php echo $_themename_text['polish_original_poster_title']; ?>
 			</div>
 			<div class="product_attribute poster_original_title shppb notranslate">
-				<?php echo esc_html(_themename_get_text_lang('', 'pl', false, $product->get_id())); ?>
+				<?php echo esc_html(_themename_get_text_lang('', 'pl', $product->get_id())); ?>
 			</div>
 
 			<div class="product_attribute_label">

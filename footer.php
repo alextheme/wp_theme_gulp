@@ -61,7 +61,11 @@
 
 			<div class="footer__row">
 
-				<div class="footer__copyright notranslate"><?php echo $_themename_text['copyright']; ?></div>
+				<div
+					class="footer__copyright notranslate"
+					data-text_languages="<?php echo $_themename_text['copyright_lang']; ?>">
+					<?php echo _themename_get_text_lang($_themename_text['copyright_lang'], _themename_get_lang()); ?>
+				</div>
 
 				<ul class="footer__pay_methods">
 					<?php for ($i = 1; $i <= 4; $i++) { ?>

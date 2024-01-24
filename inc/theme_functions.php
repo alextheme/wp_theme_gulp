@@ -17,25 +17,21 @@ if ( ! function_exists('_themename_get_gtranslate_custom_style')) {
 if ( ! function_exists('_themename_get_text_lang')) {
 
     /**
-     * 1) Додати до перемикача псевдо елемент абсолютом для заміни виводу лейби мови на сайті
-     * 2) Встановити для кожної мови контент через функцію "_themename_get_gtranslate_custom_style"
-     * 3) в PHP файлі встановити дані в JSON форматі в атрибут 'data-shppb_text_translate="<JSONFORMAT>"',
-     * data-shppb_text_translate="<?php echo esc_attr(wp_json_encode(_themename_get_text_lang($product->get_title(), '', true))); ?>"
-     * там, де потрібно отримати переклади
-     * 4) Додати до елемента класс "notranslate", щоб гугл ігнорував
-     * мова відслідковується по атрибутам перемикача "data-gt-lang"
+     * Example
+        <div class="footer__copyright notranslate" data-text_languages="textPL || textEN || textDE">
+            <?php echo _themename_get_text_lang("textPL || textEN || textDE", _themename_get_lang()); ?>
+        </div>
      *
      * @param $text string Багоатомовний текст з роздільником ||
      * @param $lang string Мова для отримання тексту на цій мові
-     * @param $get_array boolean Правда, щоб отримати дані в масиві, для передачі в JSON
      * @return string|String[] Масив з перекладами, ключ - символ мови
      */
-    function _themename_get_text_lang($language_text = '', $lang = 'pl', $get_array = false, $product_id = 0) {
+    function _themename_get_text_lang($language_text = '', $lang = 'pl', $product_id = 0) {
+        global $post, $wpdb;
+
         $text = $language_text;
 
         if ($text === '' && $product_id === 0) {
-            global $post;
-
             if (is_null($post)) {
                 $text = '404';
             } else {
@@ -44,8 +40,8 @@ if ( ! function_exists('_themename_get_text_lang')) {
         }
 
         if ($text === '' && $product_id !== 0) {
-            global $wpdb;
             $wpdb_title = $wpdb->get_results("SELECT post_title FROM {$wpdb->prefix}posts WHERE ID = " . $product_id . " AND post_type = 'product'");
+
             if (count($wpdb_title) > 0) {
                 $text = $wpdb_title[0]->post_title;
             } else {
@@ -71,11 +67,7 @@ if ( ! function_exists('_themename_get_text_lang')) {
             $translate_text['de'] = $array_text[2];
         }
 
-        if ($get_array) {
-            return $translate_text;
-        } else {
-            return key_exists($lang, $translate_text) ? $translate_text[$lang] : $translate_text['default'];
-        }
+        return key_exists($lang, $translate_text) ? $translate_text[$lang] : $translate_text['default'];
     }
 }
 

@@ -107,7 +107,7 @@ foreach ($designers as $designer) {
     <div class="section_in">
 
         <h2 class="designers__title"><?php echo $_themename_text['poster_designers']; ?></h2>
-        <ul class="designers__list">
+        <ul class="designers__list notranslate">
             <?php foreach ($designers as $designer) { ?>
 
                 <?php
