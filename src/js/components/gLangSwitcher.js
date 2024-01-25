@@ -5,12 +5,34 @@ import {setCookie,getCookie} from "../utils/functions.js";
  * 2) add attribute data-text_languages="textPL || textEN || textDE"
  *
  * Example
-    <div class="footer__copyright notranslate" data-text_languages="textPL || textEN || textDE">
-        <?php echo _themename_get_text_lang("textPL || textEN || textDE", _themename_get_lang()); ?>
-    </div>
+ <div class="footer__copyright notranslate" data-text_languages="textPL || textEN || textDE">
+ <?php echo _themename_get_text_lang("textPL || textEN || textDE", _themename_get_lang()); ?>
+ </div>
  */
 const gLangSwitcher = () => {
     const wrapperSwitcher = '.gtranslate_wrapper';
+    const dataLanguageAttr = 'data-shppb_text_translate';
+    const cookieLangName = 'lang'; // встановлюємо особистий прапорець
+    const gCookieLangName = 'googtrans'; // актуально більш для PHP, тут з запізненням
+
+    const setText = elem => {
+
+        // записати код поточної мови в атрибути боді та в куки
+        const currentLang = elem.dataset.gtLang;
+        setCookie(cookieLangName, currentLang);
+        document.body.dataset.lang = currentLang;
+
+        Array.from(document.querySelectorAll(`[${dataLanguageAttr}]`))
+            .forEach(elem => {
+
+                const objectDiffLang = JSON.parse(elem.getAttribute(dataLanguageAttr));
+
+                elem.innerText = objectDiffLang[currentLang]
+                    ? objectDiffLang[currentLang]
+                    : objectDiffLang['default'];
+
+            });
+    }
 
     // виберемо віджет перемикання мов від гугла з класом,
     // який вказуємо в налаштуваннях в адмінці
@@ -21,9 +43,18 @@ const gLangSwitcher = () => {
             // які встановлюємо функцією php "_themename_get_gtranslate_custom_style"
             elem.classList.add(elem.dataset.gtLang);
 
+            // ініт
+            if (elem.classList.contains('gt-current')) {
+                setText(elem);
+            }
+
             // зміна мови зміна тексту
             elem.addEventListener('click', event => {
+                setText(event.target);
+
+                console.log('g-translate switch')
                 switch_languages_text();
+
             });
 
         });
@@ -50,6 +81,8 @@ function switch_languages_text() {
         }
 
         el.innerText = textTranslate || currText;
+
+
     })
 
 }

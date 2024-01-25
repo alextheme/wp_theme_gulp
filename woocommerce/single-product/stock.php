@@ -34,11 +34,11 @@ global $product, $_themename_text;
 		<p class="out_of_stock__info"><?php echo $_themename_text['out_of_stock_info']; ?></p>
 		<ul class="out_of_stock__contacts">
 			<li>
-				<span class="contact__label"><?php echo $_themename_text['phone']; ?></span>
+				<span class="contact__label"><?php echo $_themename_text['email']; ?></span>
 				<a class="contact__link" href="mailto:<?php echo esc_url(get_field('contacts_email', 'option'))?>"><?php the_field('contacts_email', 'option') ?></a>
 			</li>
 			<li>
-				<span class="contact__label"><?php echo $_themename_text['email']; ?></span>
+				<span class="contact__label"><?php echo $_themename_text['phone']; ?></span>
 				<a class="contact__link" href="tel:<?php echo esc_url(get_field('contacts_phone', 'option'))?>"><?php the_field('contacts_phone', 'option') ?></a>
 			</li>
 		</ul>

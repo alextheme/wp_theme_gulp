@@ -73,9 +73,6 @@ function _themename_set_global_var() {
         'legal' => esc_html__('Rechtliches', '_themename'),
         'created_by' => esc_html__('Erstellt von Entsolve.pl', '_themename'),
 
-        'copyright' => esc_html('© PIGASUS Polnischer Posterladen'), // © PIGASUS Polish Poster Shop
-        'copyright_lang' => esc_html('© PIGASUS Polski Sklep Plakatowy || © PIGASUS Polish Poster Shop || © PIGASUS Polnischer Posterladen'),
-
         // designers
         'poster_designers' => esc_html__('Plakatdesigner', '_themename'),
 
@@ -103,10 +100,6 @@ function _themename_set_global_var() {
         // woocommerce hooks
         'sort_by' => esc_html__( 'Sortierung nach', '_themename' ),
         'main' => esc_html__( 'Startseite', '_themename' ),
-
-        //mini-cart buttons
-        'view_cart' => esc_html__( 'Zobacz Koszyk || View cart || Warenkorb ansehen', '_themename' ),
-        'checkout' => esc_html__( 'Sprawdzić || Checkout || Kasse', '_themename' ),
     );
 }
 add_action( 'init', '_themename_set_global_var' );

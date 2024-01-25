@@ -28,7 +28,9 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label"><?php echo $_themename_text['shipping_payment']; ?></h4>
+					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_1', 'option'); ?>">
+						<?php echo _themename_get_text_lang(get_field('footer_menu_title_1', 'option'), _themename_get_lang()); ?>
+					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_1',
 						'depth' => 1,
@@ -38,7 +40,9 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label"><?php echo $_themename_text['quick_links']; ?></h4>
+					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_2', 'option'); ?>">
+						<?php echo _themename_get_text_lang(get_field('footer_menu_title_2', 'option'), _themename_get_lang()); ?>
+					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_2',
 						'depth' => 1,
@@ -48,7 +52,9 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label"><?php echo $_themename_text['legal']; ?></h4>
+					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_3', 'option'); ?>">
+						<?php echo _themename_get_text_lang(get_field('footer_menu_title_3', 'option'), _themename_get_lang()); ?>
+					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_3',
 						'depth' => 1,
@@ -61,10 +67,9 @@
 
 			<div class="footer__row">
 
-				<div
-					class="footer__copyright notranslate"
-					data-text_languages="<?php echo $_themename_text['copyright_lang']; ?>">
-					<?php echo _themename_get_text_lang($_themename_text['copyright_lang'], _themename_get_lang()); ?>
+				<div class="footer__copyright notranslate m-data"
+					data-text_languages="<?php echo get_field('copyright', 'option'); ?>">
+					<?php echo _themename_get_text_lang(get_field('copyright', 'option'), _themename_get_lang()); ?>
 				</div>
 
 				<ul class="footer__pay_methods">
@@ -73,7 +78,10 @@
 					<?php } ?>
 				</ul>
 
-				<a class="footer__created_by" href="https://entsolve.pl"><?php echo $_themename_text['created_by']; ?></a>
+				<a class="footer__created_by notranslate m-data" href="https://entsolve.pl"
+				   data-text_languages="<?php echo get_field('created_by', 'option'); ?>">
+					<?php echo _themename_get_text_lang(get_field('created_by', 'option'), _themename_get_lang()); ?>
+				</a>
 
 			</div><!-- .footer__row -->
 

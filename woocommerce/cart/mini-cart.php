@@ -87,37 +87,38 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 			</ul>
 
 			<p class="woocommerce-mini-cart__total total">
-				<?php
-				/**
-				 * Hook: woocommerce_widget_shopping_cart_total.
-				 *
-				 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-				 */
-				do_action( 'woocommerce_widget_shopping_cart_total' );
-				?>
+
+				<?php /** @hooked woocommerce_widget_shopping_cart_subtotal - 10 */
+				//do_action( 'woocommerce_widget_shopping_cart_total' );?>
+
+				<strong class="notranslate m-data" data-text_languages="<?php the_field('subtotal', 'option'); ?>">
+					<?php echo _themename_get_text_lang(get_field('subtotal','option'), _themename_get_lang()); ?>
+				</strong>
+				<?php echo WC()->cart->get_cart_subtotal(); ?>
+
 			</p>
 
 			<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
 			<p class="woocommerce-mini-cart__buttons buttons">
-				<?php //do_action( 'woocommerce_widget_shopping_cart_buttons' );
 
+				<?php
+				//do_action( 'woocommerce_widget_shopping_cart_buttons' );
 				$wp_button_class = wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '';
-
 				?>
 
 				<a href="<?= esc_url( wc_get_cart_url() ) ?>"
-				   class="button wc-forward notranslate <?= esc_attr( $wp_button_class ) ?>"
-				   data-text_languages="<?php echo $_themename_text['view_cart']; ?>"
+				   class="button wc-forward notranslate m-data <?= esc_attr( $wp_button_class ) ?>"
+				   data-text_languages="<?php the_field('view_cart', 'option'); ?>"
 				>
-					<?php echo _themename_get_text_lang($_themename_text['view_cart'], _themename_get_lang()); ?>
+					<?php echo _themename_get_text_lang(get_field('view_cart','option'), _themename_get_lang()); ?>
 				</a>
 
 				<a href="<?= esc_url( wc_get_checkout_url() ) ?>"
-				   class="button checkout wc-forward notranslate <?= esc_attr( $wp_button_class ) ?>"
-				   data-text_languages="<?php echo $_themename_text['checkout']; ?>"
+				   class="button checkout wc-forward notranslate m-data <?= esc_attr( $wp_button_class ) ?>"
+				   data-text_languages="<?php the_field('checkout', 'option'); ?>"
 				>
-					<?php echo _themename_get_text_lang($_themename_text['checkout'], _themename_get_lang()); ?>
+					<?php echo _themename_get_text_lang(get_field('checkout', 'option'), _themename_get_lang()); ?>
 				</a>
 
 			</p>
