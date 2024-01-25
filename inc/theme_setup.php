@@ -107,7 +107,6 @@ function _themename_set_global_var() {
         //mini-cart buttons
         'view_cart' => esc_html__( 'Zobacz Koszyk || View cart || Warenkorb ansehen', '_themename' ),
         'checkout' => esc_html__( 'Sprawdzić || Checkout || Kasse', '_themename' ),
-
     );
 }
 add_action( 'init', '_themename_set_global_var' );

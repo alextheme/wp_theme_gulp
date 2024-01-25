@@ -86,8 +86,6 @@ const wcArchive = () => {
     const changePositionFilterAttributes = () => {
         const blocks = document.querySelectorAll('.base.shop #sidebar');
 
-        console.log(blocks)
-
         blocks.forEach(block => {
             const descktopParent = document.querySelector('.archive__main_content');
             const mobileParent = document.querySelector('.archive__designers_filter_wrapper');

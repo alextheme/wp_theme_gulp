@@ -21,11 +21,6 @@ const gLangSwitcher = () => {
             // які встановлюємо функцією php "_themename_get_gtranslate_custom_style"
             elem.classList.add(elem.dataset.gtLang);
 
-            // ініт
-            if (elem.classList.contains('gt-current')) {
-                setText(elem);
-            }
-
             // зміна мови зміна тексту
             elem.addEventListener('click', event => {
                 switch_languages_text();
