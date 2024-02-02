@@ -99,10 +99,12 @@ body {
 
 		@include bp($point_2, min) {
 			padding-top: 1.3rem;
+			padding-bottom: 2rem;
 		}
 
 		@include bp($point_3) {
 			padding-top: 1rem;
+			padding-bottom: 2rem;
 		}
 	}
 
@@ -119,7 +121,7 @@ body {
 	}
 
 	@include bp($point_3) {
-		padding-top: 5rem;
+		padding-top: 3rem;
 	}
 }
 

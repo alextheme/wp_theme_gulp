@@ -1,4 +1,4 @@
-import {onWindowResize} from '../utils/index.js';
+import {onWindowResize, onWindowScroll} from '../utils/index.js';
 import {css} from "../utils/functions.js";
 
 const header = () => {
@@ -22,6 +22,31 @@ const header = () => {
             }
 		});
 	}
+
+	// Scroll Menu Events
+
+	let prevScrollPos = 0;
+
+	onWindowScroll(() => {
+		const docElement = document.documentElement
+		const bodyElement = document.body
+
+		const currentScrollPos = docElement.scrollTop || bodyElement.scrollTop
+
+		if (currentScrollPos > 20) {
+			bodyElement.classList.add('body--scrolled_down')
+		} else {
+			bodyElement.classList.remove('body--scrolled_down')
+		}
+
+		if (prevScrollPos < currentScrollPos && currentScrollPos > 150) {
+			bodyElement.classList.add('body--go_scroll_up')
+		} else {
+			bodyElement.classList.remove('body--go_scroll_up')
+		}
+
+		prevScrollPos = currentScrollPos;
+	})
 
 	// Set the height of the site header
 	const header$ = document.querySelector('.header');

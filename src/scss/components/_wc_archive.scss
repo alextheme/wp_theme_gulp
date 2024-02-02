@@ -7,13 +7,13 @@
     position: relative;
 
     @include bp($point_2, min) {
-        margin-bottom: 3rem;
+        margin: 0 0 3rem;
 
         @include flex_block(row, wrap, flex-start, center, center);
     }
 
     @include bp($point_3) {
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
     }
 }
 
@@ -27,39 +27,82 @@
 }
 .woocommerce-products-header__title {
     @extend %h2;
+
+    margin: 0;
 }
 
 // Filters
-
-.base.shop #sidebar {
-    @include bp($point_3) {
-        opacity:0;
-        animation:1s ease 3s normal forwards 1 fadein;
-        -webkit-animation:1s ease 3s normal forwards 1 fadein;
-    }
-}
-
-.archive__filters_wrapper {
-    @include bp($point_3) {
-        opacity:0;
-        animation:1s ease 2s normal forwards 1 fadein;
-        -webkit-animation:1s ease 2s normal forwards 1 fadein;
-    }
-}
-
 .archive__filters_wrapper {
     @extend %global_flex_block_row_wrap_flex_start;
 }
 
 .archive__designers_filter_wrapper {
-    @include bp($point_2, min) {
+    position: relative;
 
+    @include bp($point_2, min) {
+        display: none;
     }
 
     @include bp($point_3) {
         width: 100%;
+        margin: 0 0 1rem;
     }
 }
+
+.archive__designers_filter_title {
+
+    @include bp($point_2, min) {
+        display: none;
+    }
+
+    @include bp($point_3) {
+        padding: .5rem 0;
+        margin: 0;
+
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.7;
+
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 1rem;
+            height: 1rem;
+            border-right: 1.5px solid $black;
+            border-bottom: 1.5px solid $black;
+            background-color: transparent;
+            transform: translate(-10px, -70%) rotate(45deg);
+            transition: transform .3s ease-in-out;
+            will-change: transform;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $gray1;
+        }
+
+        &:hover {
+            &:after {
+                background-color: $black;
+            }
+        }
+    }
+
+    .body--open_designers_filter &:before  {
+        transform: translate(-10px, -70%) rotate(-45deg) scale(1, -1);
+    }
+}
+
+
 
 // Ordering
 .woocommerce .woocommerce-ordering {
@@ -68,7 +111,7 @@
 
     position: relative;
 
-    margin-bottom: 0;
+    margin: 0;
     font-family: $font_1;
 
     @include flex_block(row, wrap, flex-start);
@@ -268,64 +311,16 @@ $width_sidebar: 31.2rem;
         display: none;
     }
 
-    .wc-blocks-filter-wrapper {
-        position: relative;
-
-        &.open .wp-block-heading:before {
-            transform: translate(-10px, -70%) rotate(-45deg) scale(1, -1);
-        }
-    }
-
     .wp-block-heading {
-        position: relative;
-
         @include bp($point_2, min) {
             font-size: 2.4rem;
             font-weight: 500;
 
-            margin-bottom: 2rem;
+            margin: 0 0 2rem;
         }
 
         @include bp($point_3) {
-            padding: .5rem 0;
-            margin-bottom: 1rem;
-
-            font-size: 1.2rem;
-            font-weight: 400;
-            line-height: 1.7;
-
-            cursor: pointer;
-
-            &:before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                right: 0;
-                width: 1rem;
-                height: 1rem;
-                border-right: 1.5px solid $black;
-                border-bottom: 1.5px solid $black;
-                background-color: transparent;
-                transform: translate(-10px, -70%) rotate(45deg);
-                transition: transform .3s ease-in-out;
-                will-change: transform;
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 1px;
-                background-color: $gray1;
-            }
-
-            &:hover {
-                &:after {
-                    background-color: $black;
-                }
-            }
+            display: none;
         }
     }
 
@@ -348,6 +343,11 @@ $width_sidebar: 31.2rem;
             transform: translateY(-200%);
             transition: transform .3s ease-in-out, opacity .3s ease-in-out;
             will-change: transform, opacity;
+
+            .body--open_designers_filter & {
+                opacity: 1;
+                transform: translateY(56px);
+            }
         }
 
         .wc-block-attribute-filter {
@@ -406,8 +406,10 @@ $width_sidebar: 31.2rem;
         }
 
         .show-more {
-            margin-top: 2rem;
+            margin: 2rem 0 0 2rem;
         }
+
+
     }
 }
 
@@ -488,7 +490,7 @@ $width_sidebar: 31.2rem;
     }
 
     @include bp($point_2, min) {
-        padding: 2rem;
+        padding: 1.6rem;
     }
 
     @include bp($point_3) {
@@ -611,8 +613,8 @@ $width_sidebar: 31.2rem;
     font-weight: 300;
     color: $black;
 
-    @include bp($point_4 + 1, min) {
-
+    @include bp(1098px, min) {
+        margin: 0 -1.2rem;
     }
 
     @include bp($point_4) {
@@ -622,19 +624,21 @@ $width_sidebar: 31.2rem;
 
 .product__bottom_col_l {
     @include bp($point_4 + 1, min) {
-        padding-right: 1rem;
+        margin-right: auto;
+        padding-right: .8rem;
     }
 
     @include bp($point_4) {
+        text-align: center;
         line-height: 1.5;
         color: $red;
     }
 }
 
 .product__bottom_col_r {
-    @include bp($point_4 + 1, min) {
-        padding-left: 1rem;
-    }
+    //@include bp($point_4 + 1, min) {
+    //    padding-left: 1rem;
+    //}
 
     @include bp($point_4) {
         line-height: 1.5;
@@ -881,6 +885,11 @@ $width_sidebar: 31.2rem;
 
 
 //--------------------------------------------------------single product
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    text-transform: capitalize;
+}
+
 .single-product {
     .related.products {
         & > h2 {
@@ -947,7 +956,7 @@ $width_sidebar: 31.2rem;
                     @extend %h2_2;
 
                     margin-bottom: 1rem;
-
+                    text-transform: capitalize;
                 }
 
                 p {
@@ -970,14 +979,41 @@ $width_sidebar: 31.2rem;
 
             th {
                 text-align: right;
+
+                @include bp(420px, min) {
+                    width: 21rem;
+                }
             }
 
             td {
                 padding-left: 1rem;
             }
         }
+
+        .woocommerce-product-description {
+            margin-bottom: 1.618em;
+        }
         //-------------------------------TABs###
     }
 
+    // Linked Products
+    .up-sells.products {
+        h2 {
+            @extend %h2_1;
+        }
+    }
+
+    // Attributes List
+    .woocommerce table.shop_attributes th {
+
+
+        //@include bp($point_5 + 1, min) {
+        //    width: 21rem;
+        //}
+        //
+        //@include bp($point_5) {
+        //    //width: 21rem;
+        //}
+    }
 }
 //--------------------------------------------------------single product###

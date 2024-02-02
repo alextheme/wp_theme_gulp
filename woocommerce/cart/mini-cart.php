@@ -91,9 +91,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				<?php /** @hooked woocommerce_widget_shopping_cart_subtotal - 10 */
 				//do_action( 'woocommerce_widget_shopping_cart_total' );?>
 
-				<strong class="notranslate m-data" data-text_languages="<?php the_field('subtotal', 'option'); ?>">
-					<?php echo _themename_get_text_lang(get_field('subtotal','option'), _themename_get_lang()); ?>
-				</strong>
+				<strong><?php echo $_themename_text['subtotal']; ?></strong>
 				<?php echo WC()->cart->get_cart_subtotal(); ?>
 
 			</p>
@@ -107,18 +105,12 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$wp_button_class = wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '';
 				?>
 
-				<a href="<?= esc_url( wc_get_cart_url() ) ?>"
-				   class="button wc-forward notranslate m-data <?= esc_attr( $wp_button_class ) ?>"
-				   data-text_languages="<?php the_field('view_cart', 'option'); ?>"
-				>
-					<?php echo _themename_get_text_lang(get_field('view_cart','option'), _themename_get_lang()); ?>
+				<a href="<?= esc_url( wc_get_cart_url() ) ?>" class="button wc-forward <?= esc_attr( $wp_button_class ) ?>">
+					<?php echo $_themename_text['view_cart'] ?>
 				</a>
 
-				<a href="<?= esc_url( wc_get_checkout_url() ) ?>"
-				   class="button checkout wc-forward notranslate m-data <?= esc_attr( $wp_button_class ) ?>"
-				   data-text_languages="<?php the_field('checkout', 'option'); ?>"
-				>
-					<?php echo _themename_get_text_lang(get_field('checkout', 'option'), _themename_get_lang()); ?>
+				<a href="<?= esc_url( wc_get_checkout_url() ) ?>" class="button checkout wc-forward <?= esc_attr( $wp_button_class ) ?>">
+					<?php echo $_themename_text['checkout'] ?>
 				</a>
 
 			</p>

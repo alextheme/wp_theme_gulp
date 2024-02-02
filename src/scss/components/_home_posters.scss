@@ -9,11 +9,11 @@
     position: relative;
 
     @include bp($point_2, min) {
-        margin-bottom: 2.5rem;
+        margin: 0 0 2.5rem;
     }
 
     @include bp($point_3) {
-        margin-bottom: 3rem;
+        margin: 0 0 3rem;
     }
 }
 
@@ -74,7 +74,6 @@
 //--------------------------------------------------------list
 .posters__list {
     @extend %global_flex_block_row_wrap_flex_start_stretch;
-    
 
     @include bp($point_2, min) {
         margin: 0 -3rem -7rem 0;
@@ -84,6 +83,10 @@
         margin: 0 -1.2rem -3rem 0;
         padding-bottom: 3rem;
 	}
+
+    .posters--designers_mod & {
+        padding-bottom: 0;
+    }
 }
 
 .posters__it {
@@ -216,11 +219,11 @@
     text-align: center;
 
     @include bp($point_2, min) {
-        margin-bottom: 1.4rem;
+        margin: 0 0 1.4rem;
 	}
 
 	@include bp($point_3) {
-        margin-bottom: .8rem;
+        margin: 0 0 .8rem;
 	}
 
     &:hover {
@@ -237,6 +240,10 @@
     .posters--popular_mod & {
         display: none;
     }
+}
+
+.posters__it_btn {
+    margin: auto 0 1.2rem;
 }
 
 .posters__it_row {
@@ -261,7 +268,7 @@
     color: $black;
 
 	@include bp($point_2, min) {
-        margin-bottom: .4rem;
+        margin: 0 0 .4rem;
         margin-right: 1rem;
 
         font-size: 1.8rem;
@@ -269,7 +276,7 @@
 	}
 
 	@include bp($point_3) {
-        margin-bottom: .8rem;
+        margin: 0 0 .8rem;
 
 		font-size: 1.2rem;
 		font-weight: 300;
@@ -348,6 +355,12 @@
     }
 }
 
+.posters__it_bottom_row {
+    @include bp(1098px, min) {
+        margin: 0 -.9rem;
+    }
+}
+
 .posters__it_text {
     font-size: 1rem;
     font-weight: 300;
@@ -358,10 +371,7 @@
 
         &:not(:last-child) {
             margin-right: auto;
-        }
-
-        &:last-child {
-            margin-left: 1rem;
+            padding-right: .8rem;
         }
 	}
 

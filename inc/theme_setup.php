@@ -58,48 +58,57 @@ function _themename_set_global_var() {
     global $_themename_text;
 
     $_themename_text = array(
-        // home page
-        'btn_catalog' => esc_html__('Katalog', '_themename'),
-        'view_all' => esc_html__('Alle anzeigen', '_themename'),
-        'incl_tax_excl_shipping_cost' => esc_html__('Inkl. Steuern, exkl. Versandkosten', '_themename'),
-        'shipping_24h' => esc_html__('Versand: 24h', '_themename'),
-        'all_works' => esc_html__('Alle Werke', '_themename'),
-        'add_to_cart' => esc_html__('In den Warenkorb legen', '_themename'),
-        'added' => esc_html__('Hinzugefügt', '_themename'),
+        'designer'            => _themename_create_translate_span('Projektanty || Designers || Designer', false),
+        'btn_catalog'         => _themename_create_translate_span('Katalog || Catalog || Katalog', false),
+        'view_all'            => _themename_create_translate_span('Pokaż wszystkie || View all || Alle anzeigen', false),
+        'tax_shipping_cost'   => _themename_create_translate_span('Łącznie z podatkami, z wyłączeniem kosztów wysyłki || Including taxes, excluding shipping costs || Inkl. Steuern, exkl. Versandkosten', false),
+        'shipping_24h'        => _themename_create_translate_span('Wysyłka: 24h || Shipping: 24h || Versand: 24h', false),
+        'all_works'           => _themename_create_translate_span('Wszystkie pracy || All works || Alle Werkle', false),
+
+        'add_to_cart'         => _themename_create_translate_span('Dodaj do Koszyka || Add to Cart || In den Warenkorb legen', false),
+        'read_more'           => _themename_create_translate_span('Więcej || Read more || Mehr lesen', false),
+        'select_options'      => _themename_create_translate_span('Wybierz opcje || Select options || Optionen wählen', false),
+        'added'               => _themename_create_translate_span('Dodany || Added || Hinzugefügt', false),
 
         // footer
-        'shipping_payment' => esc_html__('Versand & Zahlungen', '_themename'),
-        'quick_links' => esc_html__('Schnellzugriff', '_themename'),
-        'legal' => esc_html__('Rechtliches', '_themename'),
-        'created_by' => esc_html__('Erstellt von Entsolve.pl', '_themename'),
+        'footer_menu_title_1' => _themename_create_translate_span('Dostawa i Płatności || Shipping & Payments || Versand & Zahlungen', false),
+        'footer_menu_title_2' => _themename_create_translate_span('Szybki Dostęp || Quick Access || Schnellzugriff', false),
+        'footer_menu_title_3' => _themename_create_translate_span('Informacje Prawne || Legal Information || Rechtliches', false),
+        'copyright'           => _themename_create_translate_span('© PIGASUS Polnischer Posterladen || © PIGASUS Polnischer Posterladen || © PIGASUS Polnischer Posterladen', false),
+        'created_by'          => _themename_create_translate_span('Stworzono przez || Created by || Erstellt von', false),
 
-        // designers
-        'poster_designers' => esc_html__('Plakatdesigner', '_themename'),
+        'contact_title'       => _themename_create_translate_span('Kontakt || Contact || Kontakte', false),
 
-        // shop
-        'display_by' => esc_html__('Anzeigen nach', '_themename'),
-        'shop_title' => esc_html__('Filmplakate', '_themename'),
+        'product'             => _themename_create_translate_span('Produkt || Product || Produkt', false),
+        'subtotal'            => _themename_create_translate_span('Suma częściowa || Subtotal || Zwischensumme', false),
+        'view_cart'           => _themename_create_translate_span('Zobacz Koszyk || View cart || Warenkorb ansehen', false),
+        'checkout'            => _themename_create_translate_span('Sprawdzić || Checkout || Kasse', false),
+        
+        'display_by'          => _themename_create_translate_span('Anzeigen nach', false),
+        'shop_title'          => _themename_create_translate_span('Wszystkie plakaty || All posters || Alle Poster', false),
+        'home_name'           => _themename_create_translate_span('Strona główna || Home || Startseite', false),
 
-        // single product
-        'poster_designer' => esc_html__('Plakatdesigner:', '_themename'),
-        'polish_original_poster_title' => esc_html__('Polnisch | Originaler Plakattitel:', '_themename'),
-        'year' => esc_html__('Jahr:', '_themename'),
-        'poster_size' => esc_html__('Plakatgröße:', '_themename'),
-        'quantity' => esc_html__('Menge:', '_themename'),
-        'out_of_stock_info' => esc_html__('Das Produkt ist vorübergehend nicht verfügbar, Sie können uns jedoch kontaktieren:', '_themename'),
-        'phone' => esc_html__('Telefon:', '_themename'),
-        'email' => esc_html__('Email:', '_themename'),
+        'poster_designers'    => _themename_create_translate_span('Projektant plakatów || Poster Designer || Plakatdesigner', false),
+        'orig_poster_title'   => _themename_create_translate_span('Polski | Oryginalny tytuł plakatu || Polish | Original Poster Title || Polnisch | Originaler Plakattitel', false),
+        'year'                => _themename_create_translate_span('Rok || Year || Jahr', false),
+        'poster_size'         => _themename_create_translate_span('Rozmiar plakatu || Poster Size || Plakatgröße', false),
 
-        // checout
-        'have_coupon' => esc_html__('Hast du einen Gutschein?', '_themename'),
-        'click_here' => esc_html__('Klicke hier, um deinen Gutschein-Code einzugeben.', '_themename'),
-        'have_coupon_label' => esc_html__('Wenn Du einen Gutscheincode hast, wende ihn bitte unten an.', '_themename'),
-        'coupon_code' => esc_html__('Gutscheincode', '_themename'),
-        'apply_coupon' => esc_html__('Gutschein anwenden', '_themename'),
+        'quantity'            => _themename_create_translate_span('Ilość: || Quantity: || Menge:', false),
+        'out_of_stock_info'   => _themename_create_translate_span('Das Produkt ist vorübergehend nicht verfügbar, Sie können uns jedoch kontaktieren:', false),
+        'phone'               => _themename_create_translate_span('Telefon:', false),
+        'email'               => _themename_create_translate_span('Email:', false),
 
-        // woocommerce hooks
-        'sort_by' => esc_html__( 'Sortierung nach', '_themename' ),
-        'main' => esc_html__( 'Startseite', '_themename' ),
+        'have_coupon'         => _themename_create_translate_span('Hast du einen Gutschein?', false),
+        'click_here'          => _themename_create_translate_span('Klicke hier, um deinen Gutschein-Code einzugeben.', false),
+        'have_coupon_label'   => _themename_create_translate_span('Wenn Du einen Gutscheincode hast, wende ihn bitte unten an.', false),
+        'coupon_code'         => _themename_create_translate_span('Gutscheincode', false),
+        'apply_coupon'        => _themename_create_translate_span('Gutschein anwenden', false),
+
+        'sort_by'             => _themename_create_translate_span( 'Sortierung nach', false ),
+        'main'                => _themename_create_translate_span( 'Startseite', false ),
+
+        'additional_info'     => _themename_create_translate_span('Dodatkowe informacje || Additional Information || Zusätzliche Informationen', false),
+        'different_address'   => _themename_create_translate_span('Wysłać przesyłkę na inny adres? || Send delivery to a different address? || Lieferung an eine andere Adresse senden?', false),
     );
 }
 add_action( 'init', '_themename_set_global_var' );

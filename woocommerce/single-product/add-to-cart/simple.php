@@ -80,7 +80,7 @@ if ( $product->is_in_stock() ) : ?>
 				<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 
 				<div class="add_to_cart__bottom_info">
-					<div class="add_to_cart__bottom_info_row_l"><?php echo $_themename_text['incl_tax_excl_shipping_cost']; ?></div>
+					<div class="add_to_cart__bottom_info_row_l"><?php echo $_themename_text['tax_shipping_cost']; ?></div>
 					<div class="add_to_cart__bottom_info_row_r"><?php echo $_themename_text['shipping_24h']; ?></div>
 				</div>
 			</div><!-- ./add_to_cart__row -->

@@ -26,7 +26,7 @@ $designer_single_page = '';
                    aria-label="Go to home page">
                     <div class="header__logo_i_w">
                         <img class="header__logo_i"
-                             src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo" loading="lazy">
+                             src="<?php echo get_template_directory_uri() . '/assets/images/logo.svg' ?>" alt="logo" loading="lazy">
                     </div>
                     <div class="header__logo_text">
                         <span><?php bloginfo('name'); ?></span>
@@ -38,41 +38,49 @@ $designer_single_page = '';
             <div class="header__col scrollbarOffset">
                 <div class="menu_trigger menuTrigger"><span class="menu_trigger_decor"></span></div>
 
-                <h1 class="header__page_title">
-                    <?php
-                    global $post, $product, $_themename_text;
+                <?php
+                global $post, $product, $_themename_text;
 
-                    // Проверяем, отображается ли страница товаров категории
-                    if (is_product_category()) {
-                        // Получаем ID текущей категории
-                        $category_id = get_queried_object_id();
+                $header_title_page_attr = '';
+                $header_title_page = '';
 
-                        // Получаем объект категории по ID
-                        $category = get_term($category_id, 'product_cat');
+                // Проверяем, отображается ли страница товаров категории
+                if (is_product_category()) {
 
-                        // Выводим заголовок категории
-                        echo esc_html($category->name);
+                    // Получаем ID текущей категории
+                    $category_id = get_queried_object_id();
+
+                    // Получаем объект категории по ID
+                    $category = get_term($category_id, 'product_cat');
+
+                    // заголовок категории
+                    $header_title_page_attr = 'data-text_languages="'. esc_attr($category->name) .'"';
+                    $header_title_page = _themename_get_text_lang($category->name, _themename_get_lang());
+
+                } else {
+
+                    $designer_single_page = _themename_get_title_designer_single_page();
+                    $title_page = $designer_single_page;
+
+                    if (is_shop()) {
+                        $title_page = $_themename_text['shop_title'];
                     } else {
-                        $designer_single_page = _themename_get_title_designer_single_page();
-                        $title_page = $designer_single_page;
-
-                        if (is_shop()) {
-                            $title_page = $_themename_text['shop_title'];
-                        } else {
-                            $title_page = _themename_get_text_lang('', _themename_get_lang());
-                        }
-
-                        echo esc_html($title_page);
+                        if (have_posts()) : while (have_posts()) : the_post();
+                            $title_page = get_the_title();
+                        endwhile; endif;
                     }
 
+                    $header_title_page = $title_page;
+                }
 
+                ?>
 
-
-                    ?>
+                <h1 class="header__page_title notranslate" <?php echo $header_title_page_attr; ?>>
+                    <?php echo $header_title_page; ?>
                 </h1>
 
                 <!-- Search Form -->
-                <?php aws_get_search_form( true ); ?>
+                <?php aws_get_search_form(); ?>
 
                 <?php
                 // Google Translate Switcher
@@ -122,10 +130,9 @@ $designer_single_page = '';
                 'container' => 'nav',
                 'container_class' => 'header__nav',
                 'menu_class' => 'header_menu__list notranslate',
-                '' => '',
             );
 
-            wp_nav_menu($args);
+            $header_menu = wp_nav_menu($args);
             ?>
         </div>
     </div>

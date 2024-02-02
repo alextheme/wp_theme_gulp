@@ -22,8 +22,10 @@ if ($bg_section !== '') {
 } else {
     $style = '';
 }
-
 ?>
+
+<?php if (count($args['posters'])) { ?>
+
 <section class="section posters <?php echo esc_attr($mod) ?>" <?php echo esc_attr($style); ?>>
     <div class="section_in">
 
@@ -31,7 +33,7 @@ if ($bg_section !== '') {
             <h2 class="posters__title m-data"><?php echo esc_html__($title_section) ?></h2>
             <a class="posters__button" href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">
                 <?php echo $_themename_text['view_all']; ?>
-                <span class="posters__button_i_w">
+                <span class="posters__button_i_w icon">
                     <svg class="icon icon_arrow_right icon--size_mod">
                         <use xlink:href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/sprite.svg#arrow_1'); ?>"></use>
                     </svg>
@@ -133,7 +135,7 @@ if ($bg_section !== '') {
                             <?php } ?>
 
                             <div class="posters__it_bottom_row">
-                                <div class="posters__it_text"><?php echo $_themename_text['incl_tax_excl_shipping_cost']; ?></div>
+                                <div class="posters__it_text"><?php echo $_themename_text['tax_shipping_cost']; ?></div>
                                 <div class="posters__it_text"><?php echo $_themename_text['shipping_24h']; ?></div>
                             </div>
                         </div>
@@ -146,7 +148,7 @@ if ($bg_section !== '') {
 
         <a class="posters__bottom_button" href="<?= esc_url(get_permalink(wc_get_page_id('shop'))); ?>">
             <?php echo $_themename_text['view_all']; ?>
-            <span class="posters__button_i_w">
+            <span class="posters__button_i_w icon">
                 <svg class="icon icon_arrow_right icon--size_mod">
                     <use xlink:href="<?php echo esc_url(get_template_directory_uri() . '/assets/images/icons/sprite.svg#arrow_1'); ?>"></use>
                 </svg>
@@ -154,3 +156,5 @@ if ($bg_section !== '') {
         </a>
     </div>
 </section>
+
+<?php } ?>

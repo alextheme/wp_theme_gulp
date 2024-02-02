@@ -1,12 +1,10 @@
+<?php global $_themename_text; ?>
+
 <div class="contacts__content">
 
-    <?php if (get_field('contact_title', 'option')) { ?>
-
-        <h2 class="contacts__title m-data">
-            <?php the_field('contact_title', 'option'); ?>
-        </h2>
-
-    <?php } ?>
+    <h2 class="contacts__title m-data">
+        <?php echo $_themename_text['contact_title']; ?>
+    </h2>
 
     <?php if (get_field('contacts_email', 'option')) { ?>
 
@@ -20,6 +18,7 @@
         </a>
 
     <?php } ?>
+
     <?php if (get_field('contacts_phone', 'option')) { ?>
 
         <a class="contacts__phone" href="tel:<?php the_field('contacts_phone', 'option'); ?>">

@@ -356,7 +356,7 @@ $width_total_section: 28%;
 
         h2 {
           @extend %price;
-          margin-bottom: 3rem;
+          margin: 0 0 3rem;
         }
 
         table.shop_table {
@@ -436,12 +436,18 @@ $width_total_section: 28%;
 
 // TABS
 .woocommerce #content div.product .woocommerce-tabs,
-.woocommerce div.product .woocommerce-tabs,
-.woocommerce-page #content div.product .woocommerce-tabs,
-.woocommerce-page div.product .woocommerce-tabs {
+.woocommerce-page #content div.product .woocommerce-tabs {
   padding-top: 7rem;
   padding-bottom: 12rem;
 }
+.woocommerce div.product .woocommerce-tabs,
+.woocommerce-page div.product .woocommerce-tabs {
+
+  @include bp($point_3) {
+    padding-top: 3rem;
+  }
+}
+
 .woocommerce div.product .woocommerce-tabs ul.tabs {
   &::before {
     border-color: $gray1;

@@ -75,7 +75,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		?>
 
 		<div class="product__bottom_info">
-			<div class="product__bottom_col_l"><?php echo $_themename_text['incl_tax_excl_shipping_cost']; ?></div>
+			<div class="product__bottom_col_l"><?php echo $_themename_text['tax_shipping_cost']; ?></div>
 			<div class="product__bottom_col_r"><?php echo $_themename_text['shipping_24h']; ?></div>
 		</div>
 

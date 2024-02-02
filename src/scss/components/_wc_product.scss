@@ -15,7 +15,7 @@
     .product_title_mob {
         @extend %h2_1;
 
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
 
         @include bp($point_4 + 1, min) {
             display: none;
@@ -87,7 +87,7 @@ $max_width_image_mob: 50%;
 
     .product_title {
         @extend %h2_1;
-        margin-bottom: 3rem;
+        margin: 0 0 3rem;
     }
 
     .product_attributes {

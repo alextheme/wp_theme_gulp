@@ -13,6 +13,12 @@
 	@include bp($point_3) {
 	    padding: 2rem var(--gl-indent) 3.5rem;
 	}
+
+	&.contacts--mod_1 {
+		@include bp($point_3) {
+			padding-bottom: 0;
+		}
+	}
 }
 
 .section_in {

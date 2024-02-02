@@ -25,7 +25,12 @@ $designers = get_terms( array(
     <div class="section_in">
 
         <div class="posters__header">
-            <h2 class="posters__title"><?php esc_html_e('Designers', '_themename') ?></h2>
+            <h2 class="posters__title notranslate">
+                <?php
+                if ( have_posts() ) :while ( have_posts() ) : the_post();
+                the_title();
+                endwhile; endif; ?>
+            </h2>
         </div>
 
         <ul class="posters__list">

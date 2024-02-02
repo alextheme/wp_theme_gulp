@@ -210,11 +210,11 @@
     text-transform: capitalize;
 
     @include bp($point_9 + 1, min) {
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
     }
 
     @include bp($point_9) {
-        margin-bottom: 2.4rem;
+        margin: 0 0 2.4rem;
         font-size: 4.4rem;
     }
 }

@@ -63,7 +63,7 @@
     @extend %h2;
 
     @include bp($point_2, min) {
-        margin-bottom: 2.2rem;
+        margin: 0 0 2.2rem;
 
         span {
             color: $red;
@@ -72,7 +72,7 @@
     }
 
     @include bp($point_3) {
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
     }
 }
 

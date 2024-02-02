@@ -83,22 +83,6 @@ const wcArchive = () => {
         });
     }
 
-    const changePositionFilterAttributes = () => {
-        const blocks = document.querySelectorAll('.base.shop #sidebar');
-
-        blocks.forEach(block => {
-            const descktopParent = document.querySelector('.archive__main_content');
-            const mobileParent = document.querySelector('.archive__designers_filter_wrapper');
-
-            if (window.innerWidth < GLOBAL_VARS.mediaPoint1) { // 1024
-                mobileParent?.appendChild(block);
-            } else {
-                descktopParent?.appendChild(block);
-            }
-        })
-
-    }
-
     const setCountProductsToAttributeDesigners = () => {
         const attributeTermsCountProducts = document.querySelector('.archive__main_content')?.dataset.attribute_terms_count_products;
 
@@ -139,52 +123,37 @@ const wcArchive = () => {
 
     }
 
-    const posterDesignerListFilter = () => {
-        document.querySelector('.wp-block-heading')?.addEventListener('click', event => {
+    const showPosterDesignersListFilter = () => {
+
+        document.querySelector('.archive__designers_filter_title')?.addEventListener('click', event => {
 
             if (window.innerWidth < GLOBAL_VARS.mediaPoint1) {
-                const wcAttrFilterList = document.querySelector('.wp-block-woocommerce-attribute-filter');
-                const attrFilterList = document.querySelector('.wc-block-attribute-filter');
 
-                const target = event.target;
-                const parentTarget = target.parentElement;
-                const button = target.getBoundingClientRect();
-                attrFilterList.style.maxHeight = (document.documentElement.clientHeight - button.height - button.y - 70) + 'px';
-
-                console.log( attrFilterList.style.maxHeight)
-
-                if (parentTarget.classList.contains('open')) {
-                    wcAttrFilterList.style.opacity = '0';
-                    wcAttrFilterList.style.transform = 'translateY(-200%)';
-                    parentTarget.classList.remove('open');
+                if (document.body.classList.contains('body--open_designers_filter')) {
+                    document.body.classList.remove('body--open_designers_filter')
                 } else {
-                    wcAttrFilterList.style.opacity = '1';
-                    wcAttrFilterList.style.transform = 'translateY(0)';
-                    parentTarget.classList.add('open');
+                    document.body.classList.add('body--open_designers_filter')
                 }
-            }
 
-        });
+            }
+        })
+
     }
 
 
 
 
-
-
-    orderBySelectorAnimateArrow();
-    displayGridOrRow();
-    switcherColumnWcProductGrid();
-    changePositionFilterAttributes();
-    setCountProductsToAttributeDesigners();
-    posterDesignerListFilter();
+    orderBySelectorAnimateArrow()
+    displayGridOrRow()
+    switcherColumnWcProductGrid()
+    setCountProductsToAttributeDesigners()
+    showPosterDesignersListFilter()
 
     const functionsResize = () => {
-        switcherColumnWcProductGrid();
-        changePositionFilterAttributes();
+        switcherColumnWcProductGrid()
     }
 
-    onWindowResize(functionsResize);
+    onWindowResize(functionsResize)
 };
 
-export default wcArchive;
+export default wcArchive

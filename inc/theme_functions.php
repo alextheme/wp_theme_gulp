@@ -95,11 +95,11 @@ if ( ! function_exists('_themename_get_lang') ) {
     }
 }
 
-if ( ! function_exists('_themename_sort_by_term_name') ) {
-    function _themename_sort_by_term_name($a, $b) {
-        return strcmp($a['term']->name, $b['term']->name);
-    }
-}
+//if ( ! function_exists('_themename_sort_by_term_name') ) {
+//    function _themename_sort_by_term_name($a, $b) {
+//        return strcmp($a['term']->name, $b['term']->name);
+//    }
+//}
 
 if ( ! function_exists('_themename_get_title_designer_single_page') ) {
     function _themename_get_title_designer_single_page() {
@@ -121,111 +121,39 @@ if ( ! function_exists('_themename_get_title_designer_single_page') ) {
     }
 }
 
+if ( ! function_exists('_themename_create_translate_span') ) {
+    function _themename_create_translate_span($string, $echo = true) {
 
+        // ? is_array( $type ) && in_array( $this->get_type(), $type, true ) )
 
+        $string_result = '';
+        $allowed_html = array(
+            'span' => array(
+                'class' => array(),
+                'data-text_languages' => array()
+            ),
+        );
 
+        if (str_contains($string, '||')) {
 
+            $string_clear = strip_tags($string);
 
+            $string_result .= '<span class="notranslate" data-text_languages="';
+            $string_result .= esc_attr($string_clear);
+            $string_result .= '">';
+            $string_result .= esc_html(_themename_get_text_lang($string_clear, _themename_get_lang()));
+            $string_result .= '</span>';
 
+        } else {
 
+            $string_result = $string;
 
-/**
- * Method to delete Woo Product
- *
- * @param int $id the product ID.
- * @param bool $force true to permanently delete product, false to move to trash.
- * @return \WP_Error|boolean
- */
-function _themename_deleteProduct($id, $force = FALSE)
-{
-    $product = wc_get_product($id);
-
-    if(empty($product))
-        return new WP_Error(999, sprintf(__('No %s is associated with #%d', 'woocommerce'), 'product', $id));
-
-    // If we're forcing, then delete permanently.
-    if ($force)
-    {
-        if ($product->is_type('variable'))
-        {
-            foreach ($product->get_children() as $child_id)
-            {
-                $child = wc_get_product($child_id);
-                $child->delete(true);
-            }
-        }
-        elseif ($product->is_type('grouped'))
-        {
-            foreach ($product->get_children() as $child_id)
-            {
-                $child = wc_get_product($child_id);
-                $child->set_parent_id(0);
-                $child->save();
-            }
         }
 
-        $product->delete(true);
-        $result = $product->get_id() > 0 ? false : true;
+        if ($echo) {
+            echo wp_kses($string_result, $allowed_html);
+        } else {
+            return wp_kses($string_result, $allowed_html);
+        }
     }
-    else
-    {
-        $product->delete();
-        $result = 'trash' === $product->get_status();
-    }
-
-    if (!$result)
-    {
-        return new WP_Error(999, sprintf(__('This %s cannot be deleted', 'woocommerce'), 'product'));
-    }
-
-    // Delete parent product transients.
-    if ($parent_id = wp_get_post_parent_id($id))
-    {
-        wc_delete_product_transients($parent_id);
-    }
-    return true;
 }
-
-function _themename_delete_all_woocommerce_products() {
-    $args = array(
-        'post_type'      => 'product',
-        'posts_per_page' => -1,
-    );
-
-    $products = wc_get_products($args);
-
-    echo '<pre style="margin:80px 0 0 180px;"><b style="display:inline-block;background:red;color:white;padding:5px 10px;font-size:20px;">1</b> ';
-
-    print_r($products);
-
-    foreach ($products as $product) {
-        // Access product data
-        $product_id    = $product->get_id();
-        $product_title = $product->get_name();
-        $product_price = $product->get_price();
-
-        // Output or process product data as needed
-        echo "Product ID: $product_id, Title: $product_title, Price: $product_price<br>";
-
-
-
-    }
-
-    echo '</pre>';
-
-    // Loop through product IDs and delete each product
-//    foreach ($product_ids as $product_id) {
-//        //wp_delete_post($product_id, true); // Set the second parameter to true to force delete
-//    }
-
-    // Optional: Clear product transients to ensure proper refreshing
-//    wc_delete_product_transients();
-
-    // Optional: Clear WooCommerce cache
-//    wc_flush_product_cache();
-
-    // Output a success message (you can modify or remove this)
-    echo 'All WooCommerce products deleted successfully!';
-}
-
-//_themename_delete_all_woocommerce_products();

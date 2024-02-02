@@ -132,6 +132,15 @@
   margin-bottom: 1rem;
 }
 
+.woocommerce-form__label {
+
+  &.woocommerce-form__label-for-checkbox {
+    span {
+      @extend %h2_2;
+    }
+  }
+}
+
 #order_review_heading {
   margin-bottom: 2rem;
 }

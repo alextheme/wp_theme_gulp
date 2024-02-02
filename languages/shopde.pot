@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-25 14:36+0000\n"
+"POT-Creation-Date: 2024-02-01 17:59+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -30,122 +30,6 @@ msgstr ""
 msgid "Footer menu 3"
 msgstr ""
 
-#: inc/theme_setup.php:62
-msgid "Katalog"
-msgstr ""
-
-#: inc/theme_setup.php:63
-msgid "Alle anzeigen"
-msgstr ""
-
-#: inc/theme_setup.php:64
-msgid "Inkl. Steuern, exkl. Versandkosten"
-msgstr ""
-
-#: inc/theme_setup.php:65
-msgid "Versand: 24h"
-msgstr ""
-
-#: inc/theme_setup.php:66
-msgid "Alle Werke"
-msgstr ""
-
-#: inc/theme_setup.php:67
-msgid "In den Warenkorb legen"
-msgstr ""
-
-#: inc/theme_setup.php:68
-msgid "Hinzugefügt"
-msgstr ""
-
-#: inc/theme_setup.php:71
-msgid "Versand & Zahlungen"
-msgstr ""
-
-#: inc/theme_setup.php:72
-msgid "Schnellzugriff"
-msgstr ""
-
-#: inc/theme_setup.php:73
-msgid "Rechtliches"
-msgstr ""
-
-#: inc/theme_setup.php:74
-msgid "Erstellt von Entsolve.pl"
-msgstr ""
-
-#: inc/theme_setup.php:77
-msgid "Plakatdesigner"
-msgstr ""
-
-#: inc/theme_setup.php:80
-msgid "Anzeigen nach"
-msgstr ""
-
-#: inc/theme_setup.php:81
-msgid "Filmplakate"
-msgstr ""
-
-#: inc/theme_setup.php:84
-msgid "Plakatdesigner:"
-msgstr ""
-
-#: inc/theme_setup.php:85
-msgid "Polnisch | Originaler Plakattitel:"
-msgstr ""
-
-#: inc/theme_setup.php:86
-msgid "Jahr:"
-msgstr ""
-
-#: inc/theme_setup.php:87
-msgid "Plakatgröße:"
-msgstr ""
-
-#: inc/theme_setup.php:88
-msgid "Menge:"
-msgstr ""
-
-#: inc/theme_setup.php:89
-msgid "Das Produkt ist vorübergehend nicht verfügbar, Sie können uns jedoch kontaktieren:"
-msgstr ""
-
-#: inc/theme_setup.php:90
-msgid "Telefon:"
-msgstr ""
-
-#: inc/theme_setup.php:91
-msgid "Email:"
-msgstr ""
-
-#: inc/theme_setup.php:94
-msgid "Hast du einen Gutschein?"
-msgstr ""
-
-#: inc/theme_setup.php:95
-msgid "Klicke hier, um deinen Gutschein-Code einzugeben."
-msgstr ""
-
-#: inc/theme_setup.php:96
-msgid "Wenn Du einen Gutscheincode hast, wende ihn bitte unten an."
-msgstr ""
-
-#: inc/theme_setup.php:97
-msgid "Gutscheincode"
-msgstr ""
-
-#: inc/theme_setup.php:98
-msgid "Gutschein anwenden"
-msgstr ""
-
-#: inc/theme_setup.php:101
-msgid "Sortierung nach"
-msgstr ""
-
-#: inc/theme_setup.php:102
-msgid "Startseite"
-msgstr ""
-
 #: inc/theme_widgets.php:13
 msgid "Sidebar"
 msgstr ""
@@ -166,10 +50,10 @@ msgstr ""
 msgid "Template Designers Page"
 msgstr ""
 
-#: template-designers-page.php:28
-msgid "Designers"
-msgstr ""
-
 #: template-home-page.php:2
 msgid "Template Home Page"
+msgstr ""
+
+#: template-test.php:2
+msgid "Template Test"
 msgstr ""

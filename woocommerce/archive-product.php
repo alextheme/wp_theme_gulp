@@ -17,6 +17,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+global $_themename_text;
+
 get_header( 'shop' ); ?>
 
 	<section class="section shop_breadcrumb">
@@ -45,15 +47,29 @@ if ( woocommerce_product_loop() ) { ?>
 		<header class="woocommerce-products-header">
 			<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
-				<h1 class="woocommerce-products-header__title page-title">
-					<?php
-					$archive_page_title = _themename_get_title_designer_single_page();
-					if ($archive_page_title) {
-						echo esc_html($archive_page_title);
-					} else {
-						woocommerce_page_title();
-					} ?>
-				</h1>
+				<?php $archive_page_title = _themename_get_title_designer_single_page(); ?>
+
+				<?php
+				if ($archive_page_title) {
+					$shppb_title = $archive_page_title;
+				} else {
+					$shppb_title = woocommerce_page_title(false);
+				} ?>
+
+				<?php if (is_shop()) { ?>
+					<h1 class="woocommerce-products-header__title page-title">
+						<?php echo $_themename_text['shop_title']; ?>
+					</h1>
+
+				<?php } else { ?>
+
+					<h1 class="woocommerce-products-header__title page-title notranslate"
+						data-text_languages="<?php echo esc_html($shppb_title); ?>"
+					>
+						<?php echo esc_html(_themename_get_text_lang($shppb_title, _themename_get_lang())); ?>
+					</h1>
+
+				<?php } ?>
 
 			<?php endif; ?>
 
@@ -72,7 +88,11 @@ if ( woocommerce_product_loop() ) { ?>
 		<?php if ( woocommerce_product_loop() ) { ?>
 
 		<div class="archive__filters_wrapper">
-			<div class="archive__designers_filter_wrapper"></div>
+			<div class="archive__designers_filter_wrapper">
+				<h3 class="archive__designers_filter_title notranslate">
+					<?php echo $_themename_text['poster_designers']; ?>
+				</h3>
+			</div>
 
 			<?php
 				/**
@@ -88,7 +108,7 @@ if ( woocommerce_product_loop() ) { ?>
 			<?php global $_themename_text; ?>
 
 			<div class="form_display">
-				<span class="form_display__label"><?php echo esc_html($_themename_text['display_by'])?></span>
+				<span class="form_display__label"><?php echo $_themename_text['display_by']; ?></span>
 				<div class="form_radio">
 					<label class="form_radio__block">
 						<input class="form_radio__element" id="display_1" value="1" type="radio" name="display_by" checked>
@@ -155,7 +175,6 @@ if ( woocommerce_product_loop() ) { ?>
 			 * @hooked woocommerce_pagination - 10
 			 */
 			do_action( 'woocommerce_after_shop_loop' );
-
 			?>
 
 		</div><!-- .archive__products_wrapper -->

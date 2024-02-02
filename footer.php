@@ -18,7 +18,7 @@
 				<div class="footer__col">
 					<a class="footer__logo notranslate" href="<?php echo esc_url(home_url('/')) ?>" title="Go to home page" aria-label="Go to home page">
 						<div class="footer__logo_i_w">
-							<img class="footer__logo_i" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png' ?>" alt="logo" loading="lazy">
+							<img class="footer__logo_i" src="<?php echo get_template_directory_uri() . '/assets/images/logo.svg' ?>" alt="logo" loading="lazy">
 						</div>
 						<div class="footer__logo_text">
 							<span><?php bloginfo('name'); ?></span>
@@ -28,8 +28,8 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_1', 'option'); ?>">
-						<?php echo _themename_get_text_lang(get_field('footer_menu_title_1', 'option'), _themename_get_lang()); ?>
+					<h4 class="footer_menu_label m-data">
+						<?php echo $_themename_text['footer_menu_title_1']; ?>
 					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_1',
@@ -40,8 +40,8 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_2', 'option'); ?>">
-						<?php echo _themename_get_text_lang(get_field('footer_menu_title_2', 'option'), _themename_get_lang()); ?>
+					<h4 class="footer_menu_label m-data">
+						<?php echo $_themename_text['footer_menu_title_2']; ?>
 					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_2',
@@ -52,8 +52,8 @@
 				</div>
 
 				<div class="footer__col">
-					<h4 class="footer_menu_label notranslate m-data" data-text_languages="<?php the_field('footer_menu_title_3', 'option'); ?>">
-						<?php echo _themename_get_text_lang(get_field('footer_menu_title_3', 'option'), _themename_get_lang()); ?>
+					<h4 class="footer_menu_label m-data">
+						<?php echo $_themename_text['footer_menu_title_3']; ?>
 					</h4>
 					<?php wp_nav_menu(array(
 						'theme_location' => 'footer_menu_3',
@@ -67,9 +67,8 @@
 
 			<div class="footer__row">
 
-				<div class="footer__copyright notranslate m-data"
-					data-text_languages="<?php echo get_field('copyright', 'option'); ?>">
-					<?php echo _themename_get_text_lang(get_field('copyright', 'option'), _themename_get_lang()); ?>
+				<div class="footer__copyright notranslate">
+					<span>©&nbsp;<?php bloginfo('name'); ?>&nbsp;<?php bloginfo('description'); ?></span>
 				</div>
 
 				<ul class="footer__pay_methods">
@@ -78,10 +77,9 @@
 					<?php } ?>
 				</ul>
 
-				<a class="footer__created_by notranslate m-data" href="https://entsolve.pl"
-				   data-text_languages="<?php echo get_field('created_by', 'option'); ?>">
-					<?php echo _themename_get_text_lang(get_field('created_by', 'option'), _themename_get_lang()); ?>
-				</a>
+				<div class="footer__created_by">
+					<span><?php echo $_themename_text['created_by']; ?> <a href="https://entsolve.pl">entsolve.pl</a></span>
+				</div>
 
 			</div><!-- .footer__row -->
 

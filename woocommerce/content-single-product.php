@@ -55,14 +55,14 @@ if ( post_password_required() ) {
 
 		<div class="product_attributes">
 			<div class="product_attribute_label">
-				<?php echo $_themename_text['poster_designer']; ?>
+				<?php echo $_themename_text['poster_designers']; ?>
 			</div>
 			<div class="product_attribute poster_designer shppb notranslate">
 				<?php echo esc_html($product->get_attribute('poster-designer')); ?>
 			</div>
 
 			<div class="product_attribute_label">
-				<?php echo $_themename_text['polish_original_poster_title']; ?>
+				<?php echo $_themename_text['orig_poster_title']; ?>
 			</div>
 			<div class="product_attribute poster_original_title shppb notranslate">
 				<?php echo esc_html(_themename_get_text_lang('', 'pl', $product->get_id())); ?>
@@ -78,7 +78,7 @@ if ( post_password_required() ) {
 			<div class="product_attribute_label">
 				<?php echo $_themename_text['poster_size']; ?>
 			</div>
-			<div class="product_attribute poster_size">
+			<div class="product_attribute poster_size notranslate">
 				<?php echo esc_html($product->get_attribute('poster-size')); ?>
 			</div>
 		</div>

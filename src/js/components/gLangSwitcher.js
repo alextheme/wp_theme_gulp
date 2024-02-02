@@ -1,8 +1,13 @@
-import {setCookie,getCookie} from "../utils/functions.js";
+import {getCookie, setCookie} from "../utils/functions.js";
 
 /**
- * 1) add class notranslate
- * 2) add attribute data-text_languages="textPL || textEN || textDE"
+ * 1) notranslate
+ * 2) data-text_languages="textPL || textEN || textDE"
+ * 3) <?php echo _themename_get_text_lang("textPL || textEN || textDE", _themename_get_lang()); ?>
+ *
+ * або
+ * $language_texts = 'textPL || textEN || textDE'
+ * _themename_create_translate_span($language_texts, false);
  *
  * Example
  <div class="footer__copyright notranslate" data-text_languages="textPL || textEN || textDE">
@@ -15,29 +20,33 @@ const gLangSwitcher = () => {
     const cookieLangName = 'lang'; // встановлюємо особистий прапорець
     const gCookieLangName = 'googtrans'; // актуально більш для PHP, тут з запізненням
 
+    // записати код поточної мови в атрибути боді та в куки
     const setText = elem => {
+        const currentLang = elem.dataset.gtLang
+        setCookie(cookieLangName, currentLang)
+        document.body.dataset.lang = currentLang
 
-        // записати код поточної мови в атрибути боді та в куки
-        const currentLang = elem.dataset.gtLang;
-        setCookie(cookieLangName, currentLang);
-        document.body.dataset.lang = currentLang;
+        Array.from(document.querySelectorAll('[data-shppb_text_translate]')).forEach(elem => {
 
-        Array.from(document.querySelectorAll(`[${dataLanguageAttr}]`))
-            .forEach(elem => {
-
-                const objectDiffLang = JSON.parse(elem.getAttribute(dataLanguageAttr));
+                const objectDiffLang = JSON.parse(elem.getAttribute('data-shppb_text_translate'))
 
                 elem.innerText = objectDiffLang[currentLang]
                     ? objectDiffLang[currentLang]
-                    : objectDiffLang['default'];
+                    : objectDiffLang['default']
 
             });
     }
 
+    const getIndexLang = () => {
+        const lang = getCookie('lang') || document.body.dataset.lang
+        const langIndex = ['pl', 'en', 'de'].findIndex(lng => lng === lang)
+
+        return langIndex < 0 ? 1 : langIndex
+    }
+
     // виберемо віджет перемикання мов від гугла з класом,
     // який вказуємо в налаштуваннях в адмінці
-    Array.from(document.querySelectorAll(wrapperSwitcher + ' [data-gt-lang]'))
-        .forEach(elem => {
+    Array.from(document.querySelectorAll(wrapperSwitcher + ' [data-gt-lang]')).forEach(elem => {
 
             // додати класи до віджету G-Translate щоб підтягнути псевдо елементи з кодами мов
             // які встановлюємо функцією php "_themename_get_gtranslate_custom_style"
@@ -50,41 +59,154 @@ const gLangSwitcher = () => {
 
             // зміна мови зміна тексту
             elem.addEventListener('click', event => {
-                setText(event.target);
-
-                console.log('g-translate switch')
-                switch_languages_text();
-
+                setText(event.target)
+                translateTextUseDataText()
+                translateTextUseClass()
             });
 
-        });
-};
+        })
 
-function switch_languages_text() {
-    const lang = getCookie('lang') || document.body.dataset.lang;
-    const langIndex = ['pl', 'en', 'de'].findIndex(lng => lng === lang);
+    translateTextUseClass()
 
-    Array.from(document.querySelectorAll('[data-text_languages]')).forEach(el => {
-        const currText = el.innerText;
+    function translateTextUseDataText() {
+        const langIndex = getIndexLang()
 
-        const arrayTexts = el.dataset.text_languages?.split('||').map(el => el.trim());
+        Array.from(document.querySelectorAll('[data-text_languages]')).forEach(el => {
+            const currText = el.innerText
 
-        let textTranslate = '';
+            const arrayTexts = el.dataset.text_languages?.split('||').map(el => el.trim())
 
-        if (arrayTexts && arrayTexts.length) {
+            let textTranslate = ''
 
-            textTranslate = arrayTexts[langIndex];
+            if (arrayTexts && arrayTexts.length) {
 
-            if (!textTranslate) {
-                textTranslate = arrayTexts[0];
+                textTranslate = arrayTexts[langIndex];
+
+                if (!textTranslate) {
+                    textTranslate = arrayTexts[0]
+                }
+            }
+
+            el.innerText = textTranslate || currText
+        })
+    }
+
+    async function translateTextUseClass() {
+        const langIndex = getIndexLang()
+
+        /**
+         * woocommerce attribute filter
+         */
+        // title
+        const headerTitle = document.querySelector('.wc-blocks-filter-wrapper h3.wp-block-heading')
+        if (headerTitle) {
+            const headerTitles = ['Projektant plakatów', 'Poster Designer', 'Plakatdesigner']
+            headerTitle.innerText = headerTitles[langIndex]
+        }
+
+        // button show more label
+        setIntervalCallback('.wp-block-woocommerce-attribute-filter .show-more button', element => {
+            const text = element.innerText
+
+            const numbers = text.match(/\d+/g);
+            const num = numbers ? numbers[0] + ' ' : ''
+
+            const labels = [`wyświetl ${num}więcej`, `show ${num}mor`, `${num}mehr anzeigen`]
+            element.innerText = labels[langIndex]
+        })
+
+        // button show less label
+        const buttonShowLess = document.querySelector('.wp-block-woocommerce-attribute-filter .show-less button')
+        if (buttonShowLess) {
+            const buttonShowMoreLabel = [`pokaż mniej`, `show less`, `zeige weniger`]
+            buttonShowLess.innerText = buttonShowMoreLabel[langIndex]
+        }
+    }
+
+    function runMutationObserver() {
+        // Функція, яка буде викликана при зміні у DOM
+        function handleMutation(mutationsList, observer) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    // Перевіряємо додані елементи
+                    mutation.addedNodes.forEach(node => {
+                        const langIndex = getIndexLang()
+
+                        // Перевіряємо, чи має елемент потрібний клас
+                        if (node.classList && node.classList.contains('show-less')) {
+                            console.log('Елемент з класом "show-less" з\'явився в DOM.');
+                            const buttonShowLess = document.querySelector('.wp-block-woocommerce-attribute-filter .show-less button')
+                            if (buttonShowLess) {
+                                const buttonShowMoreLabel = [`pokaż mniej`, `show less`, `zeige weniger`]
+                                buttonShowLess.innerText = buttonShowMoreLabel[langIndex]
+                            }
+                        }
+                    });
+                }
             }
         }
 
-        el.innerText = textTranslate || currText;
+        // Створюємо новий інстанс MutationObserver
+        const observer = new MutationObserver(handleMutation);
 
+        // Вказуємо цільовий вузол (можна вказати document.body або будь-який інший вузол)
+        const targetNode = document.body;
 
-    })
+        // Налаштовуємо налаштування для спостереження за дочірніми елементами
+        const config = { childList: true, subtree: true };
 
+        // Запускаємо спостереження
+        observer.observe(targetNode, config);
+
+        // Тепер спостереження відслідковуватиме будь-які зміни в DOM, включаючи появу елементів з класом 'show-less'.
+    }
+
+    runMutationObserver()
+
+    async function getElementHtml(selector) {
+        const maxQuery = 10000
+        const startTime = Date.now()
+
+        return new Promise(resolve => {
+            const intervalId = setInterval(() => {
+                const element = document.querySelector(selector)
+
+                if (element) {
+                    clearInterval(intervalId)
+                    resolve(element)
+                }
+
+                if (Date.now() - startTime > maxQuery) {
+                    console.log('Request Timed Out: ' + maxQuery + ' ms')
+                    clearInterval(intervalId)
+                    resolve(null)
+                }
+
+            }, 500)
+        })
+    }
+
+    function setIntervalCallback(selector, func) {
+        const maxQuery = 10000
+        const startTime = Date.now()
+
+        const intervalId = setInterval(() => {
+            const element = document.querySelector(selector)
+
+            if (element) {
+                clearInterval(intervalId)
+                func(element)
+            }
+
+            if (Date.now() - startTime > maxQuery) {
+                console.log('Request Timed Out: ' + maxQuery + ' ms')
+                clearInterval(intervalId)
+            }
+
+        }, 500)
+    }
 }
 
-export default gLangSwitcher;
+
+
+export default gLangSwitcher

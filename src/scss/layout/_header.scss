@@ -3,8 +3,8 @@
 
 //------------------------------------------------------------layout
 .header {
-	position: absolute;
-	//position: fixed;
+	//position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 
@@ -17,10 +17,22 @@
 	
 	will-change: transform;
 
+	transition: box-shadow 300ms ease-in-out, transform 300ms ease-in-out;
+
 	@include z-index(header);
 
 	@include bp($point_2, min) {
 		padding: 2rem;
+	}
+
+	.body--scrolled_down & {
+		box-shadow: 6px 2px 42px 0px rgba(0,0,0,0.75);
+		-webkit-box-shadow: 6px 2px 42px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 6px 2px 42px 0px rgba(0,0,0,0.75);
+	}
+
+	.body--go_scroll_up & {
+		transform: translateY(-200px);
 	}
 }
 
@@ -38,7 +50,7 @@
 	width: 100%;
 	
 	@include bp($point_2, min) {
-		@include flex_block(row, wrap, flex-start, center, center);
+		@include flex_block(row, nowrap, flex-start, center, center);
 
 		&:first-child {
 			margin-bottom: 1px;
@@ -55,8 +67,10 @@
 	}
 }
 
+$width_logo: 22.6rem;
+
 .header__col {
-	$width_logo: 21.1rem;
+
 
 	@include flex_block(row, nowrap, flex-start, center, center);
 
@@ -65,8 +79,6 @@
 		background-color: $white;
 
 		@include bp($point_2, min) {
-			width: $width_logo;
-
 			.header__lang  {
 				display: none;
 			}
@@ -121,7 +133,7 @@
 	}
 
 	@include bp($point_2, min) {
-		width: 21rem;
+		width: $width_logo;
 		height: 5.2rem;
 		padding: 0 .5rem;
 	}
