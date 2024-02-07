@@ -168,6 +168,8 @@ export const compress = () => {
         "!gulpfile.babel.js",
         "!package.json",
         "!package-lock.json",
+        "!__info.md",
+        "!_info.md",
     ])
         // .pipe(replace("_themename", info.name))
         .pipe(

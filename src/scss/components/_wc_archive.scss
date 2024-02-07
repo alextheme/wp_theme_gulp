@@ -247,6 +247,7 @@
 
     .form_display__label {
         display: block;
+        display: none;
 
         @include bp($point_2, min) {
             font-size: 1.4rem;
@@ -812,7 +813,9 @@ $width_sidebar: 31.2rem;
 
         .product__bottom_info {
             justify-content: flex-start;
-            max-width: calc(100% - 22rem);
+            //max-width: calc(100% - 22rem);
+            margin: 0;
+            max-width: 18rem;
         }
 
         .product__bottom_col_r {

@@ -45,42 +45,47 @@ $designer_single_page = '';
                 $header_title_page = '';
 
                 // Проверяем, отображается ли страница товаров категории
-                if (is_product_category()) {
+                if (function_exists('is_product_category')) {
+                    if (is_product_category()) {
 
-                    // Получаем ID текущей категории
-                    $category_id = get_queried_object_id();
+                        // Получаем ID текущей категории
+                        $category_id = get_queried_object_id();
 
-                    // Получаем объект категории по ID
-                    $category = get_term($category_id, 'product_cat');
+                        // Получаем объект категории по ID
+                        $category = get_term($category_id, 'product_cat');
 
-                    // заголовок категории
-                    $header_title_page_attr = 'data-text_languages="'. esc_attr($category->name) .'"';
-                    $header_title_page = _themename_get_text_lang($category->name, _themename_get_lang());
+                        // заголовок категории
+                        $header_title_page_attr = 'data-text_languages="'. esc_attr($category->name) .'"';
+                        $header_title_page = _themename_get_text_lang($category->name, _themename_get_lang());
 
-                } else {
-
-                    $designer_single_page = _themename_get_title_designer_single_page();
-                    $title_page = $designer_single_page;
-
-                    if (is_shop()) {
-                        $title_page = $_themename_text['shop_title'];
                     } else {
-                        if (have_posts()) : while (have_posts()) : the_post();
-                            $title_page = get_the_title();
-                        endwhile; endif;
+
+                        $designer_single_page = _themename_get_title_designer_single_page();
+                        $title_page = $designer_single_page;
+
+                        if (is_shop()) {
+                            $title_page = $_themename_text['shop_title'];
+                        } else {
+                            if (have_posts()) : while (have_posts()) : the_post();
+                                $title_page = get_the_title();
+                            endwhile; endif;
+                        }
+
+                        $header_title_page = $title_page;
                     }
-
-                    $header_title_page = $title_page;
                 }
-
                 ?>
 
                 <h1 class="header__page_title notranslate" <?php echo $header_title_page_attr; ?>>
                     <?php echo $header_title_page; ?>
                 </h1>
 
-                <!-- Search Form -->
-                <?php aws_get_search_form(); ?>
+                <?php
+                // Search Form
+                if (function_exists('aws_get_search_form')) {
+                    aws_get_search_form();
+                }
+                ?>
 
                 <?php
                 // Google Translate Switcher
@@ -89,8 +94,15 @@ $designer_single_page = '';
                 ?>
 
                 <div class="header__shop">
+                    <?php
+                    if (function_exists('wc_get_cart_url')) {
+                        $basket_link = esc_url(wc_get_cart_url());
+                    } else {
+                        $basket_link = home_url('/');
+                    }
+                    ?>
 
-                    <a class="header__shop_link header__shop_link--mod_1 miniCartTrigger" href="<?php echo esc_url(wc_get_cart_url()) ?>" aria-label="basket link">
+                    <a class="header__shop_link header__shop_link--mod_1 miniCartTrigger" href="<?php echo $basket_link; ?>" aria-label="basket link">
                         <svg class="icon icon_basket icon--size_mod">
                             <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/icons/sprite.svg#basket' ?>"></use>
                         </svg>
@@ -142,7 +154,7 @@ $designer_single_page = '';
     <?php
     $page_name_class = '';
 
-    if (is_shop()) {
+    if (function_exists('is_shop') && is_shop()) {
         $page_name_class .= ' shop';
     }
 

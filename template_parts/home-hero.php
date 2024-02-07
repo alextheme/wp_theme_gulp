@@ -2,6 +2,8 @@
 
 global $post, $_themename_text;
 
+if (function_exists('the_field')) {
+
 ?>
 
 <section class="home_hero">
@@ -25,3 +27,5 @@ global $post, $_themename_text;
         </ul>
     </div>
 </section>
+
+<?php } ?>

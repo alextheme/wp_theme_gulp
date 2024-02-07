@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-    <h1 class="product_title_mob">
+    <h1 class="product_title_mob notranslate">
         <?php echo wp_kses_post($product->get_title()) ?>
     </h1>
 
@@ -51,11 +51,11 @@ if ( post_password_required() ) {
 
 		<div class="product_sku shppb notranslate"><?php echo esc_html($product->get_sku()) ?></div>
 
-		<h1 class="product_title entry-title"><?php echo wp_kses_post($product->get_title())?></h1>
+		<h1 class="product_title entry-title notranslate"><?php echo wp_kses_post($product->get_title())?></h1>
 
 		<div class="product_attributes">
 			<div class="product_attribute_label">
-				<?php echo $_themename_text['poster_designers']; ?>
+				<?php echo $_themename_text['poster_designer']; ?>
 			</div>
 			<div class="product_attribute poster_designer shppb notranslate">
 				<?php echo esc_html($product->get_attribute('poster-designer')); ?>

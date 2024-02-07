@@ -157,13 +157,13 @@ $max_width_image_mob: 50%;
 
     .add_to_cart__bottom_info {
         @extend %text_3;
-        @extend %global_flex_block_row_nowrap_flex_start;
+        @extend %global_flex_block_row_wrap_flex_start;
 
         width: 100%;
 
-        div, span {
+        div {
             &:first-child {
-                margin-right: 1rem;
+                margin-right: .6rem;
             }
             &:last-child {
                 margin-left: auto;

@@ -57,7 +57,7 @@ if ( woocommerce_product_loop() ) { ?>
 				} ?>
 
 				<?php if (is_shop()) { ?>
-					<h1 class="woocommerce-products-header__title page-title">
+					<h1 class="woocommerce-products-header__title page-title notranslate">
 						<?php echo $_themename_text['shop_title']; ?>
 					</h1>
 
@@ -105,8 +105,6 @@ if ( woocommerce_product_loop() ) { ?>
 				do_action( 'woocommerce_before_shop_loop' );
 			?>
 
-			<?php global $_themename_text; ?>
-
 			<div class="form_display">
 				<span class="form_display__label"><?php echo $_themename_text['display_by']; ?></span>
 				<div class="form_radio">
@@ -146,6 +144,7 @@ if ( woocommerce_product_loop() ) { ?>
 	}
 
 	$jsonResult = json_encode($result);
+	wp_reset_query();
 	?>
 
 	<div class="archive__main_content" data-attribute_terms_count_products="<?php echo esc_attr($jsonResult); ?>">

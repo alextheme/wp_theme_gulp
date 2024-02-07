@@ -5,8 +5,8 @@
     <!-- Вивід постів, функцій цикла: the_title() і т.п -->
     <?php
     $page_name = '';
-    if (is_account_page()) $page_name = 'my_account';
-    if (is_cart()) $page_name = 'cart';
+    if (function_exists('is_account_page') && is_account_page()) $page_name = 'my_account';
+    if (function_exists('is_cart') && is_cart()) $page_name = 'cart';
     if (is_page('cart-classic')) $page_name = 'cart-classic';
     ?>
 

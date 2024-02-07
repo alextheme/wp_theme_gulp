@@ -58,12 +58,12 @@ function _themename_set_global_var() {
     global $_themename_text;
 
     $_themename_text = array(
-        'designer'            => _themename_create_translate_span('Projektanty || Designers || Designer', false),
+        'designer'            => _themename_create_translate_span('Projektanci || Designers || Designer', false),
         'btn_catalog'         => _themename_create_translate_span('Katalog || Catalog || Katalog', false),
         'view_all'            => _themename_create_translate_span('Pokaż wszystkie || View all || Alle anzeigen', false),
         'tax_shipping_cost'   => _themename_create_translate_span('Łącznie z podatkami, z wyłączeniem kosztów wysyłki || Including taxes, excluding shipping costs || Inkl. Steuern, exkl. Versandkosten', false),
         'shipping_24h'        => _themename_create_translate_span('Wysyłka: 24h || Shipping: 24h || Versand: 24h', false),
-        'all_works'           => _themename_create_translate_span('Wszystkie pracy || All works || Alle Werkle', false),
+        'all_works'           => _themename_create_translate_span('Wszystkie pracy || All works || Alle Werke', false),
 
         'add_to_cart'         => _themename_create_translate_span('Dodaj do Koszyka || Add to Cart || In den Warenkorb legen', false),
         'read_more'           => _themename_create_translate_span('Więcej || Read more || Mehr lesen', false),
@@ -88,13 +88,14 @@ function _themename_set_global_var() {
         'shop_title'          => _themename_create_translate_span('Wszystkie plakaty || All posters || Alle Poster', false),
         'home_name'           => _themename_create_translate_span('Strona główna || Home || Startseite', false),
 
+        'poster_designer'     => _themename_create_translate_span('Projektant plakatu || Poster Designer || Plakatdesigner', false),
         'poster_designers'    => _themename_create_translate_span('Projektant plakatów || Poster Designer || Plakatdesigner', false),
         'orig_poster_title'   => _themename_create_translate_span('Polski | Oryginalny tytuł plakatu || Polish | Original Poster Title || Polnisch | Originaler Plakattitel', false),
         'year'                => _themename_create_translate_span('Rok || Year || Jahr', false),
         'poster_size'         => _themename_create_translate_span('Rozmiar plakatu || Poster Size || Plakatgröße', false),
 
         'quantity'            => _themename_create_translate_span('Ilość: || Quantity: || Menge:', false),
-        'out_of_stock_info'   => _themename_create_translate_span('Das Produkt ist vorübergehend nicht verfügbar, Sie können uns jedoch kontaktieren:', false),
+        'out_of_stock_info'   => _themename_create_translate_span('Produkt niedostępny, ale możesz się z nami skontaktować: || The product is not available, but you can contact us: || Das Produkt ist nicht verfügbar, aber Sie können uns kontaktieren:', false),
         'phone'               => _themename_create_translate_span('Telefon:', false),
         'email'               => _themename_create_translate_span('Email:', false),
 
@@ -113,17 +114,17 @@ function _themename_set_global_var() {
 }
 add_action( 'init', '_themename_set_global_var' );
 
-
-// Функция, чтобы исключить Германию из метода доставки
-function exclude_germany_from_shipping($available_methods) {
-    // Проверяем, что метод доставки, который мы хотим изменить, доступен
-    if (isset($available_methods['flat_rate'])) {
-        // Проверяем, что это не Германия
-        if (WC()->customer->get_shipping_country() !== 'DE') {
-            // Исключаем метод доставки, если это не Германия
-            unset($available_methods['flat_rate']);
-        }
-    }
-
-    return $available_methods;
-}
+//
+//// Функция, чтобы исключить Германию из метода доставки
+//function exclude_germany_from_shipping($available_methods) {
+//    // Проверяем, что метод доставки, который мы хотим изменить, доступен
+//    if (isset($available_methods['flat_rate'])) {
+//        // Проверяем, что это не Германия
+//        if (WC()->customer->get_shipping_country() !== 'DE') {
+//            // Исключаем метод доставки, если это не Германия
+//            unset($available_methods['flat_rate']);
+//        }
+//    }
+//
+//    return $available_methods;
+//}

@@ -9,7 +9,7 @@ global $_themename_text;
 $taxonomy_poster_designer = 'pa_poster-designer';
 
 $designers = get_terms( array(
-    'taxonomy' => $taxonomy_poster_designer,
+    'taxonomy' => 'pa_poster-designer',
     'hide_empty' => true, // Показывать термины, которые привязаны к постам
 ) );
 
@@ -34,26 +34,55 @@ $designers = get_terms( array(
         </div>
 
         <ul class="posters__list">
-
 <?php
 
-$designer_per_page = 16;
+$get_value_from = get_field('get_value_from', 'option');
+
+$popular_designer_list = [
+    'Andrzej Pągowski',
+    'Ryszard Kaja',
+    'Franciszek Starowieyski',
+    'Jakub Erol',
+    'Jerzy Flisak',
+    'Jan Młodożeniec',
+    'Wiesław Wałkuski',
+    'Mieczysław Górowski',
+    'Stasys Eidrigevicius',
+    'Sebastian Kubica',
+    'Tomasz Bogusławski',
+    'Wiktor Sadowski',
+    'Romuald Socha',
+    'Mieczysław Wasilewski',
+    'Leszek Żebrowski',
+    'Waldemar Świerzy',
+];
+
+if ($get_value_from === 'selected') {
+    $popular_designer_list = [];
+    foreach (get_field('popular_designers_on_the_designers_page', 'option') as $value) {
+        array_push($popular_designer_list, $value['designer']);
+    }
+}
+
+if ($get_value_from === 'join') {
+    foreach (get_field('popular_designers_on_the_designers_page', 'option') as $value) {
+        array_push($popular_designer_list, $value['designer']);
+    }
+}
+
 $designer_index = 0;
-$args = array(
-    'post_type'      => 'product',
-    'posts_per_page' => -1,
-    'tax_query'      => array(
-        array(
-            'taxonomy' => $taxonomy_poster_designer,
-            'field'    => 'term_id',
-            'terms'    => 0,
-        ),
-    ),
+$designer_per_page = 16;
+$args = array( 'post_type' => 'product', 'posts_per_page' => -1,
+    'tax_query' => array( array( 'taxonomy' => 'pa_poster-designer', 'field' => 'term_id', 'terms' => 0 ) ),
 );
 
 foreach ($designers as $designer) {
 
-    if ($designer_index >= $designer_per_page) break;
+    //if ($designer_index >= $designer_per_page) break;
+
+    if (!in_array($designer->name, $popular_designer_list)) {
+        continue;
+    }
 
     $args['tax_query'][0]['terms'] = $designer->term_id;
 
