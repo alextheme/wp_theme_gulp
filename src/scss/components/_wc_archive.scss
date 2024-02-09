@@ -1013,22 +1013,19 @@ $width_sidebar: 31.2rem;
 
 .summary.entry-summary {
 
-    .ppcp-messages {
-        display: none;
-    }
-
+    #ppcp-messages,
     .ppc-button-wrapper {
+        position: absolute;
+
         display: none;
+        width: .1px;
+        height: .1px;
+
+        user-select: none;
+        pointer-events: none;
+        overflow: hidden;
     }
 
-}
-
-button[type="button"] {
-    .message {
-        .message__container.locale--DE {
-            display: none;
-        }
-    }
 }
 
 //--------------------------------------------------------hide pay pal button###

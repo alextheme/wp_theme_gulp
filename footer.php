@@ -73,7 +73,11 @@
 
 				<ul class="footer__pay_methods">
 					<?php for ($i = 1; $i <= 5; $i++) { ?>
-						<li class="footer__pay_img_w"><img class="footer__pay_img" src="<?php echo get_template_directory_uri() . '/assets/images/payments/'.$i.'.png' ?>" alt="" loading="lazy"></li>
+						<li class="footer__pay_img_w">
+							<img class="footer__pay_img"
+								src="<?php echo get_template_directory_uri() . '/assets/images/payments/'.$i.'.png' ?>"
+								alt=""
+								loading="lazy"></li>
 					<?php } ?>
 				</ul>
 
