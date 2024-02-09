@@ -60,13 +60,13 @@ $popular_designer_list = [
 if ($get_value_from === 'selected') {
     $popular_designer_list = [];
     foreach (get_field('popular_designers_on_the_designers_page', 'option') as $value) {
-        array_push($popular_designer_list, $value['designer']);
+        array_push($popular_designer_list, trim($value['designer']));
     }
 }
 
 if ($get_value_from === 'join') {
     foreach (get_field('popular_designers_on_the_designers_page', 'option') as $value) {
-        array_push($popular_designer_list, $value['designer']);
+        array_push($popular_designer_list, trim($value['designer']));
     }
 }
 

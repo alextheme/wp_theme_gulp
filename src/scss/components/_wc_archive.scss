@@ -1005,18 +1005,30 @@ $width_sidebar: 31.2rem;
             @extend %h2_1;
         }
     }
-
-    // Attributes List
-    .woocommerce table.shop_attributes th {
-
-
-        //@include bp($point_5 + 1, min) {
-        //    width: 21rem;
-        //}
-        //
-        //@include bp($point_5) {
-        //    //width: 21rem;
-        //}
-    }
 }
 //--------------------------------------------------------single product###
+
+
+//--------------------------------------------------------hide PayPal button
+
+.summary.entry-summary {
+
+    .ppcp-messages {
+        display: none;
+    }
+
+    .ppc-button-wrapper {
+        display: none;
+    }
+
+}
+
+button[type="button"] {
+    .message {
+        .message__container.locale--DE {
+            display: none;
+        }
+    }
+}
+
+//--------------------------------------------------------hide pay pal button###

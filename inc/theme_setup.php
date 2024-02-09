@@ -63,7 +63,7 @@ function _themename_set_global_var() {
         'view_all'            => _themename_create_translate_span('Pokaż wszystkie || View all || Alle anzeigen', false),
         'tax_shipping_cost'   => _themename_create_translate_span('Łącznie z podatkami, z wyłączeniem kosztów wysyłki || Including taxes, excluding shipping costs || Inkl. Steuern, exkl. Versandkosten', false),
         'shipping_24h'        => _themename_create_translate_span('Wysyłka: 24h || Shipping: 24h || Versand: 24h', false),
-        'all_works'           => _themename_create_translate_span('Wszystkie pracy || All works || Alle Werke', false),
+        'all_works'           => _themename_create_translate_span('Wszystkie prace || All works || Alle Werke', false),
 
         'add_to_cart'         => _themename_create_translate_span('Dodaj do Koszyka || Add to Cart || In den Warenkorb legen', false),
         'read_more'           => _themename_create_translate_span('Więcej || Read more || Mehr lesen', false),
@@ -77,7 +77,7 @@ function _themename_set_global_var() {
         'copyright'           => _themename_create_translate_span('© PIGASUS Polnischer Posterladen || © PIGASUS Polnischer Posterladen || © PIGASUS Polnischer Posterladen', false),
         'created_by'          => _themename_create_translate_span('Stworzono przez || Created by || Erstellt von', false),
 
-        'contact_title'       => _themename_create_translate_span('Kontakt || Contact || Kontakte', false),
+        'contact_title'       => _themename_create_translate_span('Kontakt || Contact || Kontakt', false),
 
         'product'             => _themename_create_translate_span('Produkt || Product || Produkt', false),
         'subtotal'            => _themename_create_translate_span('Suma częściowa || Subtotal || Zwischensumme', false),

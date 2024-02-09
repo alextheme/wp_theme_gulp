@@ -179,6 +179,10 @@
 	&:not(:last-child) {
 		margin-right: 1rem;
 	}
+
+	&:nth-child(5) {
+		width: 6rem;
+	}
 }
 
 .footer__pay_img {
