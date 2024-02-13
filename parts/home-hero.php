@@ -18,10 +18,9 @@ if (function_exists('the_field')) {
             <?php $home_hero_images = get_field('home_hero_images', $post->ID); ?>
             <?php if ($home_hero_images) { foreach ($home_hero_images as $img) { ?>
                 <li class="home_hero__gallery_item">
-                    <picture class="home_hero__img_w">
-                        <source media="(min-width: 1024px)" srcset="<?php echo esc_url($img['url'])?>" type="image/png">
+                    <div class="home_hero__img_w">
                         <img class="home_hero__img" src="<?php echo esc_url($img['url'])?>" alt="">
-                    </picture>
+                    </div>
                 </li>
             <?php }} ?>
         </ul>

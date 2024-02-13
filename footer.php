@@ -4,7 +4,7 @@
 
 	<section class="section contacts contacts--mod_1">
 		<div class="section_in">
-			<?php get_template_part('template_parts/contacts_content'); ?>
+			<?php get_template_part('parts/contacts_content'); ?>
 		</div>
 	</section>
 

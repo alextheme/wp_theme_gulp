@@ -8,7 +8,7 @@
 
                 <div class="contacts__col">
 
-                    <?php get_template_part('template_parts/contacts_content') ?>
+                    <?php get_template_part('parts/contacts_content') ?>
 
                     <?php
                     $contact_images = get_field('home_contacts_images', $post->ID);

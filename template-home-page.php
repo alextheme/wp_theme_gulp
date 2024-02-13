@@ -8,14 +8,14 @@ if (function_exists('get_field')) {
 
     global $post;
 
-    get_template_part('template_parts/home', 'hero');
+    get_template_part('parts/home', 'hero');
 
     $args = array(
         'mod' => '',
         'title_section' => get_field('poster_of_the_month_title', $post->ID),
         'posters' => get_field('poster_of_the_month', $post->ID),
     );
-    get_template_part('template_parts/home', 'posters', $args);
+    get_template_part('parts/home', 'posters', $args);
 
 
     $args = array(
@@ -24,7 +24,7 @@ if (function_exists('get_field')) {
         'posters' => get_field('popularni_autorzy', $post->ID),
         'bg_section' => get_field('popularni_autorzy_background', $post->ID),
     );
-    get_template_part('template_parts/home', 'posters', $args);
+    get_template_part('parts/home', 'posters', $args);
 
 
     $args = array(
@@ -32,11 +32,11 @@ if (function_exists('get_field')) {
         'title_section' => get_field('new_additions_pigasus_title', $post->ID),
         'posters' => get_field('new_additions_pigasus', $post->ID),
     );
-    get_template_part('template_parts/home', 'posters', $args);
+    get_template_part('parts/home', 'posters', $args);
 
-    get_template_part('template_parts/home', 'about');
+    get_template_part('parts/home', 'about');
 
-    get_template_part('template_parts/home', 'contacts');
+    get_template_part('parts/home', 'contacts');
 
 }
 
