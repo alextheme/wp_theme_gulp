@@ -2,6 +2,8 @@
 /**
  * Mini-cart
  * @version 7.9.0
+ *
+ * https://github.com/anisur2805/woocommerce-mini-cart-ajax-plus-minus
  */
 
 global $_themename_text;
@@ -25,17 +27,15 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 					if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
-						/**
-						 * This filter is documented in woocommerce/templates/cart/cart.php.
-						 *
-						 * @since 2.1.0
-						 */
 						$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
 						$thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 						$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 						$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 						?>
-						<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+
+						<li data-ic_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?php echo $cart_item_key; ?>" class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+
+
 							<?php
 							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								'woocommerce_cart_item_remove_link',
@@ -51,6 +51,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 								$cart_item_key
 							);
 							?>
+
+
 							<div class="woocommerce_cart_item__img">
 								<?php if ( empty( $product_permalink ) ) : ?>
 									<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -61,7 +63,9 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 								<?php endif; ?>
 							</div>
 
+
 							<div class="woocommerce_cart_item__content notranslate">
+
 								<div class="woocommerce_cart_item__title">
 									<?php if ( empty( $product_permalink ) ) : ?>
 										<?php echo wp_kses_post( $product_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -71,11 +75,33 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 										</a>
 									<?php endif; ?>
 								</div>
+
 								<div class="woocommerce_cart_item__sku">
 									<?php echo esc_html($_product->get_sku()); ?>
 								</div>
+
+
+								<!-- Mini Cart - buttons +/- -->
+								<div class="ic-mini-cart-count-price">
+									<?php
+									$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $cart_item['data'] ), $cart_item, $cart_item_key );
+									echo woocommerce_quantity_input(
+											array(
+												'input_value' => $cart_item['quantity'],
+											),
+											$cart_item['data'], false
+										) . $product_price;
+									?>
+
+									<!-- <div class="ic-custom-render-total">-->
+										<?php //echo get_woocommerce_currency_symbol() . $cart_item['line_total'].'.00'; ?>
+									<!-- </div>-->
+								</div><!-- ## Mini Cart - buttons +/- -->
+
+
+
 								<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-								<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php //echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</div>
 						</li>
 						<?php

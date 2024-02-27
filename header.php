@@ -102,16 +102,18 @@ $designer_single_page = '';
                     }
                     ?>
 
-                    <a class="header__shop_link header__shop_link--mod_1 miniCartTrigger" href="<?php echo $basket_link; ?>" aria-label="basket link">
-                        <svg class="icon icon_basket icon--size_mod">
-                            <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/icons/sprite.svg#basket' ?>"></use>
-                        </svg>
+                    <?php if (!is_cart()) { ?>
+                        <a class="header__shop_link header__shop_link--mod_1 miniCartTrigger" href="<?php echo $basket_link; ?>" aria-label="basket link">
+                            <svg class="icon icon_basket icon--size_mod">
+                                <use xlink:href="<?php echo get_template_directory_uri() . '/assets/images/icons/sprite.svg#basket' ?>"></use>
+                            </svg>
 
-<!--                        <span class="header__shop_cart_contents_count mini_cart_cnt">-->
-<!--                            --><?php ////echo WC()->cart->get_cart_contents_count(); ?>
-<!--                            --><?php //echo count(WC()->cart->get_cart()); ?>
-<!--                        </span>-->
-                    </a>
+                            <span class="header__shop_cart_contents_count mini_cart_cnt">
+                                <?php echo WC()->cart->get_cart_contents_count(); ?>
+                                <?php //echo count(WC()->cart->get_cart()); ?>
+                            </span>
+                        </a>
+                    <?php } ?>
 
                     <a class="header__shop_link header__shop_link--mod_2"
                        href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"

@@ -6,6 +6,7 @@ import wcQuantityButton from './components/wcQuantityButton.js';
 import gLangSwitcher from "./components/gLangSwitcher.js";
 import wcCart from "./components/wcCart.js";
 import cookies from "./components/cookies.js";
+import miniCartAjaxUpdate from "./components/mini-cart-ajax-update.js";
 
 jqDocumentReady(() => {
     header();
@@ -14,4 +15,5 @@ jqDocumentReady(() => {
     wcQuantityButton();
     wcCart();
     cookies();
+    miniCartAjaxUpdate();
 })

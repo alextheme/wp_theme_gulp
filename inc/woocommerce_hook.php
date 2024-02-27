@@ -66,6 +66,7 @@ add_filter('woocommerce_cart_item_name', '_themename_get_lang_title');
  */
 add_filter('woocommerce_add_to_cart_fragments', function ($fragments) {
     $fragments['.cart_bottom_basket__items_count'] = '<span class="cart_bottom_basket__items_count">' . WC()->cart->get_cart_contents_count() . '</span>';
+    $fragments['.header__shop_cart_contents_count'] = '<span class="header__shop_cart_contents_count">' . WC()->cart->get_cart_contents_count() . '</span>';
     return $fragments;
 });
 

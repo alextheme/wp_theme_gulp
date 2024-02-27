@@ -17,6 +17,10 @@
     @extend %h2_2;
 
     margin-bottom: 3rem;
+
+    @include bp(769px) {
+      display: none;
+    }
   }
 
   .u-column1,
@@ -71,8 +75,10 @@
       .woocommerce-form__input-checkbox {
         @extend %form_el_checkbox;
 
-        width: 0.1px;
-        margin-right: 3rem;
+        & + span {
+          font-size: 1.4rem;
+          font-weight: 700;
+        }
       }
 
       .woocommerce-form-login__submit {

@@ -470,10 +470,6 @@ $width_logo: 22.6rem;
 		height: 3.2rem;
 		color: $black;
 
-		&:not(:last-child) {
-			margin-right: 3rem;
-		}
-
 		&:hover {
 			color: $red;
 		}
@@ -489,9 +485,21 @@ $width_logo: 22.6rem;
 		}
 	}
 
-	&.header__shop_link--mod_2 {
-		@include bp($point_3) {
+	&.header__shop_link--mod_1 {
+		@include bp($point_2, min) {
 			margin-right: 3rem;
+		}
+		@include bp($point_3) {
+			margin-left: 3rem;
+		}
+	}
+
+	&.header__shop_link--mod_2 {
+		@include bp($point_2, min) {
+			margin-right: 0;
+		}
+		@include bp($point_3) {
+			margin-right: 0;
 		}
 	}
 }
@@ -700,7 +708,7 @@ $width_logo: 22.6rem;
 	}
 
 	@include bp($point_3) {
-		margin-right: auto;
+		margin: auto auto auto 0;
 
 		overflow: hidden;
 		text-overflow: ellipsis;

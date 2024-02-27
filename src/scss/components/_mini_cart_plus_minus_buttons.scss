@@ -1,0 +1,84 @@
+// https://github.com/anisur2805/woocommerce-mini-cart-ajax-plus-minus
+
+.ic-mini-cart-count-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .quantity {
+    position: relative;
+
+    padding-right: 2rem;
+
+    &:after {
+      content: '×';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: .4rem;
+    }
+
+    .screen-reader-text {
+      display: none;
+    }
+
+    .input-text {
+      border: none;
+      background: none;
+      width: 2.2rem;
+      text-align: center;
+      color: $red;
+      font-weight: 700;
+      font-size: 1.5rem;
+      //pointer-events: none;
+      //user-select: none;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    .input-text::-webkit-outer-spin-button,
+    .input-text::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    .input-text[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .ic-item-quantity-btn {
+      @extend %transition_all;
+
+      width: 2rem;
+      height: 2rem;
+
+      font-weight: 700;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $red;
+        background: $red;
+        color: $white;
+      }
+
+      .minus {
+        padding-bottom: .2rem;
+      }
+
+      .plus {}
+    }
+
+
+  }
+
+  .amount {
+    font-weight: 700;
+    color: $red;
+  }
+
+
+
+
+}

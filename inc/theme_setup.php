@@ -113,18 +113,3 @@ function _themename_set_global_var() {
     );
 }
 add_action( 'init', '_themename_set_global_var' );
-
-//
-//// Функция, чтобы исключить Германию из метода доставки
-//function exclude_germany_from_shipping($available_methods) {
-//    // Проверяем, что метод доставки, который мы хотим изменить, доступен
-//    if (isset($available_methods['flat_rate'])) {
-//        // Проверяем, что это не Германия
-//        if (WC()->customer->get_shipping_country() !== 'DE') {
-//            // Исключаем метод доставки, если это не Германия
-//            unset($available_methods['flat_rate']);
-//        }
-//    }
-//
-//    return $available_methods;
-//}

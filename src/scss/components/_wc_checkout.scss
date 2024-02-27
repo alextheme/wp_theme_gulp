@@ -224,6 +224,20 @@
 }
 //----------------------------------- coupon field###
 
+.woocommerce form .form-row .optional {
+  font-size: inherit;
+}
+
+.woocommerce-form__input-checkbox {
+  @extend %form_el_checkbox;
+
+  & + span {
+    &:before, &:after  {
+      top: .7rem;
+    }
+  }
+}
+
 
 
 
