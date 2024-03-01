@@ -682,6 +682,10 @@ $width_total_section: 28%;
     opacity: 0;
     pointer-events: none;
   }
+
+  @media only screen and (max-width: $point_3), (hover: none) and (pointer: coarse) {
+    display: none;
+  }
 }
 
 .cart_bottom_basket__items_count {

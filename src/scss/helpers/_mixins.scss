@@ -157,7 +157,12 @@
 	appearance: $value;
 }
 
-@mixin flex_block($flex-direction : row, $flex-wrap: wrap, $content : space-between, $align-items : flex-start,$align-content : flex-start) {
+@mixin flex_block(
+	$flex-direction : row,
+	$flex-wrap: wrap,
+	$content : space-between,
+	$align-items : flex-start,
+	$align-content : flex-start) {
 
 	display: flex;
 	flex-direction: $flex-direction;

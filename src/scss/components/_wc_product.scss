@@ -24,6 +24,10 @@
 
     form.cart div.quantity {
         margin: 0;
+
+        .ic-item-quantity-btn {
+            display: none;
+        }
     }
 }
 

@@ -1,21 +1,17 @@
 // https://github.com/anisur2805/woocommerce-mini-cart-ajax-plus-minus
 
 .ic-mini-cart-count-price {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  @extend %global_flex_block_row_nowrap_flex_start;
+
+  // $point_4
+  @media only screen and (max-width: $point_4), (hover: none) and (pointer: coarse) {
+    flex-direction: column;
+  }
 
   .quantity {
-    position: relative;
-
-    padding-right: 2rem;
-
-    &:after {
-      content: '×';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: .4rem;
+    // $point_4
+    @media only screen and (max-width: $point_4), (hover: none) and (pointer: coarse) {
+      margin-bottom: .5rem;
     }
 
     .screen-reader-text {
@@ -30,8 +26,6 @@
       color: $red;
       font-weight: 700;
       font-size: 1.5rem;
-      //pointer-events: none;
-      //user-select: none;
     }
 
     /* Chrome, Safari, Edge, Opera */
@@ -51,6 +45,7 @@
 
       width: 2rem;
       height: 2rem;
+      padding: 0 0 .2rem 0;
 
       font-weight: 700;
       border: 1px solid rgba(0, 0, 0, 0.15);
@@ -66,16 +61,34 @@
       .minus {
         padding-bottom: .2rem;
       }
-
       .plus {}
     }
-
-
   }
 
   .amount {
+    position: relative;
+    padding-left: 2rem;
     font-weight: 700;
     color: $red;
+
+    &:before {
+      position: absolute;
+      content: '×';
+      display: block;
+      top: 0;
+    }
+
+    @include bp($point_4 + 1, min) {
+      &:before {
+        left: .6rem
+      }
+    }
+
+    @media only screen and (max-width: $point_4), (hover: none) and (pointer: coarse) {
+      &:before {
+        left: 0;
+      }
+    }
   }
 
 

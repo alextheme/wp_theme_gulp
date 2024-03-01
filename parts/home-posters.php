@@ -24,7 +24,7 @@ if ($bg_section !== '') {
 }
 ?>
 
-<?php if (count($args['posters'])) { ?>
+<?php if (is_array($args['posters']) && count($args['posters'])) { ?>
 
 <section class="section posters <?php echo esc_attr($mod) ?>" <?php echo esc_attr($style); ?>>
     <div class="section_in">

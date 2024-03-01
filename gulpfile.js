@@ -35,7 +35,7 @@ const PRODUCTION = yargs(process.argv).parse().hasOwnProperty('prod');
 const root = '';
 const projectSettings = {
     dest: root + 'assets',
-    http: 'http://localhost/wp12/'
+    http: 'http://localhost/pegasus/'
 }
 
 
