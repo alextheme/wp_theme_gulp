@@ -26,20 +26,26 @@ const miniCartAjaxUpdate = () => {
     // Update cart on button click
     function ic_quantity_update_buttons(el) {
         if( ic_quantity_update_send ) {
-            $(".ic-cart-sidebar-wrapper_body ul").addClass("loading")
+            $(".widget_shopping_cart_content .woocommerce-mini-cart").addClass("loading")
             ic_quantity_update_send = false
             var wrap = $(el).closest(".woocommerce-mini-cart-item")
             var input = $(wrap).find(".qty")
             var key = $(wrap).data("key")
             var number = parseInt($(input).val())
             var type = $(el).data("type")
+
+            console.log('wrap', wrap)
+
             if (type == "minus") {
                 number--
             } else {
                 number++
             }
-            if (number < 1) {
+            if (number <= 1) {
                 number = 1
+                wrap.addClass("min_value")
+            } else {
+                wrap.removeClass("min_value")
             }
 
             $(input).val(number)
@@ -52,11 +58,10 @@ const miniCartAjaxUpdate = () => {
 
             $.post(my_ajax_object.ajax_url, data, function (res) {
                 var cart_res = JSON.parse(res)
-                console.log( cart_res )
                 $( ".ic-cart-sidebar-wrapper_body  p.woocommerce-mini-cart__total.total .amount" ).html(cart_res["total"]);
                 $(wrap) .find(".ic-custom-render-total").html(cart_res["item_price"]);
                 ic_quantity_update_send = true;
-                $(".ic-cart-sidebar-wrapper_body ul").removeClass("loading")
+                $(".widget_shopping_cart_content .woocommerce-mini-cart").removeClass("loading")
 
                 // IF YOU WANT TO GO WITH HEADER COUNT/PRICE UPDATE ENABLE BELOW LINE AND FIX YOUR SELECTOR
                 // ЯКЩО ВИ ХОЧЕТЕ ПЕРЕХОДИТИ З ОНОВЛЕННЯМ ЗАГОЛОВКУ COUNTPRICE,

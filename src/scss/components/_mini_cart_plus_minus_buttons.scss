@@ -1,5 +1,12 @@
 // https://github.com/anisur2805/woocommerce-mini-cart-ajax-plus-minus
 
+%loading {
+  opacity: .7;
+  color: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  user-select: none;
+}
+
 .ic-mini-cart-count-price {
   @extend %global_flex_block_row_nowrap_flex_start;
 
@@ -21,11 +28,19 @@
     .input-text {
       border: none;
       background: none;
-      width: 2.2rem;
+      width: 3.2rem;
+      min-width: 3.2rem;
       text-align: center;
       color: $red;
       font-weight: 700;
       font-size: 1.5rem;
+      pointer-events: none;
+      user-select: none;
+
+
+      .loading & {
+        @extend %loading;
+      }
     }
 
     /* Chrome, Safari, Edge, Opera */
@@ -48,20 +63,29 @@
       padding: 0 0 .2rem 0;
 
       font-weight: 700;
-      border: 1px solid rgba(0, 0, 0, 0.15);
+      color: $black;
+      outline: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 100%;
       cursor: pointer;
 
       &:hover {
-        border-color: $red;
+        outline-color: $red;
         background: $red;
         color: $white;
       }
 
-      .minus {
+      &.minus {
         padding-bottom: .2rem;
+
+        .min_value & {
+          @extend %loading;
+        }
       }
       .plus {}
+
+      .loading & {
+        @extend %loading;
+      }
     }
   }
 

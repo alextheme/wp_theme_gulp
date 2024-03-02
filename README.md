@@ -1,3 +1,9 @@
+# shop de theme wp
+#### GTranslate (Pl||En||De)
+#### Ajax mini cart (+/-)
+
+<br>
+
 [gulp-for-wordpress-initial](https://css-tricks.com/gulp-for-wordpress-initial-setup/)
 
 [gulp-for-wordpress-creating](https://css-tricks.com/gulp-for-wordpress-creating-the-tasks/)
@@ -15,17 +21,6 @@ npm install --save-dev gulp yargs sass gulp-sass gulp-clean-css gulp-if gulp-sou
 https://github.com/woocommerce/woocommerce/blob/trunk/docs/theme-development/classic-theme-developer-handbook.md#classic-theme-developer-handbook
 https://www.businessbloomer.com/?s=Hook+Guide
 
-sytles
+Disable the default stylesheet
 https://woo.com/document/disable-the-default-stylesheet/
-
-
-
-
-
-
-
-
-
-
-
 
